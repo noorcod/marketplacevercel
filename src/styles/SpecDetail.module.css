@@ -1,0 +1,104 @@
+.specDetail {
+    gap: 2rem;
+}
+
+.specImage {
+    width: 195px;
+    height: 260px;
+    padding: 0 !important;
+}
+
+.specImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.basicDetails {
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.specsTable tr {
+    border: 1px solid var(--table-border) !important;
+}
+
+.specsTable .tablehead {
+    background-color: var(--bg-secondary);
+    font-size: 18px;
+    font-weight: normal;
+    color: #39414a;
+    line-height: 130%;
+}
+
+.specsTable .tablehead tr {
+    background-color: inherit;
+}
+
+.specBasic {
+    margin-top: -100px;
+}
+
+.specBasic h4 {
+    font-size: 30px;
+}
+
+.specImage2 {
+    height: auto;
+    width: 195px;
+}
+
+.specDetail h3 {
+    font-size: 30px;
+}
+
+.tdhead {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 200%;
+}
+
+@media screen and (max-width: 992px) {
+    .specDetail {
+        gap: 1rem;
+    }
+    .specImage {
+        width: auto;
+        height: 100%;
+        padding: 0 !important;
+    }
+    
+    .specImage img {
+        width: 160px;
+        height: 100%;
+        object-fit: contain;
+    }
+    .specBasic {
+        margin-top: -50px;
+    }
+    .specBasic h4 {
+        font-size: 26px;
+    }    
+    .specImage2 {
+        height: auto;
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .specBasic {
+        margin-top: -0px;
+    }
+    .specBasic h4 {
+        font-size: 24px;
+    } 
+    .specDetail h3 {
+        font-size: 24px;
+    }
+    .specs span {
+        font-size: 13px;
+    }
+    .specsTable .tablehead {
+        font-size: 14px;
+    }
+}

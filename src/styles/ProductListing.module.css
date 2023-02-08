@@ -1,0 +1,20 @@
+.products_listing_div{
+    background-color: #EDF2FA;
+}
+.searchbar img {
+    left: 13px;
+}
+
+.searchbar input {
+    padding-left: 2.5rem !important;
+}
+.dropdowns img {
+    left: 15px;
+}
+.h1{
+    font-size: 26px;
+}
+.filter_btn{
+    background: #EDF2FA !important; 
+    color:#100146
+  }

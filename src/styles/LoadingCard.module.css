@@ -1,0 +1,48 @@
+.content {
+    position: relative;
+    color: #333;
+    margin-top: 8px;
+  }
+  .content small {
+    display: block;
+    margin: 8px 0;
+    color: grey;
+  }
+  
+  /* sleleton elements */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      hsl(210, 15%, 88%),
+      hsl(210, 15%, 95%),
+      hsl(210, 15%, 88%)
+    );
+    background-size: 200%;
+    animation: loader 1s infinite reverse;
+  }
+  h2.skeleton {
+    width: 50%;
+    height: 1em;
+  }
+  small.skeleton {
+    height: 1rem;
+    width: 4rem;
+  }
+  p.skeleton {
+    height: 3em;
+  }
+  .cover {
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  /* skeleton animation */
+  @keyframes loader {
+    from {
+      background-position: -100% 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
+  

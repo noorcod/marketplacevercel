@@ -1,0 +1,85 @@
+.logo {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 3px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.map iframe {
+    max-width: 100%;
+}
+
+.actionBtns {
+    background-color: var(--bg-secondary);
+}
+
+.actionBtns span {
+    cursor: pointer;
+}
+
+.actionBtnWa {
+    background-color: #2FBE39;
+    color: #fff;
+}
+
+.actionBtnWa span {
+    cursor: pointer;
+}
+
+.separater {
+    color: #D8E4F8;
+    border-top: 3px solid;
+    width: 100%;
+}
+
+.mailTxt {
+    color: #100146 !important;
+}
+
+.checkbox input {
+    border-radius: 50% !important;
+}
+
+.emailForm {
+    background-color: var(--bg-secondary);
+    transition: all 0.5s linear;
+}
+
+.waBtn {
+    background: #fff !important;
+    color: #2FBE39 !important;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.actionBtnsm {
+    background-color: var(--bg-secondary);
+    border-radius: 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 5px;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.actionBtnsm:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+.form_div{
+    background-color:  #EDF2FA;
+    border: 1px solid #D957F9;
+}

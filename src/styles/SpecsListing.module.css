@@ -1,0 +1,13 @@
+.h1{
+    font-size: 26px;
+}
+.listin_div{
+    border-bottom:1px solid #D8E4F8 ;
+}
+.image_div{
+    border: 1px solid #D8E4F8;
+}
+.filter_btn{
+    background: #EDF2FA !important; 
+    color:#100146
+  }

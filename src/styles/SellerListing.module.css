@@ -1,0 +1,37 @@
+.Card_body :global(.card-body){
+    padding-bottom: 0px;
+    padding-top: 10px;
+}
+
+.h6{
+    font-size: 22px;
+    font-weight: 700;
+}
+.price_cut{
+    text-decoration: line-through;
+    opacity: 0.5;
+
+}
+.Off{
+    background-color:#EBF9EC ;
+    color: #19611E;
+    font-weight: 600;
+}
+.location{
+    opacity: 0.7;
+}
+.card_main{
+    border: 1px solid #D8E4F8;
+}
+.filter_btn{
+    background: #EDF2FA !important; 
+    color:#100146
+  }
+
+@media screen and (max-width: 575px) {
+.Card_body > img{
+    height: 127px;
+    width: 120px;
+}
+
+}

@@ -1,0 +1,29 @@
+.announcement {
+    width: 18px;
+    height: 18px;
+}
+
+.banner {
+    max-width: 100%;
+    margin: auto !important;
+    /* border-bottom: 2px solid #F5F5F5; */
+}
+
+.rightBanner {
+    display: flex;
+}
+
+@media screen and (max-width: 992px) {
+    .rightBanner {
+        display: none;
+    }
+    .bannerText {
+        justify-content: center;
+    }
+}
+@media screen and (min-width: 992px) {
+   .banner{
+    border-bottom: 2px solid #F5F5F5;
+
+   }
+}

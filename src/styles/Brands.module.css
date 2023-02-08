@@ -1,0 +1,141 @@
+.wrapper {
+    background-color: var(--bg-secondary);
+    padding: 150px 0px 80px 0px;
+}
+
+.brandTabs :global(.nav-tabs) {
+    border-bottom: 0px;
+    background-color: #fff;
+    padding: 8px 0px;
+    justify-content: center;
+    border-radius: 60px;
+    margin: auto;
+    width: 61%;
+}
+
+.brandTabs :global(.nav-item) {
+    padding: 0px 10px;
+}
+
+.brandTabs :global(button) {
+    color: var(--text-color) !important;
+    border-radius: 30px !important;
+    padding: 10px 40px;
+}
+
+.brandTabs :global(.nav-item .active) {
+    background: var(--primary-gradient);
+    border-radius: 30px !important;
+    color: #fff !important;
+    padding: 12px 50px;
+    box-shadow: 0px 2px 10px rgba(101, 129, 148, 0.6);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.gridItems {
+    padding: 15px 10px;
+    width: 100%;
+    height: 155px;
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(101, 129, 148, 0.25);
+}
+
+.gridItems h5 {
+    font-size: 17px;
+}
+
+.gridItems:hover {
+    background: #F8F6FF;
+    color: var(--secondary-color);
+    box-shadow: 0px 4px 10px rgba(89, 50, 234, 0.25);
+}
+
+
+@media screen and (max-width: 1200px) {
+    .brandTabs :global(.nav-tabs) {
+        width: 100%;
+    }
+    .grid {
+        gap: 0.6rem;
+    }
+    .gridItems {
+        max-width: 175px;
+        padding: 10px 10px;
+        height: 140px;
+    }
+    .gridItems img {
+        width: 120px;
+        height: 60px;
+    }
+    .wrapper {
+        padding: 50px 0px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .brandTabs :global(.nav-tabs) {
+        width: 100%;
+    }
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .brandTabs :global(.nav-tabs) {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        flex-wrap: nowrap !important;
+    }
+    
+    .brandTabs :global(button) {
+        padding: 10px 10px;
+    }
+
+    .brandTabs :global(.nav-item .active) {
+        padding: 10px 10px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .brandTabs :global(.nav-tabs) {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0px 10px;
+        gap: 10px;
+    }
+    .gridItems {
+        max-width: 130px;
+        padding: 10px 10px;
+        height: 120px;
+    }
+    .gridItems img {
+        width: 76px;
+        height: 34px;
+    }
+    .wrapper :global(.main) {
+        margin: 0px;
+    }
+    .brandTabs :global(.nav-item) {
+        padding: 0px;
+    }
+}

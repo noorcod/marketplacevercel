@@ -1,0 +1,68 @@
+/* sidebar */
+.navbarToggleExternalContent{
+    transform: translateX(-100%);
+    transition: transform .35s ease;
+    display: block;
+    height: 100%;
+    min-height: 100%;
+    z-index: 2;
+    width: 100%;
+  }
+  
+  .navbarToggleExternalContent.menu-show{
+    transform: translateX(0%);
+  }
+ .profile_div{
+  background-color: #100146 ;
+ }
+.nav_mb{
+  /* border-top: 2px solid #F5F5F5; */
+    border-bottom: 2px solid #F5F5F5;
+    font-size: 18px;
+    font-weight: 400;
+
+
+}
+
+.stock_span{
+color: #686E76;
+}
+.nav_header{
+  border-radius: 0 !important;
+}
+.nav_header :global( .collapsed )::after {
+  /* content: url(../../public/icons/chevrondown.svg) !important; */
+  /* background-image: url(../../public/icons/chevronInactivedown.svg) !important; */
+  background-size: 78% !important;
+
+  background-image: url(../../public/icons/chevrondown.svg) !important;
+
+}
+.nav_header :global(.accordion-button):not(.collapsed)
+{
+  background-color: #EDF2FA;
+  border-radius: 0 !important;
+  color: #39414A;
+font-size: 20px !important; 
+display: flex;
+align-items: flex-end;
+
+
+
+}
+.nav_header :global(.accordion-button):focus{
+  box-shadow: none;
+  color: #5932EA !important;
+}
+.nav_header :global(.accordion-button):hover{
+color: #39414A;  
+font-size: 20px !important; 
+}
+.nav_header :global(.accordion-button):not( :global(.collapsed) )::after
+{
+  background-image: url(../../public/icons/chevronInactive.svg) !important;
+  background-size: 64% !important;
+  transform: none !important;
+
+
+}

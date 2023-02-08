@@ -1,0 +1,29 @@
+export { default as tblogo } from "./tblogo.png"
+export { default as tblogoName } from "./tbLogoName.png"
+export { default as facebook } from './facebook.png';
+export { default as twitter } from './twitter.png';
+export { default as instagram } from './instagram.png';
+export { default as youtube } from './youtube.png';
+export { default as banner } from './BannerImage.png';
+export { default as profile } from './profile.png';
+export { default as sir } from './sir.png';
+export { default as apple } from './apple.png';
+export { default as samsung } from './samsung.png';
+export { default as redmi } from './redmi.png';
+export { default as realme } from './realme.png';
+export { default as oneplus } from './oneplus.png';
+export { default as mi } from './mi.png';
+export { default as lenovo } from './lenovo.png';
+export { default as hp } from './hp.png';
+export { default as dell } from './dell.png';
+export { default as img1 } from './img1.png'
+export { default as img2 } from './img2.png'
+export { default as about } from './about.png'
+export { default as about1 } from './about1.png'
+export { default as about2 } from './about2.png'
+export { default as sellerLogo } from './selleLogo.png'
+export { default as sellerBannerImage } from './sellerBannerImage.png'
+export { default as specImg } from './specImg.png'
+export { default as MobileImage } from './mobileImage.png'
+
+

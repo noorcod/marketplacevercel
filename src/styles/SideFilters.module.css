@@ -1,0 +1,81 @@
+.sideFilters{
+background-color:#EDF2FA !important ;
+}
+.nav_mb{
+    /* border-top: 2px solid #F5F5F5; */
+      font-size: 18px;
+      font-weight: 400;
+  
+  
+  }
+  
+  .stock_span{
+  color: #686E76;
+  }
+  .nav_header :global(.accordion-button){
+    border-radius: 0 !important;
+    font-size: 13px !important;
+    padding-top: 14px;
+    padding-bottom: 9px;
+  }
+  .nav_header {
+    border-radius: 0 !important;
+  }
+  .nav_header :global( .collapsed )::after {
+    /* content: url(../../public/icons/chevrondown.svg) !important; */
+    /* background-image: url(../../public/icons/chevronInactivedown.svg) !important; */
+    background-size: 45% !important;
+  
+    background-image: url(../../public/icons/sidefliterChevdown.svg) !important;
+    margin-top: 4px;
+  }
+  .nav_header :global( .collapsed ){
+    background-color: #EDF2FA !important;
+
+  }
+  .nav_header :global(.accordion-button):not(.collapsed)
+  {
+    background-color: white;
+    border-radius: 0 !important;
+    color: #39414A;
+  font-size: 13px !important; 
+  display: flex;
+  
+  align-items:flex-start;
+  
+  }
+  .nav_header :global(.accordion-button):focus{
+    box-shadow: none;
+    /* color: #5932EA !important; */
+    border: none ;
+  }
+  .nav_header :global(.accordion-button):hover{
+  color: #39414A;  
+  font-size: 13px !important; 
+  
+  }
+  .nav_header :global(.accordion-button):not( :global(.collapsed) )::after
+  {
+    background-image: url(../../public/icons/sidefilterChevup.svg) !important;
+    background-size: 45% !important;
+    transform: none !important;
+  
+  
+  }
+  .checkbox :global(.form-check-label){
+    color: #808080;
+    font-size: 14px;
+  }
+  .checkbox :global(.form-check-input){
+    margin-left: -1.3em;
+    width: 13px;
+    height: 13px;
+    margin-top: 0.5em;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0.2em;
+  }
+  
+  .accordian_main :global(.accordion-body){
+    padding-top: 0px;
+  }
+  

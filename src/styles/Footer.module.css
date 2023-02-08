@@ -1,0 +1,44 @@
+.footerRow {
+    max-width: 100%;
+    margin: auto !important;
+}
+.footerText {
+    font-size: 15px !important;
+    line-height: 19.5px !important;
+}
+
+.separator {
+    color: var(--bg-secondary);
+    border-top: 3px solid !important;
+}
+
+.footerLinks {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.footerLinks li a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.footerLinks li a:hover, .footerLinks li a:focus {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 992px) {
+    .trending {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .sellerBtn {
+        width: 100%;
+    }
+    .subscribeButton {
+        width: 100%;
+    }
+}

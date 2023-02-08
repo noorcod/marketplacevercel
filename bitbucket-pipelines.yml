@@ -1,0 +1,24 @@
+image: ubuntu
+pipelines:
+  branches:
+    dev-marketplace:
+      - step:
+          name: Build and Test
+          script:
+            - IMAGE_NAME=marketplace
+            - docker build . --file Dockerfile --tag techbazaar/dev-marketplace:latest
+            - echo ${DOCKERHUB_PASSWORD} | docker login --username $DOCKERHUB_USERNAME --password-stdin
+            - docker push techbazaar/dev-marketplace:latest 
+            - docker tag techbazaar/dev-marketplace:latest techbazaar/dev-marketplace:$BITBUCKET_COMMIT             
+            - docker push techbazaar/dev-marketplace:$BITBUCKET_COMMIT
+            - pipe: atlassian/ssh-run:0.4.1
+              variables:
+                SSH_USER: $USER
+                SERVER: $SERVER
+                COMMAND: 'bash /root/docker-compose/marketplace/dev-marketplace.sh'
+          services:
+            - docker 
+definitions:
+  services:
+    docker:
+      memory: 3072

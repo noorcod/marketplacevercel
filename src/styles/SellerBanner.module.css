@@ -1,0 +1,60 @@
+.sellerBanner_div{
+background-image: url(../../public/images/sellerBannerImage.png);
+height:324px ;
+width: 1620px;
+
+}
+.logo_div{
+   top: 330px;
+   position: absolute;
+}
+.logo{
+
+ margin-left: 100px;
+ background-color: white;
+ height: 258px;
+ width: 258px;
+ border-radius: 50%;
+ z-index: 1;
+ padding: 15px;
+ border: 1px solid #D8E4F8;
+overflow: hidden;
+text-align:center;
+padding: 20px;
+}
+.logo >img {
+    width: 100%;
+    height : 100%;
+    object-fit: contain;
+    border-radius: 999px;
+     
+}
+.h1{
+   font-size: 24px;
+}
+.second_div{
+    margin-top: 200px;
+}
+@media screen and (max-width: 500px) {
+    .logo_div{
+        top: 270px;
+        
+    }  
+    .sellerBanner_div{
+        display: flex;
+        justify-content: center;
+    }
+    .logo{
+margin-left: 0px;
+
+
+}
+.second_div{
+    margin-top: 300px;
+}
+.description{
+text-align: center;
+margin-left: 0;
+margin-top: 20px;
+}
+}

@@ -1,0 +1,41 @@
+.seller_div  :global(.main) {
+    margin: 0px 215px;
+}
+.sidefilter_div{
+  display: block;
+}
+.sellerSlider a:focus-visible {
+  outline: none !important;
+}
+@media screen and (max-width: 1500px) {
+    .seller_div  :global(.main) {
+      margin: 0px 100px;
+    }
+    .sidefilter_div{
+      display: block !important;
+    }
+  }
+  @media screen and (max-width: 1300px) {
+    .seller_div  :global(.main) {
+      margin: 0px 10px;
+    }
+    .sidefilter_div{
+      display: block;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .seller_div  :global(.main) {
+      margin: 0px 10px;
+    }
+    .wrapper {
+      display: grid;
+      grid-template-columns:  9fr !important;
+    }
+    .sidefilter_div{
+      display: none !important;
+    }
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+  }

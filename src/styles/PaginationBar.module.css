@@ -1,0 +1,43 @@
+.paginationItems :global(.page-item:first-child .page-link) {
+    border-radius: 0 !important;
+    border: 0 !important;
+    background: transparent;
+    font-size: 25px !important;
+}
+.paginationItems :global(.page-item:last-child .page-link) {
+    border-radius: 0 !important;
+    border: 0 !important;
+    background: transparent;
+    color: rgba(104, 110, 118, 1) !important;
+    font-size: 25px !important;
+}
+.paginationItems :global(.page-item:first-child .page-link:hover) {
+    color: rgba(217, 87, 249, 1) !important;
+}
+.paginationItems :global(.page-item:last-child .page-link:hover) {
+    color: rgba(217, 87, 249, 1) !important;
+}
+
+.paginationItems :global(.page-item,.active .page-link){
+    border: 2px solid #5932EA !important;
+    border-color: #5932EA !important;
+    background-color: transparent !important;
+    color: #5932EA !important;
+    border-radius: 6px;
+    padding: 0.25rem 0.75rem !important;
+}
+
+.paginationItems :global(.page-item .page-link){
+    border: 0px !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+    color: rgba(104, 110, 118, 1) !important;
+}
+
+.paginationItems :global(.page-link:focus) {
+    box-shadow: none !important;
+}
+
+ .paginationItems :global(.active){
+    z-index: 0 !important;
+}
