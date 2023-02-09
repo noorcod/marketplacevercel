@@ -5,7 +5,7 @@ import Listing from '@/sections/Specs/Listing'
 import React, { useState } from 'react'
 import { Breadcrumb, Col, Row } from 'react-bootstrap'
 import styles from "../styles/Specs.module.css"
-const specs = () => {
+const Specs = () => {
     const [mobileFilter, setMobileFilter] = useState();
 
     return (
@@ -36,4 +36,4 @@ const specs = () => {
     )
 }
 
-export default specs
+export default Specs
