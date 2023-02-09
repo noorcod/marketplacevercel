@@ -9,9 +9,9 @@ import { useRouter } from "next/router";
 const Listing = ({ setMobileFilter }) => {
   const [reserveModal, setReserveModal] = useState(false);
   const router = useRouter();
-  router.events.on("routeChangeStart", (url) => {
-    console.log("route is changing");
-  });
+  // router.events.on("routeChangeStart", (url) => {
+  //   console.log("route is changing");
+  // });
   const handleReserveModal = () => {
     setReserveModal(true);
   };
