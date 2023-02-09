@@ -11,6 +11,7 @@ import {
 } from "public/icons";
 import { Button, Card, Form } from "react-bootstrap";
 import ScrollDown from "@/components/ScrollDown";
+import { useRouter } from "next/router";
 const FeaturedCategories = () => {
   const [sliderRef, setSliderRef] = useState(null);
   const settings = {
@@ -109,7 +110,11 @@ const FeaturedCategories = () => {
                 onClick={sliderRef?.slickNext}
                 className=" mb-1 rounded-2 px-2"
               >
-                <Image className="mb-1" src={chevronRight} alt="chevron-right" />
+                <Image
+                  className="mb-1"
+                  src={chevronRight}
+                  alt="chevron-right"
+                />
               </div>
             </div>
 
@@ -182,12 +187,19 @@ const FeaturedCategories = () => {
 export default FeaturedCategories;
 
 const RecomendedCard = () => {
+  const router = useRouter();
   return (
-    <Card className="border-0" style={{ width: "17rem" }}>
+    <Card
+      onClick={() => {
+        router.push("productListing/Laptop");
+      }}
+      className="border-0 cursor-pointer"
+      style={{ width: "17rem" }}
+    >
       <img
         height={211}
-        width={271}
-        className="rounded-2"
+        width={261}
+        className="rounded-2 mx-3"
         alt="productimg"
         src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
       />

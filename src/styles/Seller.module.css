@@ -7,9 +7,9 @@
 .sellerSlider a:focus-visible {
   outline: none !important;
 }
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1600px) {
     .seller_div  :global(.main) {
-      margin: 0px 100px;
+      margin: 0px 50px ;
     }
     .sidefilter_div{
       display: block !important;

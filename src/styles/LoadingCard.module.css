@@ -36,6 +36,11 @@
     border-radius: 8px;
     overflow: hidden;
   }
+  .secondcover{
+    height: 130px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
   /* skeleton animation */
   @keyframes loader {
     from {

@@ -4,8 +4,14 @@ import React, { useState } from "react";
 import styles from "../../styles/SellerListing.module.css";
 import { Button, Card, Form } from "react-bootstrap";
 import ReserveDetails from "@/components/ReserveDetails";
+import { useRouter } from "next/router";
+
 const Listing = ({ setMobileFilter }) => {
   const [reserveModal, setReserveModal] = useState(false);
+  const router = useRouter();
+  router.events.on("routeChangeStart", (url) => {
+    console.log("route is changing");
+  });
   const handleReserveModal = () => {
     setReserveModal(true);
   };
@@ -49,7 +55,10 @@ const Listing = ({ setMobileFilter }) => {
       </div>
       {array.map((data, index) => (
         <div key={index} className="mt-4">
-          <Card className={`ms-2 ${styles.card_main}  d-flex rounded-1 `}>
+          <Card
+            onClick={() => router.push("/productDetails/samsung")}
+            className={`ms-2 ${styles.card_main} cursor-pointer d-flex rounded-1 `}
+          >
             <div className={`d-flex ${styles.Card_body}`}>
               <img
                 className="rounded-1 image_cover "

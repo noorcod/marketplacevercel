@@ -6,8 +6,11 @@ import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import styles from "../../styles/SpecsListing.module.css";
 import LoadingStyles from "../../styles/LoadingCard.module.css";
-const Listing = () => {
+import { useRouter } from "next/router";
+
+const Listing = ({ setMobileFilter }) => {
   const [Loading, setloading] = useState(true);
+  const router = useRouter();
   setTimeout(() => {
     setloading(false);
   }, 5000);
@@ -79,7 +82,8 @@ const Listing = () => {
               onClick={() => setMobileFilter("filter")}
               className={`w-100 me-3 mb-2 rounded-2 ${styles.filter_btn} `}
             >
-              <Image className="me-1" src={filterIcon} /> Filter by
+              <Image className="me-1" src={filterIcon} alt="filter icon 2" />{" "}
+              Filter by
             </Button>
           </div>
           <Form.Select className="mx-3" aria-label="Default select example">
@@ -95,7 +99,7 @@ const Listing = () => {
           onClick={() => setMobileFilter("filter")}
           className={`w-100 me-3 mb-2 rounded-2 ${styles.filter_btn} `}
         >
-          <Image className="me-1" src={filterIcon} /> Filter by
+          <Image className="me-1" src={filterIcon} alt="filte icon" /> Filter by
         </Button>
       </div>
       <Row>
@@ -106,11 +110,15 @@ const Listing = () => {
               <Loader />
             ) : (
               <div>
-                <div className={`${styles.image_div} text-center`}>
+                <div
+                  onClick={() => router.push("/specdetails")}
+                  className={`${styles.image_div} text-center cursor-pointer`}
+                >
                   <img
                     height={122}
                     width={"100%"}
                     src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                    alt="specs image"
                   />
                 </div>
                 <p className="mt-3 text-center">Galaxy Tab A7 10.4 (2022)</p>
@@ -131,7 +139,7 @@ const Loader = () => {
     <div>
       <div>
         <div
-          className={`${styles.image_div} ${LoadingStyles.skeleton}  ${LoadingStyles.cover}  text-center`}
+          className={`${styles.image_div} ${LoadingStyles.skeleton}  ${LoadingStyles.secondcover}  text-center`}
         >
           {/* <Image height={122} width={"100%"} src={MobileImage} /> */}
         </div>

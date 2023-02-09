@@ -59,6 +59,18 @@
 }
 
 
+@media screen and (max-width: 1900px) {
+    .brandTabs :global(.nav-tabs) {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1500px) and (max-width: 1600px) {
+    .brandTabs :global(.nav-tabs) {
+        width: 90%;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .brandTabs :global(.nav-tabs) {
         width: 100%;

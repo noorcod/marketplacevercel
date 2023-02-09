@@ -50,6 +50,7 @@
     }
     .formCard {
         box-shadow: none;
+        min-width: 100%;
     }
     .formWrapper {
         margin-top: 0px;

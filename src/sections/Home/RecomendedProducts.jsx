@@ -93,7 +93,7 @@ const RecomendedProducts = () => {
               className={` ${styles.arrows} d-lg-flex d-none d-flex align-items-center`}
             >
               <Link
-                href="productslisting"
+                href="productListing/All-products"
                 className={` text-end mb-2  ${styles.re_link}`}
               >
                 {" "}
@@ -109,7 +109,11 @@ const RecomendedProducts = () => {
                 onClick={sliderRef?.slickNext}
                 className="bg-white mb-1 rounded-2 px-2"
               >
-                <Image className="mb-1" src={chevronRight} alt="chevron-right" />
+                <Image
+                  className="mb-1"
+                  src={chevronRight}
+                  alt="chevron-right"
+                />
               </div>
             </div>
             <div

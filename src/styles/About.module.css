@@ -7,10 +7,6 @@
     background-size: cover;
 }
 
-.breadcrumb {
-    top:13%;
-}
-
 .breadcrumb :global(.link) {
     color: var(--active-color) !important;
 }
@@ -20,7 +16,7 @@
 }
 
 .aboutTxt {
-    top: 25%;
+    margin-top: 85px;
 }
 
 .aboutTxt h1, .aboutTxt strong {
@@ -167,5 +163,14 @@
         font-weight: 400;
         font-size: 18px;
         font-style: italic;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .breadcrumb {
+        top: 18%;
+    }
+    .aboutTxt {
+        top: 30%;
     }
 }

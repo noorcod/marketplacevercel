@@ -3,10 +3,10 @@
     padding-top: 100px;
     padding-bottom: 100px;
 }
-@media screen and (min-width: 1501px)
+@media screen and (min-width: 1601px)
 {
 .recomended_div :global(.main){
-    margin: 0px 324px;
+    margin: 0px 340px;
 }
 }
 

@@ -1,3 +1,17 @@
+
+.listingdiv :global(.main){
+    margin: 0px 300px;
+}
+@media screen and (max-width: 1600px)
+{
+.listingdiv :global(.main) {
+    margin: 0px 100px;
+}}
+@media screen and (max-width: 1300px)
+{
+.listingdiv :global(.main) {
+    margin: 0px 10px !important;
+}}
 .products_listing_div{
     background-color: #EDF2FA;
 }

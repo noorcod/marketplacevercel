@@ -10,7 +10,7 @@ import ScrollDown from '@/components/ScrollDown';
 const Banner = () => {
     return (
         <div className={`${styles.bannerWrapper}`}>
-            <Row className={`${styles.bannerInner} flex-lg-row flex-column-reverse gap-4`}>
+            <Row className={`${styles.bannerInner} flex-lg-row flex-column-reverse`}>
                 <Col className='p-0 text-md-center text-sm-center text-center'>
                     <Image className={`${styles.bannerImg}`} alt="banner" src={banner} width={500} height={500} />
                 </Col>
@@ -22,8 +22,8 @@ const Banner = () => {
                                 <Image className={`position-absolute`} src={search} alt="search" width={18} height={18} />
                                 <Form.Control className='ps-5 border-dark py-2 w-100' placeholder='Search by name' />
                             </div>
-                            <Row className='mt-3'>
-                                <Col className='pe-0'>
+                            <Row className={`mt-3 ${styles.dropdownItems}`}>
+                                <Col className={`pe-0  ${styles.cities}`}>
                                     <div className={`position-relative d-flex align-items-center ${styles.dropdowns}`}>
                                         <Image className={`position-absolute`} src={location} alt="location" width={18} height={18} />
                                         <Form.Select className='border-dark border-end-0 ps-4 py-2 rounded-0 rounded-start'>
@@ -34,7 +34,7 @@ const Banner = () => {
                                         </Form.Select>
                                     </div>
                                 </Col>
-                                <Col className='ps-0'>
+                                <Col className={`ps-0  ${styles.condition}`}>
                                     <div className={`position-relative d-flex align-items-center ${styles.dropdowns}`}>
                                         <Image className={`position-absolute`} src={box} alt="condition" width={18} height={18} />
                                         <Form.Select className='border-dark ps-4 py-2 rounded-0 rounded-end'>
@@ -46,7 +46,7 @@ const Banner = () => {
                                     </div>
                                 </Col>
                             </Row>
-                            <div>
+                            <div className={styles.ctaButton}>
                                 <Button className='w-100 py-2 mt-4'><Image src={searchLight} alt="searchBox" width={18} height={18} /></Button>
                             </div>
                             <p className='my-3 text-secondary text-center'>Or</p>

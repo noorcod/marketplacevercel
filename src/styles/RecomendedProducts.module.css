@@ -4,7 +4,13 @@
     padding-bottom: 100px;
 }
 .recomended_div :global(.main){
-    margin: 0px 327px;
+    margin: 0px 325px;
+}
+@media screen and (max-width: 1600px) {
+
+.recomended_div :global(.main){
+    margin: 0px 152px;
+}
 }
 .re_h1{
     font-size: 2.3rem;
@@ -63,7 +69,7 @@
     color:#5932EA;
     text-decoration: none;
   }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
     .slider_div{
     width: 300;
     }
@@ -76,7 +82,7 @@
     }
     @media screen and (max-width: 1440px){
     .recomended_div :global(.main) {
-    margin: 0px 0px !important;
+    margin: 0px 99px ;
 }}
 @media screen and (max-width: 500px) {
     .re_h1{

@@ -6,6 +6,7 @@ import { about1, about2 } from "public/images";
 import { Button, Col, Row } from "react-bootstrap";
 import styles from "../styles/About.module.css";
 import { motion } from "framer-motion";
+import Meta from "@/components/Meta/Meta";
 function About() {
     const cardVariants = {
         offscreen: {
@@ -21,14 +22,15 @@ function About() {
             }
         }
     };
-    return (
+    return (<>
+        <Meta title="About Us | TechBazaar" />
         <Layout>
             <main>
-                <div className={` ${styles.aboutSection}`}>
-                    <div className={`position-absolute main ${styles.breadcrumb}`}>
+                <div className={`d-flex flex-column ${styles.aboutSection}`}>
+                    <div className={` main ${styles.breadcrumb}`}>
                         <Breadcrumbs />
                     </div>
-                    <div className={`position-absolute main ${styles.aboutTxt}`}>
+                    <div className={` main ${styles.aboutTxt}`}>
                         <h1 className="text-white">About <strong className="link">Techbazaar</strong></h1>
                         <p className="text-white">{`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`}</p>
                         <Link href="/contact-us"><Button className="px-4 py-2 rounded-1 mt-3">Contact Us</Button></Link>
@@ -84,7 +86,7 @@ function About() {
                 </div>
             </main>
         </Layout>
-    );
+    </>);
 }
 
 export default About;

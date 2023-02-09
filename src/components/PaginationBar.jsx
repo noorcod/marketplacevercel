@@ -48,7 +48,7 @@ const PaginationBar = ({ noOfPages, currentPage, changePage }) => {
       row.push(createPaginationItem(noOfPages));
     }
     setPages(row);
-  }, [noOfPages, currentPage, createPaginationItem]);
+  }, [noOfPages, currentPage]);
 
   return (
     <>

@@ -198,9 +198,9 @@ input::-webkit-inner-spin-button {
   }
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1600px) {
   .main {
-    margin: 0px 245px;
+    margin: 0px 235px;
   }
 }
 

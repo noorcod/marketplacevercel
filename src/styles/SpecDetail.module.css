@@ -58,7 +58,7 @@
     line-height: 200%;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
     .specDetail {
         gap: 1rem;
     }
@@ -69,12 +69,12 @@
     }
     
     .specImage img {
-        width: 160px;
+        width: 120px;
         height: 100%;
         object-fit: contain;
     }
     .specBasic {
-        margin-top: -50px;
+        margin-top: -30px;
     }
     .specBasic h4 {
         font-size: 26px;
@@ -82,6 +82,15 @@
     .specImage2 {
         height: auto;
         width: 160px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .specImage img {
+        width: 135px;
+    }
+    .specBasic {
+        margin-top: 0px;
     }
 }
 
@@ -100,5 +109,10 @@
     }
     .specsTable .tablehead {
         font-size: 14px;
+    }
+    .specImage img {
+        width: 120px;
+        height: 100%;
+        object-fit: contain;
     }
 }

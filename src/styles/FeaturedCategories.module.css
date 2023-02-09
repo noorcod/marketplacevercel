@@ -62,7 +62,7 @@
     color:#5932EA;
     text-decoration: none;
   }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
 .slider_div{
 width: 300;
 }
@@ -75,8 +75,15 @@ width: 300;
 }
 @media screen and (max-width: 1440px){
     .feature_div :global(.main) {
-    margin: 0px 5px !important;
+        margin: 0px 119px ;
+
 }}
+@media screen and (max-width: 1600px) {
+
+    .feature_div :global(.main){
+        margin: 0px 170px;
+    }
+    }
 @media screen and (max-width: 992px) {
     .re_h1{
         font-size: 24px;

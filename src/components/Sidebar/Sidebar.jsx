@@ -11,9 +11,9 @@ const Sidebar = ({ isSandwichOpen, setisSandwichOpen }) => {
   return (
     <div className="pos-f-t">
       <div
-        className={`bg-light collapse ${styles.navbarToggleExternalContent} ${
-          isSandwichOpen ? "menu-show" : ""
-        } position-fixed`}
+        className={`bg-light collapse overflow-auto ${
+          styles.navbarToggleExternalContent
+        } ${isSandwichOpen ? "menu-show" : ""} position-fixed`}
         id="navbarToggleExternalContent"
       >
         <div className={` ${styles.profile_div} py-3`}>
@@ -22,7 +22,13 @@ const Sidebar = ({ isSandwichOpen, setisSandwichOpen }) => {
               className={`${styles.profile_pic} d-flex align-items-center justify-content-between mx-4 `}
             >
               <div className="d-flex">
-                <Image src={profile} alt="profile" id="output" width="42" height={42} />
+                <Image
+                  src={profile}
+                  alt="profile"
+                  id="output"
+                  width="42"
+                  height={42}
+                />
                 <div className="d-grid ms-2">
                   <p className=" fw-500 text-white mb-0 text-capitalize">
                     John

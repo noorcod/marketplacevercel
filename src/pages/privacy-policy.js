@@ -1,10 +1,12 @@
 import { Layout } from "@/components";
 import Breadcrumbs from "@/components/Breadcrumb";
+import Meta from "@/components/Meta/Meta";
 import Link from "next/link";
 import styles from "../styles/PrivacyPolicy.module.css";
 
 const PrivacyPolicy = () => {
-    return (
+    return (<>
+        <Meta title="Privacy Policy | TechBazaar" />
         <Layout>
             <main className="main mt-3">
                 <Breadcrumbs />
@@ -60,7 +62,7 @@ const PrivacyPolicy = () => {
                 </div>
             </main>
         </Layout>
-    );
+    </>);
 }
 
 export default PrivacyPolicy;

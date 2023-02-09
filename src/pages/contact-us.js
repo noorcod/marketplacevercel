@@ -1,11 +1,13 @@
 import Breadcrumbs from "@/components/Breadcrumb";
 import Header from "@/components/Header";
+import Meta from "@/components/Meta/Meta";
 import Topbar from "@/components/Topbar";
 import { Button, Form } from "react-bootstrap";
 import styles from "../styles/Contact.module.css";
 
 const Contact = () => {
     return (<>
+        <Meta title="Contact Us | Techbazaar" />
         <Topbar />
         <Header />
         <div className={`${styles.wrapper}`}>

@@ -7,9 +7,11 @@ import { location } from "../../public/icons/index";
 import ContactSellerModal from "./ContactSellerModal";
 import ReserveDetails from "./ReserveDetails";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 const ProductCard = ({ recomended, loading }) => {
   const [reserveModal, setReserveModal] = useState(false);
   const [contactModal, setContactModal] = useState(false);
+  const router = useRouter();
   const handleReserveModal = () => {
     setReserveModal(true);
   };
@@ -24,12 +26,13 @@ const ProductCard = ({ recomended, loading }) => {
           <LoadingCard />
         ) : (
           <Card
-            className={`ms-2 ${recomended ? "" : "w-100 "}`}
+            className={`ms-2 ${recomended ? "" : "w-100 "} cursor-pointer`}
             style={
               recomended
                 ? { width: "17rem", border: " 1px solid #D8E4F8" }
                 : { border: " 1px solid #D8E4F8" }
             }
+            onClick={() => router.push("/productDetails/Samsung")}
           >
             <motion.img
               initial={{ opacity: 0 }}
