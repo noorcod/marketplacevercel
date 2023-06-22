@@ -44,7 +44,9 @@ button {
 .btn-secondary {
   background-color: var(--secondary-color) !important;
 }
-
+.slick-slide {
+  padding-right: 32px !important;
+}
 .btn-outline-primary {
   background: transparent !important;
   border: 1px solid var(--active-color) !important;
@@ -114,7 +116,7 @@ p {
   font-weight: 700;
 }
 .link {
-  color: var(--active-color);
+  color: var(--active-color) !important;
 }
 
 input:focus, textarea:focus {
@@ -130,7 +132,9 @@ select:focus {
 .cursor-pointer {
   cursor: pointer;
 }
-
+.fs-13 {
+  font-size: 13px;
+}
 .fs-15 {
   font-size: 15px;
 }
@@ -178,7 +182,7 @@ select:focus {
 }
 
 .breadcrumb-link {
-  color: rgba(128, 128, 128, 1) !important;
+  color: rgba(128, 128, 128, 1) ;
 }
 
 input::-webkit-outer-spin-button,
@@ -194,7 +198,7 @@ input::-webkit-inner-spin-button {
 
 @media screen and (min-width: 1501px) {
   .main {
-    margin: 0px 345px;
+    margin: 0px 297px;
   }
 }
 
@@ -220,6 +224,9 @@ input::-webkit-inner-spin-button {
 }
 
 @media screen and (max-width: 575px) {
+  .slick-slide {
+    padding-right: 0px !important;
+  }
   .main {
     margin: 0px 20px;
   }
@@ -278,9 +285,7 @@ input::-webkit-inner-spin-button {
   color: #5932EA ;
 }
 
-.slick-slide {
-  padding-right: 32px !important;
-}
+
 .form-check-input:checked{
   background-color: #D957F9 !important;
   border: none !important;
@@ -384,7 +389,12 @@ input::-webkit-inner-spin-button {
   height: 50px;
   margin-top: -25px;
 }
-
+.discount{
+  font-size: 13px;
+  text-decoration-line: line-through;
+  opacity: 0.5;
+  font-weight: 400;
+}
 .borderBottom{
   border-bottom: 1px solid  #EDF2FA;
 }
@@ -392,5 +402,11 @@ input::-webkit-inner-spin-button {
   object-fit: cover !important;
 }
 
+#nprogress .bar {
+  background: var(--primary-color) !important;
+  }
 
-
+  #nprogress .spinner .spinner-icon {
+    border-top-color: var(--primary-color);
+    border-left-color: var(--primary-color);
+    }

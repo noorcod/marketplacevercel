@@ -1,15 +1,18 @@
 .paginationItems :global(.page-item:first-child .page-link) {
     border-radius: 0 !important;
     border: 0 !important;
+    padding-bottom: 14px;
     background: transparent;
-    font-size: 25px !important;
+    font-size: 40px !important;
 }
 .paginationItems :global(.page-item:last-child .page-link) {
     border-radius: 0 !important;
     border: 0 !important;
+    padding-bottom: 14px;
+
     background: transparent;
     color: rgba(104, 110, 118, 1) !important;
-    font-size: 25px !important;
+    font-size: 40px !important;
 }
 .paginationItems :global(.page-item:first-child .page-link:hover) {
     color: rgba(217, 87, 249, 1) !important;

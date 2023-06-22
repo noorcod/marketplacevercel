@@ -4,13 +4,22 @@ height:324px ;
 width: 1620px;
 
 }
+
+
+
 .logo_div{
-   top: 330px;
+    top: 336px;
+    margin-left: 100px;
    position: absolute;
+}
+.description{
+    margin: 0 30px 30px ;
+
+    
 }
 .logo{
 
- margin-left: 100px;
+ margin-left: 10px;
  background-color: white;
  height: 258px;
  width: 258px;
@@ -29,15 +38,50 @@ padding: 20px;
     border-radius: 999px;
      
 }
+.breadcrumbs{
+    margin-left: 140px;
+}
 .h1{
    font-size: 24px;
 }
 .second_div{
     margin-top: 200px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (width<= 800px) and (width>= 500px)  {
+    .breadcrumbs{
+        margin-left: 0;
+    }
+    .description{
+      margin: 0 30px ;
+     
+
+    }
     .logo_div{
+    margin-left: 0px;
+
+        width: 100%;
+        border-bottom: 1px solid #D8E4F8;
+        padding-bottom: 30px;
+    }
+    .logo{
+        margin-left: 30px;
+        height: 192px;
+        width: 192px;
+    }
+    .logo_div{
+        top: 360px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .breadcrumbs{
+        margin-left: 0;
+    }
+    .logo_div{
+    margin-left: 0px;
+
         top: 270px;
+        justify-content: center;
         
     }  
     .sellerBanner_div{
@@ -54,7 +98,6 @@ margin-left: 0px;
 }
 .description{
 text-align: center;
-margin-left: 0;
 margin-top: 20px;
 }
 }

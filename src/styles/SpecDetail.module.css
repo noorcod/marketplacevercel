@@ -35,10 +35,6 @@
     background-color: inherit;
 }
 
-.specBasic {
-    margin-top: -100px;
-}
-
 .specBasic h4 {
     font-size: 30px;
 }
@@ -58,7 +54,17 @@
     line-height: 200%;
 }
 
-@media screen and (max-width: 1024px) {
+.specBasicSm div {
+    gap: 0.5rem !important;
+}
+
+@media screen and (max-width: 1300px) {
+    .specDetail {
+        gap: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 1050px) {
     .specDetail {
         gap: 1rem;
     }
@@ -69,12 +75,9 @@
     }
     
     .specImage img {
-        width: 120px;
+        width: 160px;
         height: 100%;
         object-fit: contain;
-    }
-    .specBasic {
-        margin-top: -30px;
     }
     .specBasic h4 {
         font-size: 26px;
@@ -89,20 +92,17 @@
     .specImage img {
         width: 135px;
     }
-    .specBasic {
-        margin-top: 0px;
-    }
 }
 
 @media screen and (max-width: 575px) {
-    .specBasic {
-        margin-top: -0px;
-    }
     .specBasic h4 {
         font-size: 24px;
     } 
     .specDetail h3 {
         font-size: 24px;
+    }
+    .basicDetails li {
+        font-size: 13px;
     }
     .specs span {
         font-size: 13px;

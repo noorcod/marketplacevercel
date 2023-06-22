@@ -1,15 +1,17 @@
-import { Layout, MobileSideFilter, SideFilters } from '@/components'
-import Breadcrumbs from '@/components/Breadcrumb'
-import PaginationBar from '@/components/PaginationBar'
-import Listing from '@/sections/Specs/Listing'
+import { Layout, MobileSideFilter, SideFilters } from '../components'
+import Breadcrumbs from '../components/Breadcrumb'
+import Meta from '../components/Meta/Meta'
+import PaginationBar from '../components/PaginationBar'
+import Listing from '../sections/Specs/Listing'
 import React, { useState } from 'react'
 import { Breadcrumb, Col, Row } from 'react-bootstrap'
 import styles from "../styles/Specs.module.css"
-const Specs = () => {
+const specs = () => {
     const [mobileFilter, setMobileFilter] = useState();
 
     return (
         <>
+            <Meta title="Specs" />
             {mobileFilter === "filter" ? (
                 <MobileSideFilter setMobileFilter={setMobileFilter} />
             ) :
@@ -36,4 +38,4 @@ const Specs = () => {
     )
 }
 
-export default Specs
+export default specs

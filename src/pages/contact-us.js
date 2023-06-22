@@ -35,14 +35,14 @@ const Contact = () => {
                                 <Form.Control placeholder="Details" as={"textarea"} rows="3" />
                             </Form.Group>
                             <div>
-                                <Button className="w-100 rounded-1">Submit</Button>
+                                <Button className="w-100 rounded-1 fs-18">Submit</Button>
                             </div>
                         </Form>
                     </div>
                 </div>
             </main>
         </div>
-     </>);
+    </>);
 }
- 
+
 export default Contact;

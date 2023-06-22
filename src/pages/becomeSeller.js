@@ -21,14 +21,14 @@ const becomeSeller = (props) => {
                         <Row>
                             <Col lg="6" md="6" xs="12" >
                                 <Form.Group className="mb-3 ">
-                                    <Form.Label className="mb-1">First name</Form.Label>
+                                    <Form.Label className="mb-1">First name <span className='text-danger '>*</span> </Form.Label>
                                     <Form.Control className="ps-3 py-2" placeholder="First name" />
                                 </Form.Group>
                             </Col>
                             <Col lg="6" md="6" xs="12">
 
                                 <Form.Group className="mb-3">
-                                    <Form.Label className="mb-1">Last name</Form.Label>
+                                    <Form.Label className="mb-1">Last name <span className='text-danger '>*</span></Form.Label>
                                     <Form.Control className="ps-3 py-2" placeholder="Last name" />
                                 </Form.Group>
                             </Col>
@@ -37,14 +37,14 @@ const becomeSeller = (props) => {
 
                             <Col lg="6" md="6" xs="12">
                                 <Form.Group className="mb-3">
-                                    <Form.Label className="mb-1">Phone number</Form.Label>
+                                    <Form.Label className="mb-1">Phone number <span className='text-danger '>*</span></Form.Label>
                                     <Form.Control className="ps-3 py-2" placeholder="First name" />
                                 </Form.Group>
                             </Col>
                             <Col lg="6" md="6" xs="12">
 
                                 <Form.Group className="mb-3">
-                                    <Form.Label className="mb-1">Email</Form.Label>
+                                    <Form.Label className="mb-1">Email <span className='text-danger '>*</span></Form.Label>
                                     <Form.Control className="ps-3 py-2" placeholder="Last name" />
                                 </Form.Group>
                             </Col>
@@ -60,7 +60,7 @@ const becomeSeller = (props) => {
                             <Col lg="6" md="6" xs="12">
                                 <Form.Group className="mb-3">
 
-                                    <Form.Label className="mb-1">City</Form.Label>
+                                    <Form.Label className="mb-1">City <span className='text-danger '>*</span></Form.Label>
 
                                     <Form.Select
                                         className="py-2"
@@ -76,10 +76,10 @@ const becomeSeller = (props) => {
                             </Col>
                             <Col lg="12">
                                 <Form.Group className="mb-3">
-                                    <Form.Label className="mb-1">Street address</Form.Label>
+                                    <Form.Label className="mb-1">Street address <span className='text-danger '>*</span></Form.Label>
                                     <Form.Control className="ps-3 py-2" placeholder="buisness address" />
                                 </Form.Group>
-                                <Form.Label className="mb-1">Inquiry</Form.Label>
+                                <Form.Label className="mb-1">Inquiry <span className='text-danger '>*</span></Form.Label>
 
                                 <Form.Control
                                     as="textarea"

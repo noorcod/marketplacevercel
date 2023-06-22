@@ -4,7 +4,7 @@
     padding-bottom: 100px;
 }
 .recomended_div :global(.main){
-    margin: 0px 325px;
+    margin: 0px 321px;
 }
 @media screen and (max-width: 1600px) {
 
@@ -82,7 +82,7 @@
     }
     @media screen and (max-width: 1440px){
     .recomended_div :global(.main) {
-    margin: 0px 99px ;
+    margin: 0px 60px ;
 }}
 @media screen and (max-width: 500px) {
     .re_h1{

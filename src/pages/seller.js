@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Layout, MobileSideFilter, SideFilters } from "@/components";
-import SellerBanner from "@/sections/Seller/SellerBanner";
+import { Layout, MobileSideFilter, SideFilters } from "../components";
+import SellerBanner from "../sections/Seller/SellerBanner";
 import { Col, Row } from "react-bootstrap";
-import Listing from "@/sections/Seller/Listing";
+import Listing from "../sections/Seller/Listing";
 import styles from "../styles/Seller.module.css";
-import ContactSection from "@/sections/Seller/ContactSection";
-import MobileSortFilter from "@/components/MobileSortFilter";
-import PaginationBar from "@/components/PaginationBar";
+import ContactSection from "../sections/Seller/ContactSection";
+import MobileSortFilter from "../components/MobileSortFilter";
+import PaginationBar from "../components/PaginationBar";
 const Seller = () => {
     const [mobileFilter, setMobileFilter] = useState();
 

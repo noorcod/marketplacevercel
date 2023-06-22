@@ -13,12 +13,18 @@
     display: flex;
     justify-content: center;
 }
+.re_paragraph_div :global(.form-select) {
+    line-height: 1 !important;
+}
 .para{
     order: 1;
     display: flex !important;
     margin-left: auto; 
     
 
+}
+.favarrow{
+    background: #F5F6FA;
 }
 .arrows{
     order: 2; /* places this element second */
@@ -73,7 +79,7 @@ width: 300;
     margin-left: 0px;
 }
 }
-@media screen and (max-width: 1440px){
+@media screen and (max-width: 1480px){
     .feature_div :global(.main) {
         margin: 0px 119px ;
 
@@ -81,7 +87,7 @@ width: 300;
 @media screen and (max-width: 1600px) {
 
     .feature_div :global(.main){
-        margin: 0px 170px;
+        margin: 0px 60px;
     }
     }
 @media screen and (max-width: 992px) {
