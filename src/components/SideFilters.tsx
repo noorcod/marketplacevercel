@@ -240,7 +240,7 @@ const SideFilters = () => {
                     max={5000}
                     minValue={minValue}
                     maxValue={maxValue}
-                    onChange={({ min, max }) =>
+                    onChange={({ min, max }:any) =>
                       console.log(`min = ${min}, max = ${max}`)
                     }
                   />
