@@ -1,7 +1,7 @@
-import Breadcrumbs from "@/components/Breadcrumb";
-import Header from "@/components/Header";
-import Meta from "@/components/Meta/Meta";
-import Topbar from "@/components/Topbar";
+import Breadcrumbs from "../components/Breadcrumb";
+import Header from "../components/Header";
+import Meta from "../components/Meta/Meta";
+import Topbar from "../components/Topbar";
 import { Button, Form } from "react-bootstrap";
 import styles from "../styles/Contact.module.css";
 
@@ -32,7 +32,7 @@ const Contact = () => {
                             </Form.Group>
                             <Form.Group className="mb-4">
                                 <Form.Label>Inquiry <span className="text-danger">*</span></Form.Label>
-                                <Form.Control placeholder="Details" as={"textarea"} rows="3" />
+                                <Form.Control placeholder="Details" as={"textarea"} rows={3} />
                             </Form.Group>
                             <div>
                                 <Button className="w-100 rounded-1 fs-18">Submit</Button>

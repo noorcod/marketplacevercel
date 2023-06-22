@@ -24,14 +24,14 @@ const Seller = () => {
                     <div className={`${styles.seller_div}`}>
                         <div className="main">
                             <Row className={`${styles.wrapper}  `}>
-                                <div lg="3" className={`  ${styles.sidefilter_div}`}>
+                                <div  className={`  ${styles.sidefilter_div}`}>
                                     <SideFilters />
                                 </div>
                                 <div>
                                     <Listing setMobileFilter={setMobileFilter} />
                                 </div>
                                 <div
-                                    lg="3"
+                                   
                                     className={`d-lg-block d-md-none d-none ${styles.contact_div}`}
                                 >
                                     <ContactSection />

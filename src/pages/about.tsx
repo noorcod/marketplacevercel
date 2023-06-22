@@ -1,12 +1,12 @@
 import { Layout } from "../components";
-import Breadcrumbs from "@/components/Breadcrumb";
+import Breadcrumbs from "../components/Breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
-import { about1, about2 } from "public/images";
+import { about1, about2 } from "../../public/images";
 import { Button, Col, Row } from "react-bootstrap";
 import styles from "../styles/About.module.css";
 import { motion } from "framer-motion";
-import Meta from "@/components/Meta/Meta";
+import Meta from "../components/Meta/Meta";
 function About() {
     const cardVariants = {
         offscreen: {

@@ -1,10 +1,10 @@
-import Header from '@/components/Header'
-import Meta from '@/components/Meta/Meta'
-import Topbar from '@/components/Topbar'
+import Header from '../components/Header'
+import Meta from '../components/Meta/Meta'
+import Topbar from '../components/Topbar'
 import React from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 
-const becomeSeller = (props) => {
+const BecomeSeller = (props:any) => {
     return (<>
         <Meta title="Become Seller | Techbazaar" />
         <div>
@@ -103,4 +103,4 @@ const becomeSeller = (props) => {
     </>)
 }
 
-export default becomeSeller
+export default BecomeSeller

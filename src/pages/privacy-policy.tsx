@@ -1,6 +1,6 @@
-import { Layout } from "@/components";
-import Breadcrumbs from "@/components/Breadcrumb";
-import Meta from "@/components/Meta/Meta";
+import { Layout } from "../components";
+import Breadcrumbs from "../components/Breadcrumb";
+import Meta from "../components/Meta/Meta";
 import Link from "next/link";
 import styles from "../styles/PrivacyPolicy.module.css";
 
