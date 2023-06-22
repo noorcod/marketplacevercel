@@ -4,7 +4,6 @@ import { Button, Card } from "react-bootstrap";
 import styles from "../styles/LoadingCard.module.css";
 interface Prop{
   recomended?:Boolean |string |number
-  width:any
 }
 const LoadingCard:React.FC<Prop> = ({ recomended }) => {
   return (
