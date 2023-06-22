@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 const MultiRangeSlider = ({ min, max, minValue, maxValue, onChange }:any) => {
   const [minVal, setMinVal] = useState(Number(min));
   const [maxVal, setMaxVal] = useState(Number(max));
-  const minValRef = useRef(null);
-  const maxValRef = useRef(null);
-  const range = useRef(null);
+  const minValRef = useRef<any>(null);
+  const maxValRef = useRef<any>(null);
+  const range = useRef<any>(null);
 
   // Convert to percentage
   const getPercent = useCallback(
@@ -21,9 +21,9 @@ const MultiRangeSlider = ({ min, max, minValue, maxValue, onChange }:any) => {
 
   // Set width of the range to decrease from the left side
   useEffect(() => {
-    if (maxValRef.current) {
+    if (maxValRef.current ) {
       const minPercent = getPercent(minVal);
-      const maxPercent = getPercent(+maxValRef.current.value); // Preceding with '+' converts the value from type string to type number
+      const maxPercent = getPercent(+maxValRef?.current?.value); // Preceding with '+' converts the value from type string to type number
 
       if (range.current) {
         range.current.style.left = `${minPercent}%`;
