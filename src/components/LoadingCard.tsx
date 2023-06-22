@@ -4,6 +4,7 @@ import { Button, Card } from "react-bootstrap";
 import styles from "../styles/LoadingCard.module.css";
 interface Prop{
   recomended?:Boolean |string |number
+  width:any
 }
 const LoadingCard:React.FC<Prop> = ({ recomended }) => {
   return (
@@ -12,11 +13,11 @@ const LoadingCard:React.FC<Prop> = ({ recomended }) => {
         className={`ms-2 ${recomended ? "" : "w-100 "}`}
         style={{ width: "17rem", border: " 1px solid #D8E4F8" }}
       >
-        <div
+        {/* <div
           className={`${styles.skeleton} ${styles.cover} `}
           width= {recomended ? 271 : "100%"}
-          //   src="https://www.bolnews.com/wp-content/uploads/2021/12/FotoJet-27-2.jpg"
-        ></div>
+            src="https://www.bolnews.com/wp-content/uploads/2021/12/FotoJet-27-2.jpg"
+        ></div> */}
         <Card.Body>
           <Card.Title className="mb-0 ">
             <p className={`fs-18 fw-700  mb-0 ${styles.skeleton}`}></p>
