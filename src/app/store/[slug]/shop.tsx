@@ -38,6 +38,8 @@ const Seller = () => {
   const [noOfPages, setNoOfPages] = useState<null|number>(1)
   const [sizeOfPages, setSizeOfPages] = useState(10)
   const [isSandwichOpen, setisSandwichOpen] = useState(false);
+  const [shopData, setshopData] = useState<any>([])
+  const [shopItems, setshopItems] = useState<any>([])
   const sandwichTriger = () => {
     setisSandwichOpen((prev) => !prev);
   };
@@ -58,40 +60,40 @@ const Seller = () => {
     queryKey: ["items", [filters,currentPage,sizeOfPages]], queryFn: () => fetchItems(filters,currentPage,sizeOfPages),enabled: !!filters,
   });
 
-  const fetchedItems=getItems?.data?.body?.data
   useEffect(() => {
+    setshopItems( getItems?.data?.body?.data)
     setNoOfPages(getItems?.data?.body?.paginationInfo.totalPages)
-    if(fetchedItems?.length<1){
+    if(shopItems?.length<1){
         setCurrentPage(1)
       }
 
-  }, [getItems?.data])
+  }, [shopItems])
   
-  const fetchedData = getShopData?.data?.body?.data[0];
- 
+  
   const router = useRouter();
  
   useNavigationEvent();
  
   let mainLocationData = null;
 
-  if(fetchedData?.locations){
 
-    for (const location of fetchedData?.locations) {
-        if (location.is_main === 1) {
-            mainLocationData = location;
-                break; // Exit the loop if a main location is found
-                                 }
-}}
 
 const changePage = (page:any) => {
     setCurrentPage(page);
     window.scrollTo(0, 500)
 
   };
+  
+  useEffect(() => {
+    setshopData (getShopData?.data?.body?.data[0]);
+  if(shopData?.locations){
 
-useEffect(() => {
-
+    for (const location of shopData?.locations) {
+        if (location.is_main === 1) {
+            mainLocationData = location;
+                break; // Exit the loop if a main location is found
+                                 }
+}}
  if(getFilters?.data?.body?.data){
     let data=getFilters?.data?.body?.data
     setFiltersData({ 
@@ -99,7 +101,7 @@ useEffect(() => {
         colors: data?.colors?.map((color:Object) => ({ ...color, isChecked: false })),
         conditions: data?.conditions?.map((condition: Object) => ({ ...condition, isChecked: false })),
         brands: data?.brands?.map((brand: Object) => ({ ...brand, isChecked: false })),
-        locations: fetchedData?.locations?.map((location:any ) => ({id:location?.location_id,location_nick:location?.location_nick, isChecked: false })),
+        locations: shopData?.locations?.map((location:any ) => ({id:location?.location_id,location_nick:location?.location_nick, isChecked: false })),
         priceRange:data.priceRange
       })
  }
@@ -121,16 +123,16 @@ console.log("----->>>>>>>>>>>>",filters)
         ) : (
           <Layout>
             <div>
-              <SellerBanner  isLaoding={getShopData.isLoading} mainLocationData={mainLocationData} shopData={fetchedData} />
+              <SellerBanner  isLaoding={getShopData.isLoading} mainLocationData={mainLocationData} shopData={shopData} />
             </div>
             <div className={`${styles.seller_div}`}>
               <div className="main">
                 <Row className={`${styles.wrapper}  `}>
                   <div className={`  ${styles.sidefilter_div}`}>
-                    <SideFilters locaitons={fetchedData?.locations} setFilters={setFilters} isLoading={getFilters?.isLoading} filtersData={filtersData} />
+                    <SideFilters locaitons={shopData?.locations} setFilters={setFilters} isLoading={getFilters?.isLoading} filtersData={filtersData} />
                   </div>
                   <div>
-                    <Listing sandwichTriger={sandwichTriger} totalItems={getItems?.data?.body?.paginationInfo?.totalItems} setSizeOfPages={setSizeOfPages} isLoading={getItems?.isLoading} fetchedItems={fetchedItems} setMobileFilter={setMobileFilter} />
+                    <Listing sandwichTriger={sandwichTriger} totalItems={getItems?.data?.body?.paginationInfo?.totalItems} setSizeOfPages={setSizeOfPages} isLoading={getItems?.isLoading} shopItems={shopItems} setMobileFilter={setMobileFilter} />
                   </div>
                   <div
                     className={`d-lg-block d-md-none d-none ${styles.contact_div}`}

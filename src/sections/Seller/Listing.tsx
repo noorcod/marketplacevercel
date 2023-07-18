@@ -7,7 +7,7 @@ import ReserveDetails from "../../components/ReserveDetails";
 import { useRouter } from "next/navigation";
 import ListingLoader from "../../components/ListingLoader";
 
-const Listing = ({ totalItems, sandwichTriger, setMobileFilter, fetchedItems, isLoading, setSizeOfPages }: any) => {
+const Listing = ({ totalItems, sandwichTriger, setMobileFilter, shopItems, isLoading, setSizeOfPages }: any) => {
   const [reserveModal, setReserveModal] = useState(false);
   const router = useRouter();
   // router.events.on("routeChangeStart", (url) => {
@@ -17,7 +17,7 @@ const Listing = ({ totalItems, sandwichTriger, setMobileFilter, fetchedItems, is
   return (
     <div className="mx-1">
       <div  className="d-flex justify-content-between align-items-baseline" >
-        <p className="w-100 ">1-{fetchedItems?.length} of {totalItems}</p>
+        <p className="w-100 ">1-{shopItems?.length} of {totalItems}</p>
         <div className="d-flex w-100">
           <Form.Select
             onChange={(e) => {
@@ -57,7 +57,7 @@ const Listing = ({ totalItems, sandwichTriger, setMobileFilter, fetchedItems, is
       </div>
       {isLoading ? <ListingLoader /> :
         <div>
-          {fetchedItems?.map((data: any, index: number) => (
+          {shopItems?.map((data: any, index: number) => (
             <div key={index} className="mt-4">
 
               <Card
@@ -127,7 +127,7 @@ const Listing = ({ totalItems, sandwichTriger, setMobileFilter, fetchedItems, is
 
             </div>
           ))}
-          {fetchedItems?.length < 1 && <div className="text-center align-items-center justify-content-center mt-5">
+          {shopItems?.length < 1 && <div className="text-center align-items-center justify-content-center mt-5">
             <Image
               src={search}
               alt="search"
