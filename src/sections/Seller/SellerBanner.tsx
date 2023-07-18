@@ -47,7 +47,7 @@ const SellerBanner = ({ shopData, mainLocationData, isLaoding }: any) => {
               </div>
             ) : (
               <div className={`${styles.logo}`}>
-                <Image
+                <Image 
                   height={220}
                   width={220}
                   alt="cover photo"
@@ -66,13 +66,14 @@ const SellerBanner = ({ shopData, mainLocationData, isLaoding }: any) => {
               <Button
                 onClick={() => handleContactModal()}
                 variant="secondary fs-16 d-lg-none px-5 rounded-1"
-              >
+                >
                 {" "}
                 Contact seller
               </Button>
             </div>
           </div>
         </div>
+              
       </div>
       <div className={`${styles.second_div}  `}></div>
       <ContactSellerModal

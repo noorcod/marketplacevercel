@@ -47,7 +47,7 @@ function About() {
                             <Col xs="12" sm="12" md="6" lg="6" className="px-0">
                                 <motion.div initial={{ x: -200, opacity: 0 }} transition={{ type: "tween", duration: 0.4 }} animate={{ x: 0, opacity: 1 }}>
 
-                                    <Image src={about1} alt={"mission"} width={512} height={426} />
+                                    <Image loader={() => `${about1}`} src={about1} alt={"mission"} width={512} height={426} />
                                 </motion.div>
                             </Col>
                             <Col xs="12" sm="12" md="6" lg="6" className={`${styles.textSection1} px-0`}>
@@ -72,7 +72,7 @@ function About() {
                             <Col xs="12" sm="12" md="6" lg="6" className="px-0">
                                 <motion.div viewport={{ once: true }} initial={{ x: 200, opacity: 0 }} transition={{ type: "tween", duration: 0.4 }} whileInView={{ x: 0, opacity: 1 }}>
 
-                                    <Image src={about2} alt={"vision"} width={512} height={426} />
+                                    <Image  src={about2} alt={"vision"} width={512} height={426} />
                                 </motion.div>
 
                             </Col>

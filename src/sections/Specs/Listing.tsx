@@ -207,7 +207,7 @@ const Listing = ({ setMobileFilter }:any) => {
                   <Image
                   style={{objectFit:"scale-down"}}
                     height={122}
-                    width={"100%"}
+                    // width={"100%"}
                     src={data.img0}
                     alt="specs image"
                   />
@@ -256,7 +256,7 @@ const Listing = ({ setMobileFilter }:any) => {
                   <Image
                   style={{objectFit:"scale-down"}}
                     height={122}
-                    width={"100%"}
+                    // width={"100%"}
                     src={data.img0}
                     alt="specs image"
                   />

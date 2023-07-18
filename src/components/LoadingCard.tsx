@@ -16,7 +16,10 @@ const LoadingCard:React.FC<Prop> = ({ recomended }) => {
           className={`${styles.skeleton} ${styles.cover} `}
           >
           <Image 
-          width = {recomended ? 271 : "100%"}
+            style={recomended?{ width: "271px"}:{ width: "100%"}}
+          // width = {recomended ? 271 : "100%"}
+          width={0}
+          height={0}
           src="https://www.bolnews.com/wp-content/uploads/2021/12/FotoJet-27-2.jpg" alt=""   />
         </div>
         <Card.Body>

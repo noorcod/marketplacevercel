@@ -18,6 +18,8 @@ interface prop{
 import styles from "../../styles/ProductListing.module.css";
 const Listing = ({ setMobileFilter }:any) => {
   const [loading, setLoading] = useState(true);
+  const [filters, setFilters] = useState<object>({})
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -147,7 +149,7 @@ const Listing = ({ setMobileFilter }:any) => {
         </div>
         <Row className="">
           <Col lg="3">
-            <SideFilters />
+            <SideFilters locaitons={[]} setFilters={setFilters} isLoading={false} filtersData={[]} />
           </Col>
 
           <Col className=" " lg="9">
