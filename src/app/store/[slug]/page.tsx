@@ -4,10 +4,10 @@ import React from 'react'
 import { marketplaceUrl } from '../../../utility/env';
 import Seller from './shop'
 // import { useParams } from 'next/navigation';
-export const metadata: Metadata = {
-    title: 'TechBazaar',
-    description: 'Buy & Sell Tech related products with ease.',
-  }
+// export const metadata: Metadata = {
+//     title: 'TechBazaar',
+//     description: 'Buy & Sell Tech related products with ease.',
+//   }
  export async function fetchShopByUser(name: string | string[] | undefined) {
     console.log("----------?", name);
     const res = await fetch(`${marketplaceUrl}/shop/Ammar-Ali`,{   next: { revalidate: 10 }});
