@@ -67,11 +67,11 @@ const Seller = () => {
   useEffect(() => {
     setshopItems( getItems?.data?.body?.data)
     setNoOfPages(getItems?.data?.body?.paginationInfo.totalPages)
-    if(shopItems?.length<1){
+    if(getItems?.data?.body?.data?.length<1){
         setCurrentPage(1)
       }
-
-  }, [shopItems])
+console.log("currentpage")
+  }, [getItems?.data?.body?.data,filters])
   
   
   const router = useRouter();
@@ -87,12 +87,12 @@ const changePage = (page:any) => {
     window.scrollTo(0, 500)
 
   };
+  const fetchedData = getShopData?.data?.body?.data[0];
   
   useEffect(() => {
-    setshopData (getShopData?.data?.body?.data[0]);
-  if(shopData?.locations){
+  if(fetchedData?.locations){
 
-    for (const location of shopData?.locations) {
+    for (const location of fetchedData?.locations) {
         if (location.is_main === 1) {
             mainLocationData = location;
                 break; // Exit the loop if a main location is found
@@ -105,7 +105,7 @@ const changePage = (page:any) => {
         colors: data?.colors?.map((color:Object) => ({ ...color, isChecked: false })),
         conditions: data?.conditions?.map((condition: Object) => ({ ...condition, isChecked: false })),
         brands: data?.brands?.map((brand: Object) => ({ ...brand, isChecked: false })),
-        locations: shopData?.locations?.map((location:any ) => ({id:location?.location_id,location_nick:location?.location_nick, isChecked: false })),
+        locations: fetchedData?.locations?.map((location:any ) => ({id:location?.location_id,location_nick:location?.location_nick, isChecked: false })),
         priceRange:data.priceRange
       })
  }
@@ -127,13 +127,13 @@ console.log("----->>>>>>>>>>>>",filters)
         ) : (
           <Layout>
             <div>
-              <SellerBanner  isLaoding={getShopData.isLoading} mainLocationData={mainLocationData} shopData={shopData} />
+              <SellerBanner  isLaoding={getShopData.isLoading} mainLocationData={mainLocationData} shopData={fetchedData} />
             </div>
             <div className={`${styles.seller_div}`}>
               <div className="main">
                 <Row className={`${styles.wrapper}  `}>
                   <div className={`  ${styles.sidefilter_div}`}>
-                    <SideFilters locaitons={shopData?.locations} setFilters={setFilters} isLoading={getFilters?.isLoading} filtersData={filtersData} />
+                    <SideFilters locaitons={fetchedData?.locations} setFilters={setFilters} isLoading={getFilters?.isLoading} filtersData={filtersData} />
                   </div>
                   <div>
                     <Listing sandwichTriger={sandwichTriger} totalItems={getItems?.data?.body?.paginationInfo?.totalItems} setSizeOfPages={setSizeOfPages} isLoading={getItems?.isLoading} shopItems={getItems?.data?.body?.data} setMobileFilter={setMobileFilter} />
