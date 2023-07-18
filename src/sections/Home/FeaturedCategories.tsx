@@ -278,7 +278,7 @@ const RecomendedCard = ({image,title}:any) => {
       className="border-0 cursor-pointer"
       style={{ width: "17rem" }}
     >
-      <img
+      <Image
         height={211}
         width={278}
         className="rounded-2 mx-3"

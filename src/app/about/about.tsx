@@ -83,7 +83,7 @@ function About() {
                         className={`${styles.statement} `}>
                         <p >{`“Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy“`}</p>
                         <div>
-                            <img className="rounded-circle" src={"https://ca.slack-edge.com/TR5410L2Y-UR5HRP3BP-910cf62a3486-72"} alt="profile" />
+                            <Image className="rounded-circle" src={"https://ca.slack-edge.com/TR5410L2Y-UR5HRP3BP-910cf62a3486-72"} alt="profile" />
                         </div>
                         <h6 className="mt-3">Usman Yousaf</h6>
                         <span>Founder and CEO, Techbazaar</span>

@@ -47,7 +47,7 @@ const SellerBanner = ({ shopData, mainLocationData, isLaoding }: any) => {
               </div>
             ) : (
               <div className={`${styles.logo}`}>
-                <img
+                <Image
                   height={220}
                   width={220}
                   alt="cover photo"

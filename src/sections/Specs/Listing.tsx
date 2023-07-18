@@ -204,7 +204,7 @@ const Listing = ({ setMobileFilter }:any) => {
                   onClick={() => router.push("/specDetails/samsung")}
                   className={`${styles.image_div} text-center cursor-pointer`}
                 >
-                  <img
+                  <Image
                   style={{objectFit:"scale-down"}}
                     height={122}
                     width={"100%"}
@@ -253,7 +253,7 @@ const Listing = ({ setMobileFilter }:any) => {
                   onClick={() => router.push("/specDetails/samsung")}
                   className={`${styles.image_div} text-center cursor-pointer`}
                 >
-                  <img
+                  <Image
                   style={{objectFit:"scale-down"}}
                     height={122}
                     width={"100%"}
