@@ -15,9 +15,13 @@ import Listing from "../../../sections/Seller/Listing";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigationEvent } from "../../hooks/useNavigationEvent";
 import { marketplaceUrl } from "../../../utility/env";
-import { fetchShopByUser } from "./page";
 import MobileSidebarFilter from "../../../components/MobileSdebarFilter";
+export async function fetchShopByUser(name: string | string[] | undefined) {
+  console.log("----------?", name);
+  const res = await fetch(`${marketplaceUrl}/shop/Ammar-Ali`,{   next: { revalidate: 10 }});
 
+  return res.json();
+}
 export async function fetchFilter(shopId: number | number[] | undefined) {
     const res = await fetch(`${marketplaceUrl}/item/filters/3`);
   

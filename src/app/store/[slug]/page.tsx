@@ -8,12 +8,7 @@ import Seller from './shop'
 //     title: 'TechBazaar',
 //     description: 'Buy & Sell Tech related products with ease.',
 //   }
- export async function fetchShopByUser(name: string | string[] | undefined) {
-    console.log("----------?", name);
-    const res = await fetch(`${marketplaceUrl}/shop/Ammar-Ali`,{   next: { revalidate: 10 }});
-  
-    return res.json();
-  }
+
 async function shop() {
     // const check=await fetchShopByUser("as")
   return (
