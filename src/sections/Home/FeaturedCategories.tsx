@@ -225,7 +225,7 @@ const FeaturedCategories = () => {
 
         <div className="">
           <Slider ref={setSliderRef} {...settings}>
-          {data.map(item=>(  <div>
+          {data.map((item,index)=>(  <div key={index}>
               <RecomendedCard image={item.img0} title={item.title} />
             </div>))}
             {/* <div>

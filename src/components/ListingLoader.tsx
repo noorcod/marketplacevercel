@@ -9,7 +9,7 @@ function ListingLoader() {
   return (
     <div>
       {fetchedItems?.map((data: any, index: number) => (
-        <div className="mt-4">
+        <div key={index} className="mt-4">
           <Card
             // onClick={() => router.push("/productDetails/samsung")}
             className={`ms-2 ${styles.card_main} cursor-pointer d-flex rounded-1 `}

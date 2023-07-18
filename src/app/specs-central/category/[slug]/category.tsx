@@ -7,10 +7,8 @@ import Listing from '../../../../sections/Specs/Listing'
 import React, { useState } from 'react'
 import { Breadcrumb, Col, Row } from 'react-bootstrap'
 import styles from "../../styles/Specs.module.css"
-import { useNavigationEvent } from '../../../hooks/useNavigationEvent'
-const category = () => {
+const Category = () => {
     const [mobileFilter, setMobileFilter] = useState();
-    useNavigationEvent()
 
     return (
         <>
@@ -39,4 +37,4 @@ const category = () => {
     )
 }
 
-export default category
+export default Category

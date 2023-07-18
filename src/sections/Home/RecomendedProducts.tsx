@@ -253,8 +253,8 @@ const RecomendedProducts = () => {
         <div>
           <Slider ref={setSliderRef} {...settings}>
           {
-data.map(item=>(
-            <div>
+data.map((item,index)=>(
+            <div key={index}>
               <ProductCard price={item.sale_price} recomended={true} image={item.img0} title={item.title} />
             </div>
          )) }

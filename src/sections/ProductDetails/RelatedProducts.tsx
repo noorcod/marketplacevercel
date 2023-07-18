@@ -217,7 +217,7 @@ const RelatedProducts = () => {
         </div>
         <div>
           <Slider ref={setSliderRef} {...settings}>
-            {data.map(item=>(<div>
+            {data.map((item,index)=>(<div key={index} >
               <RelatedProductCard  price= {item.sale_price}image={item.img0} title={item.title}  />
             </div>))}
             {/* <div>
