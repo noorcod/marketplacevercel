@@ -112,7 +112,7 @@ setPriceRange({from: min,to:max})
                   className={` d-flex justify-content-between ${styles.nav_mb}  px-2`}
                 >
                   <div key={`default-1`} className="mb-3">
-                  {updatedData.categories?.map((item: any, index: number) => (<Form.Check
+                  {updatedData.categories?.map((item: any, index: number) => (<Form.Check key={index}
                       className={`${styles.checkbox}`}
                       onChange={handleCheckboxChange}
                       name="categories"
@@ -139,7 +139,7 @@ setPriceRange({from: min,to:max})
                   className={` d-flex justify-content-between ${styles.nav_mb}  px-2`}
                 >
                   <div key={`default-1`} className="mb-3">
-                  {updatedData.locations?.map((item: any, index: number) => (<Form.Check
+                  {updatedData.locations?.map((item: any, index: number) => (<Form.Check key={index}
                       className={`${styles.checkbox}`}
                       onChange={handleCheckboxChange}
                       name="locations"
@@ -166,7 +166,7 @@ setPriceRange({from: min,to:max})
                   className={` d-flex justify-content-between ${styles.nav_mb}  px-2`}
                 >
                   <div key={`default-1`} className="mb-3">
-                    {updatedData.brands?.map((item: any, index: number) => (<Form.Check
+                    {updatedData.brands?.map((item: any, index: number) => (<Form.Check key={index}
                       className={`${styles.checkbox}`}
                       onChange={handleCheckboxChange}
                       name="brands"
@@ -194,7 +194,7 @@ setPriceRange({from: min,to:max})
                   className={` d-flex justify-content-between ${styles.nav_mb}  px-2`}
                 >
                   <div key={`default-1`} className="mb-3">
-                  {updatedData.colors?.map((item: any, index: number) => (<Form.Check
+                  {updatedData.colors?.map((item: any, index: number) => (<Form.Check key={index}
                       className={`${styles.checkbox}`}
                       onChange={handleCheckboxChange}
                       name="colors"
@@ -222,7 +222,7 @@ setPriceRange({from: min,to:max})
                   className={` d-flex justify-content-between ${styles.nav_mb}  px-2`}
                 >
                   <div key={`default-1`} className="mb-3">
-                  {updatedData.conditions?.map((item: any, index: number) => (<Form.Check
+                  {updatedData.conditions?.map((item: any, index: number) => (<Form.Check key={index}
                       className={`${styles.checkbox}`}
                       onChange={handleCheckboxChange}
                       name="conditions"
