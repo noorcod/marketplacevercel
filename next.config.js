@@ -2,7 +2,8 @@
 const nextConfig = {
   // reactStrictMode: true,
   images: {
-    loaderFile: "https://www.bolnews.com"
+    loaderFile: "https://www.bolnews.com",
+    loader: "custom"
   },
   cssModules: true,
   // distDir: "build",
