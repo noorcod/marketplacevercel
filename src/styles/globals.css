@@ -200,17 +200,41 @@ input::-webkit-inner-spin-button {
   .main {
     margin: 0px 297px;
   }
+  .slider {
+    position: relative;
+    width: 200px !important;
+  }
+  .thumb {
+ 
+    width: 200px !important;
+  }
 }
 
 @media screen and (max-width: 1600px) {
   .main {
     margin: 0px 235px;
   }
+  .slider {
+    position: relative;
+    width: 200px;
+  }
+  .thumb {
+ 
+    width: 200px;
+  }
 }
 
 @media screen and (max-width: 1440px) {
   .main {
     margin: 0px 120px;
+  }
+  .slider {
+    position: relative;
+    width: 200px;
+  }
+  .thumb {
+ 
+    width: 200px;
   }
 }
 
@@ -247,6 +271,11 @@ input::-webkit-inner-spin-button {
 
 .dropdown-toggle::after {
   content: url(../../public/icons/chevrondown.svg) !important;
+  border: none !important;
+  vertical-align: 0.215em !important;
+}
+.notArrow  .dropdown-toggle::after {
+  content: "" !important;
   border: none !important;
   vertical-align: 0.215em !important;
 }
@@ -293,7 +322,7 @@ input::-webkit-inner-spin-button {
 /*  */
 .slider {
   position: relative;
-  width: 200px;
+  width: 160px;
 }
 
 .slider__track,
@@ -326,7 +355,7 @@ input::-webkit-inner-spin-button {
   pointer-events: none;
   position: absolute;
   height: 0;
-  width: 200px;
+  width: 168px;
   outline: none;
 }
 
@@ -399,7 +428,7 @@ input::-webkit-inner-spin-button {
   border-bottom: 1px solid  #EDF2FA;
 }
 .image_cover{
-  object-fit: cover !important;
+  object-fit: scale-down !important;
 }
 
 #nprogress .bar {

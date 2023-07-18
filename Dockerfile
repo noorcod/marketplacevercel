@@ -1,7 +1,19 @@
+# Dockerfile
+
+# base image
 FROM node:alpine
-WORKDIR /app
-COPY package.json ./
-COPY package-lock.json ./
-COPY ./ ./
-RUN npm i
-CMD ["npm", "run", "start:staging"]
+
+# create & set working directory
+RUN mkdir -p /usr/src
+WORKDIR /usr/src
+
+# copy source files
+COPY . /usr/src
+
+# install dependencies
+RUN npm install
+
+# start app
+#RUN npm run dev
+EXPOSE 3000
+CMD npm run dev

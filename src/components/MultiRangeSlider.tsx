@@ -26,8 +26,8 @@ const MultiRangeSlider = ({ min, max, minValue, maxValue, onChange }:any) => {
       const maxPercent = getPercent(+maxValRef?.current?.value); // Preceding with '+' converts the value from type string to type number
 
       if (range.current) {
-        range.current.style.left = `${minPercent}%`;
-        range.current.style.width = `${maxPercent - minPercent}%`;
+        range.current.style.left = `Rs. {minPercent}%`;
+        range.current.style.width = `Rs. {maxPercent - minPercent}%`;
       }
     }
   }, [minVal, getPercent]);
@@ -39,7 +39,7 @@ const MultiRangeSlider = ({ min, max, minValue, maxValue, onChange }:any) => {
       const maxPercent = getPercent(maxVal);
 
       if (range.current) {
-        range.current.style.width = `${maxPercent - minPercent}%`;
+        range.current.style.width = `Rs. {maxPercent - minPercent}%`;
       }
     }
   }, [maxVal, getPercent]);
@@ -47,14 +47,14 @@ const MultiRangeSlider = ({ min, max, minValue, maxValue, onChange }:any) => {
   // Get min and max values when their state changes
   useEffect(() => {
     onChange({ min: minVal, max: maxVal });
-  }, [minVal, maxVal, onChange]);
+  }, [minVal, maxVal,]);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 mb-2">
       <div className="d-flex mb-0 fs-14 justify-content-center">
         {" "}
-        From <p className="secondary-link fw-500 mx-2"> ${minVal}</p> to{" "}
-        <p className="secondary-link fw-500 mx-2"> ${maxVal}</p>
+         <p className="secondary-link fw-500 mx-2"> Rs. {minVal?.toLocaleString("en-IN")}</p> to{" "}
+        <p className="secondary-link fw-500 mx-2"> Rs. {maxVal?.toLocaleString("en-IN")}</p>
       </div>
       <datalist id="steplist">
         <option>0</option>

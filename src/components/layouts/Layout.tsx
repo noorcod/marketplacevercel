@@ -3,6 +3,7 @@ import { Sidebar } from "..";
 import Topbar from "../Topbar";
 import Footer from "../Footer";
 import Header from "../Header";
+import ReactQueryProvider from "../../app/ReactQueryProvider";
 
 const Layout = ({ children }:any) => {
   const [isSandwichOpen, setisSandwichOpen] = useState(false);

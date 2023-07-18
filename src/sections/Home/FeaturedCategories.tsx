@@ -11,7 +11,7 @@ import {
 } from "../../../public/icons";
 import { Button, Card, Form } from "react-bootstrap";
 import ScrollDown from "../../components/ScrollDown";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 const FeaturedCategories = () => {
   const [sliderRef, setSliderRef] = useState<any>(null);
   const settings = {
@@ -29,7 +29,7 @@ const FeaturedCategories = () => {
         breakpoint: 1824,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: false,
         },
@@ -38,7 +38,7 @@ const FeaturedCategories = () => {
         breakpoint: 1324,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: false,
         },
@@ -49,7 +49,7 @@ const FeaturedCategories = () => {
         settings: {
           centerMode: true,
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
@@ -75,6 +75,85 @@ const FeaturedCategories = () => {
       );
     },
   };
+  const data=[
+    {
+        "id": 894,
+        title: "Mobiles ",
+        "quantity": 4,
+        "sale_price": 450,
+        "created_at": "2023-04-25T17:15:39.000Z",
+        "updated_at": null,
+        "label": "Laptop",
+        "location_id": 334,
+        img0: "	https://cdn.techbazaar.pk/images/inventoryImages/Eqdohl0Gy5LVlRqH1674299678115.png"
+    },
+    {
+        "id": 895,
+        title: "Laptops ",
+        "quantity": 7,
+        "sale_price": 950,
+        "created_at": "2023-04-25T17:26:01.000Z",
+        "updated_at": null,
+        "label": "Laptop",
+        "location_id": 334,
+        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
+    },
+    {
+        "id": 898,
+        title: "Tabs",
+         "quantity": 65,
+        "sale_price": 600,
+        "created_at": "2023-04-26T09:20:18.000Z",
+        "updated_at": null,
+        "label": "Laptop",
+        "location_id": 334,
+        img0: "https://cdn.techbazaar.pk/images/inventoryImages/tlC40RKerSmFApbi1682482817383.jfif"
+    },
+    {
+        "id": 900,
+        title: " Tv / Monitors ",
+        "quantity": 7,
+        "sale_price": 73,
+        "created_at": "2023-04-26T09:31:51.000Z",
+        "updated_at": null,
+        "label": "Laptop",
+        "location_id": 334,
+        img0: "https://cdn.techbazaar.pk/images/inventoryImages/H5YHRWJ8eULo6z0m1682483510793.jfif"
+    },
+    {
+        "id": 913,
+        title: "Accessories ",
+        "quantity": 5,
+        "sale_price": 6600,
+        "created_at": "2023-04-27T10:31:21.000Z",
+        "updated_at": "2023-04-27T10:46:00.000Z",
+        "label": "Laptop",
+        "location_id": 334,
+        img0: "https://cdn.techbazaar.pk/images/inventoryImages/IFSh12Wn4RW4THLb1682573480179.jfif"
+    },
+    {
+        "id": 2372,
+        title: "Apple 56 2GB 64GB SSD 160GB HDD 12th Gen A12 Bionic 10.1 Inches ",
+        "quantity": 20,
+        "sale_price": 22,
+        "created_at": "2023-06-08T18:04:24.000Z",
+        "updated_at": null,
+        "label": "Laptop",
+        "location_id": 334,
+        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
+    },
+    {
+        "id": 2373,
+        title: "Acer test 64GB SSD 10th Gen A11 Bionic 7 Inches ",
+        "quantity": 2,
+        "sale_price": 900,
+        "created_at": "2023-06-09T11:47:03.000Z",
+        "updated_at": null,
+        "label": "Laptop",
+        "location_id": 334,
+        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
+    }
+]
   return (
     <div className={styles.feature_div}>
       <div className="main">
@@ -146,7 +225,10 @@ const FeaturedCategories = () => {
 
         <div className="">
           <Slider ref={setSliderRef} {...settings}>
-            <div>
+          {data.map(item=>(  <div>
+              <RecomendedCard image={item.img0} title={item.title} />
+            </div>))}
+            {/* <div>
               <RecomendedCard />
             </div>
             <div>
@@ -169,10 +251,7 @@ const FeaturedCategories = () => {
             </div>
             <div>
               <RecomendedCard />
-            </div>
-            <div>
-              <RecomendedCard />
-            </div>
+            </div> */}
           </Slider>
         </div>
       </div>
@@ -189,12 +268,12 @@ const FeaturedCategories = () => {
 
 export default FeaturedCategories;
 
-const RecomendedCard = () => {
+const RecomendedCard = ({image,title}:any) => {
   const router = useRouter();
   return (
     <Card
       onClick={() => {
-        router.push("productListing/Laptop");
+        router.push("/specs");
       }}
       className="border-0 cursor-pointer"
       style={{ width: "17rem" }}
@@ -204,17 +283,16 @@ const RecomendedCard = () => {
         width={278}
         className="rounded-2 mx-3"
         alt="productimg"
-        src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8&w=1000&q=80"
-      />
+        src={image}      />
       <Card.Body>
         <Card.Title className="mb-0">
-          <p className="fs-18 fw-700 mb-0">Laptop</p>
+          <p className="fs-18 fw-700 mb-0">{title}</p>
         </Card.Title>
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <p className="mb-0">
             Lorem Ipsum is simply dummy text of the printing{" "}
           </p>
-        </div>
+        </div> */}
       </Card.Body>
     </Card>
   );

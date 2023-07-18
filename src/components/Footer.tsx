@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import styles from "./../styles/Footer.module.css";
 import { facebook, twitter, instagram, youtube } from "../../public/images";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
   const router = useRouter();

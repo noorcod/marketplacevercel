@@ -94,7 +94,7 @@ font-weight: 700 !important;
     grid-auto-flow: column;
     column-gap: 30px;
     left: -77px !important;
-    grid-auto-columns: 270px;  
+    grid-auto-columns: 240px;  
     padding-left: 20px !important;
     padding-right: 20px;
 }

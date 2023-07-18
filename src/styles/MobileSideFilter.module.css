@@ -1,6 +1,6 @@
 .filter_div{
     background-color: #EDF2FA;
-    height: calc(100vh - 100px);
+    /* height: calc(100vh - 100px); */
     box-sizing: border-box;
     margin-bottom: 300px;
 }

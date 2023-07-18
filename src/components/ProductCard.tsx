@@ -6,13 +6,16 @@ import { Button, Card, Col } from "react-bootstrap";
 import { location } from "../../public/icons/index";
 import ReserveDetails from "./ReserveDetails";
 import { motion } from "framer-motion";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import LoadingCard from "./LoadingCard";
 import ContactSellerModal from "./ContactSellerModal";
 
 interface productProp {
   recomended?: boolean;
   loading?: Boolean;
+  image:any
+  title:String
+  price:number
 }
 
 interface heightType{
@@ -21,7 +24,7 @@ interface heightType{
     duration: number;
 }
 }
-const ProductCard:React.FC<productProp> = ({ recomended, loading }) => {
+const ProductCard:React.FC<productProp> = ({ recomended, loading,image,title,price }) => {
   const [reserveModal, setReserveModal] = useState(false);
   const [contactModal, setContactModal] = useState(false);
   const router = useRouter();
@@ -32,6 +35,7 @@ const ProductCard:React.FC<productProp> = ({ recomended, loading }) => {
   const handleContactModal = () => {
     setContactModal(true);
   };
+  
   return (
     <>
       <Col className="mt-4" lg="4" md="4" sm="6" xs="6">
@@ -39,15 +43,18 @@ const ProductCard:React.FC<productProp> = ({ recomended, loading }) => {
           <LoadingCard  />
         ) : (
           <Card
-            className={` ${recomended ? "" : "w-100 "} cursor-pointer`}
+            className={` ${recomended ? "" : " "} cursor-pointer`}
             style={
               recomended
                 ? { width: "17.7rem", border: " 1px solid #D8E4F8" }
-                : { border: " 1px solid #D8E4F8" }
+                : {  border: " 1px solid #D8E4F8" }
             }
-            onClick={() => router.push("/productDetails/Samsung")}
+            // onClick={() => router.push("/productDetails/Samsung")}
           >
             <motion.img
+            onClick={() => router.push("/product/Samsung")}
+
+            style={{padding:"10px",objectFit:"scale-down"}}
               initial={{ opacity: 0 }}
               animate={{
                 opacity: 1,
@@ -58,19 +65,21 @@ const ProductCard:React.FC<productProp> = ({ recomended, loading }) => {
               }
               className="object-fit-cover  rounded-top "
               height={211}
-              width={recomended ? 281 : "100%"}
-              src="https://www.bolnews.com/wp-content/uploads/2021/12/FotoJet-27-2.jpg"
+              width={recomended ? 281 :"100%"}
+              src={image}
               alt="productImg"
             />
             <Card.Body>
-              <Card.Title className="mb-0">
-                <p className="fs-18 fw-700 mb-0">Samsung Galaxy A72</p>
+              <Card.Title style={{height:"100px"}} className="mb-0"
+               onClick={() => router.push("/product/Samsung")}   >
+                <p className="fs-18 fw-700 mb-0">{title}</p>
               </Card.Title>
-              <div className="mb-4">
+              <div className="mb-2"
+               onClick={() => router.push("/product/Samsung")} >
                 <p className="mb-0">Condition :Used</p>
                 <strong className="d-flex align-items-baseline ">
                   {" "}
-                  $1300 <p className={`ms-1 discount`}>$200</p>
+                  Rs. {price?.toLocaleString("en-IN")} <p className={`ms-1 discount`}>Rs 200</p>
                 </strong>
               </div>
               <div className="d-flex align-items-baseline ">

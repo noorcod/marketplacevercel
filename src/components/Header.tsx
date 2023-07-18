@@ -6,10 +6,11 @@ import { tblogo, tblogoName } from "../../public/images/index";
 import { hanburger, favourite, user } from "../../public/icons/index";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 const Header = ({ sandwichTriger }:any) => {
   const [active, setActive] = useState<any>();
   const [navActive, setNavActive] = useState<any>();
-
+const router =useRouter()
   const accressories = [
     {
       title: "Bags ",
@@ -383,8 +384,20 @@ const Header = ({ sandwichTriger }:any) => {
                           </span>
                         </motion.span>
                       </NavDropdown.Item>
+                      
                     </React.Fragment>
                   ))}
+                </NavDropdown>
+                <NavDropdown
+           
+            title=" Specs Central"
+                  onClick={() => {
+                  router.push("/specs-central");
+                  }}
+                  className={`me-3 w-100 mt-1 notArrow ${styles.navitem} ${styles.navitemActive} `}
+                  id="#action3"
+                >
+            Specs Central
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

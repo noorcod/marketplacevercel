@@ -16,11 +16,11 @@ const ProductDetailSection = () => {
       <h4 className={`mb-4 ${styles.title}`}>Samsung A73</h4>
       <div className="d-flex justify-content-between align-items-center">
         <h2 className={`mb-0 ${styles.price}`}>
-          $890
+          Rs. 890
           <sub
             className={`text-secondary ms-1 text-decoration-line-through ${styles.originalPrice}`}
           >
-            $1000
+            Rs. 1000
           </sub>
         </h2>
         <div>
@@ -179,7 +179,7 @@ const ProductDetailSection = () => {
               <span className="ms-3">(full address here)</span>
             </Col>
             <Col xs="3" sm="3" md="3" lg="3" className="px-0 text-center">
-              <Link href="/seller/ABC">
+              <Link href="/store/ABC">
                 <Button variant="outline-secondary" className="py-1 px-2">
                   More info
                 </Button>
