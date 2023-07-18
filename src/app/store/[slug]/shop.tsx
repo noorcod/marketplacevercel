@@ -132,7 +132,7 @@ console.log("----->>>>>>>>>>>>",filters)
                     <SideFilters locaitons={shopData?.locations} setFilters={setFilters} isLoading={getFilters?.isLoading} filtersData={filtersData} />
                   </div>
                   <div>
-                    <Listing sandwichTriger={sandwichTriger} totalItems={getItems?.data?.body?.paginationInfo?.totalItems} setSizeOfPages={setSizeOfPages} isLoading={getItems?.isLoading} shopItems={shopItems} setMobileFilter={setMobileFilter} />
+                    <Listing sandwichTriger={sandwichTriger} totalItems={getItems?.data?.body?.paginationInfo?.totalItems} setSizeOfPages={setSizeOfPages} isLoading={getItems?.isLoading} shopItems={getItems?.data?.body?.data} setMobileFilter={setMobileFilter} />
                   </div>
                   <div
                     className={`d-lg-block d-md-none d-none ${styles.contact_div}`}

@@ -13,7 +13,7 @@ const Listing = ({ totalItems, sandwichTriger, setMobileFilter, shopItems, isLoa
   // router.events.on("routeChangeStart", (url) => {
   //   console.log("route is changing");
   // });
-
+console.log(shopItems)
   return (
     <div className="mx-1">
       <div  className="d-flex justify-content-between align-items-baseline" >
