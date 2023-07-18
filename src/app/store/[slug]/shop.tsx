@@ -65,7 +65,7 @@ const Seller = () => {
         setCurrentPage(1)
       }
 
-  }, [getItems?.data?.body?.data])
+  }, [getItems?.data])
   
   const fetchedData = getShopData?.data?.body?.data[0];
  
@@ -103,7 +103,7 @@ useEffect(() => {
         priceRange:data.priceRange
       })
  }
-}, [getFilters?.data?.body?.data])
+}, [getFilters?.data])
 
 
 console.log("----->>>>>>>>>>>>",filters)
