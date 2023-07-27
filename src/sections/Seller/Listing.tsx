@@ -6,17 +6,21 @@ import { Button, Card, Form } from "react-bootstrap";
 import ReserveDetails from "../../components/ReserveDetails";
 import { useRouter } from "next/navigation";
 import ListingLoader from "../../components/ListingLoader";
+import PaginationBar from "../../components/PaginationBar";
 
-const Listing = ({ totalItems, sandwichTriger, setMobileFilter, shopItems, isLoading, setSizeOfPages }: any) => {
+const Listing = ({setOrderBy,orderBy,filters, setFilters,totalItems, sandwichTriger, setMobileFilter, shopItems, isLoading, setSizeOfPages, currentPage, changePage, noOfPages }: any) => {
   const [reserveModal, setReserveModal] = useState(false);
+
   const router = useRouter();
   // router.events.on("routeChangeStart", (url) => {
   //   console.log("route is changing");
   // });
-console.log(shopItems)
+
+        // setFilters({...filters,orderBy:orderBy})
+   
   return (
     <div className="mx-1">
-      <div  className="d-flex justify-content-between align-items-baseline" >
+      <div className="d-flex justify-content-between align-items-baseline" >
         <p className="w-100 ">1-{shopItems?.length} of {totalItems}</p>
         <div className="d-flex w-100">
           <Form.Select
@@ -31,12 +35,23 @@ console.log(shopItems)
           <Form.Select
             className="d-none d-lg-block ms-3"
             aria-label="Default select example"
+            onChange={(e) => {
+              let value=e.target.value
+              if(value==="PASC"){
+                setOrderBy({
+                 sale_price:"ASC"
+                })
+              }else if(value==="PDESC"){
+                setOrderBy({sale_price:"DESC"})
+              }
+            }}
           >
-            <option>Sort by</option>
+            <option>select Sort</option>
+            <option  id="price" value="PASC">Price low to high</option>
+            <option id="price" value="PDESC">Price high to low</option>
+            {/* <option  id="title" value="ASC">Top sold</option> */}
+            {/* <option value="ASC">Top reviewed</option> */}
 
-            <option value="10">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
           </Form.Select>
         </div>
       </div>
@@ -61,9 +76,7 @@ console.log(shopItems)
             <div key={index} className="mt-4">
 
               <Card
-                onClick={() => {
-                  router.push(`/product/${data.title.replace(/\s|\//g, "")}/?id=${data.item_id}` )
-                }}
+               
                 className={`ms-2 ${styles.card_main} cursor-pointer d-flex rounded-1 `}
               >
                 <div className={`d-flex ${styles.Card_body}`}>
@@ -71,10 +84,14 @@ console.log(shopItems)
                     className="rounded-1 image_cover "
                     height={155}
                     width={188}
-                    src={data.img0}
+                    src={data?.itemsImages?.img0}
                     alt="productImg"
                   />
-                  <Card.Body className="ms-3">
+                  <Card.Body
+                   onClick={() => {
+                    router.push(`/product/${data.title.replace(/\s|\//g, "")}/?id=${data.item_id}`)
+                  }}
+                  className="ms-3">
                     <Card.Title className="mb-0">
                       <p className="fs-20 fw-700 mb-0">{data.title}</p>
                     </Card.Title>
@@ -107,8 +124,16 @@ console.log(shopItems)
                     </div>
                   </Card.Body>
                   <div className="mt-2 me-3 d-lg-block d-md-block d-none">
-                    <h6 className={`${styles.h6}`}>Rs. {data.sale_price.toLocaleString("en-IN")}</h6>
-                    <div className="d-flex mb-2">
+                    <h6 
+                     onClick={() => {
+                      router.push(`/product/${data.title.replace(/\s|\//g, "")}/?id=${data.item_id}`)
+                    }}
+                    className={`${styles.h6}`}>Rs. {data.sale_price.toLocaleString("en-IN")}</h6>
+                    <div
+                     onClick={() => {
+                      router.push(`/product/${data.title.replace(/\s|\//g, "")}/?id=${data.item_id}`)
+                    }}
+                    className="d-flex mb-2">
                       <span className={`${styles.price_cut} `}>Rs. 1000</span>{" "}
                       <span className={`${styles.Off} ms-1 me-2 px-2 rounded-2 `}>
                         11%OFF
@@ -142,7 +167,13 @@ console.log(shopItems)
         show={reserveModal}
         onHide={() => setReserveModal(false)}
       />
-
+      {shopItems?.length > 0 && <div className="text-center d-flex justify-content-center">
+        <PaginationBar
+          noOfPages={noOfPages}
+          currentPage={currentPage}
+          changePage={changePage}
+        />
+      </div>}
     </div>
   );
 };

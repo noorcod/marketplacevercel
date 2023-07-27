@@ -13,12 +13,20 @@
 .navitem{
 
 }
+
 .navitem a{
     font-size: 17px;
     font-weight: 600 !important;
     color: #39414A !important;  
 }
 .navitemActive :global(.show):focus{
+    font-size: 17px;
+    font-weight: 600 !important;
+    color: #D957F9 !important;
+    
+ }
+
+ .navitemActivespecs :global(.show):focus{
     font-size: 17px;
     font-weight: 600 !important;
     color: #D957F9 !important;
@@ -32,6 +40,14 @@
 
  .navitemActive :global( .show):focus::after{
     content: url(../../public/icons/chevronup.svg) !important;
+  border: none !important;
+  vertical-align: 0.215em !important;
+  font-size: 17px;
+  font-weight: 600 !important;
+  color: #D957F9 !important;
+ }
+ .navitemActivespecs :global( .show):focus::after{
+    content: "" !important;
   border: none !important;
   vertical-align: 0.215em !important;
   font-size: 17px;

@@ -10,6 +10,7 @@ import { Accordion, Button, Dropdown, Form } from "react-bootstrap";
   const MobileSidebarFilter = ({ isSandwichOpen, setisSandwichOpen ,filtersData,isLoading, setMobileFilter,setFilters}:any) => {
     const [searchf, setSearchf] = useState<string>("")
     const [updatedData, setUpdatedData] = useState<any>([])
+    const [priceRange, setPriceRange] = useState<any>()
 
     useEffect(() => {
       setUpdatedData(filtersData)
@@ -20,17 +21,20 @@ import { Accordion, Button, Dropdown, Form } from "react-bootstrap";
       const filteredColors = updatedData.colors?.filter((color: any) => color.isChecked === true);
       const filteredConditions = updatedData.conditions?.filter((condition: any) => condition.isChecked === true);
       const filteredBrands = updatedData.brands?.filter((brand:any) => brand.isChecked === true);
+      const filteredLocations = updatedData.locations?.filter((brand:any) => brand.isChecked === true);
       
-      setFilters({
-        categories: filteredCategories,
-        colors: filteredColors,
-        conditions: filteredConditions,
-        brands: filteredBrands,
-        title:searchf,
-        priceRange:updatedData?.priceRange
-
-      })
-    }, [updatedData,searchf])
+      const newFilter:object={
+        ...(filteredCategories?.length>0&& { category_ids: filteredCategories.map((item:any)=>item.id)}),
+          ...(filteredColors?.length>0&& {color_ids: filteredColors.map((item:any)=>item.color_id)}),
+          ...(filteredConditions?.length>0&&{condition_ids: filteredConditions.map((item:any)=>item.condition_id)}),
+         ...(filteredBrands?.length>0 &&{ brand_ids: filteredBrands?.map((item:any)=>item.brand_id)}),
+         ...( filteredLocations?.length>0 && { location_ids:filteredLocations.map((item:any)=>item.id)}),
+          title:search,
+          ...(priceRange&& {price:priceRange})
+        }
+    
+        setFilters(newFilter)
+    }, [updatedData,searchf,priceRange])
 
     console.log(updatedData)
 
@@ -117,6 +121,33 @@ import { Accordion, Button, Dropdown, Form } from "react-bootstrap";
                       type="checkbox"
                       id={`${index}`}
                       label={`${item.label}`}
+                    />))}
+                  </div>
+                </div>
+              </div>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="4">
+            <Accordion.Header className={`${styles.nav_header}`}>
+              Locations{" "}
+              <span className="ms-2 secondary-link" onClick={()=>clearSingleFilter("categories")} >
+                  Clear
+              </span>
+            </Accordion.Header>
+            <Accordion.Body>
+              <div className="d-grid">
+                <div
+                  className={` d-flex justify-content-between ${styles.nav_mb}  px-2`}
+                >
+                  <div key={`default-1`} className="mb-3">
+                  {updatedData.locations?.map((item: any, index: number) => (<Form.Check key={index}
+                      className={`${styles.checkbox}`}
+                      onChange={handleCheckboxChange}
+                      name="locations"
+                      checked={item.isChecked}
+                      type="checkbox"
+                      id={`${index}`}
+                      label={`${item.location_nick}`}
                     />))}
                   </div>
                 </div>

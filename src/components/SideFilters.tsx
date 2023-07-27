@@ -6,14 +6,14 @@ import styles from "../styles/SideFilters.module.css";
 import loadStyle from "../styles/LoadingCard.module.css"
 import MultiRangeSlider from "./MultiRangeSlider";
 import SideFiltersLoader from "./SideFiltersLoader";
-const SideFilters = ({ filtersData,isLoading,setFilters,locaitons }: any) => {
-  const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(1000);
+const SideFilters = ({ filtersData,isLoading,setFilters,locaitons,orderBy,setOrderBy }: any) => { 
   const [search, setSearch] = useState<string>("")
   const [priceRange, setPriceRange] = useState<any>()
   const [updatedData, setUpdatedData] = useState<any>([])
   useEffect(() => {
-    setUpdatedData(filtersData)
+    if(filtersData){
+      setUpdatedData(filtersData)
+    }
   }, [filtersData])
   useEffect(() => {
     
@@ -29,15 +29,15 @@ const SideFilters = ({ filtersData,isLoading,setFilters,locaitons }: any) => {
      ...(filteredBrands?.length>0 &&{ brand_ids: filteredBrands?.map((item:any)=>item.brand_id)}),
      ...( filteredLocations?.length>0 && { location_ids:filteredLocations.map((item:any)=>item.id)}),
       title:search,
-      ...(priceRange&& {price:priceRange})
+      ...(priceRange&& {price:priceRange}),
+      ...(orderBy&&{orderBy:orderBy})
     }
 
     setFilters(newFilter)
-  }, [updatedData,search,priceRange])
+  }, [updatedData,search,priceRange,orderBy])
   // const data=await queryClient.getQueryData("todos")
   const handleCheckboxChange = (e: any) => {
     let newValues={...updatedData}
-    console.log(e.target.checked,"name", updatedData[e.target.name],newValues)
    newValues[e.target.name][e.target.id].isChecked = e.target.checked;
     setUpdatedData(newValues)
   }
@@ -48,14 +48,13 @@ const SideFilters = ({ filtersData,isLoading,setFilters,locaitons }: any) => {
     colors: updatedData?.colors?.map((color:Object) => ({ ...color, isChecked: false })),
     conditions: updatedData?.conditions?.map((condition: Object) => ({ ...condition, isChecked: false })),
     brands: updatedData?.brands?.map((brand: Object) => ({ ...brand, isChecked: false })),
-    
     title:"",
-    priceRange:updatedData?.priceRange
+    priceRange:updatedData?.priceRange,
 
   })
   setPriceRange("")
+  setOrderBy({})
   }
-console.log("price----->",updatedData.locations)
 const handlePriceChange=(min:number,max:number)=>{
 setPriceRange({from: min,to:max})
 }
@@ -296,7 +295,6 @@ setPriceRange({from: min,to:max})
                     onChange={({ min, max }: any) =>{
                       // setPriceRange({from:min,to:max})
                       // handlePriceChange(min,max),
-                      console.log(`min = ${min}, max = ${max}`)
                     }
                     }
                   />

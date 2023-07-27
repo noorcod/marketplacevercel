@@ -7,10 +7,10 @@ import { hanburger, favourite, user } from "../../public/icons/index";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-const Header = ({ sandwichTriger }:any) => {
+const Header = ({ sandwichTriger }: any) => {
   const [active, setActive] = useState<any>();
   const [navActive, setNavActive] = useState<any>();
-const router =useRouter()
+  const router = useRouter()
   const accressories = [
     {
       title: "Bags ",
@@ -198,18 +198,16 @@ const router =useRouter()
                       onClick={() => {
                         setActive(index);
                       }}
-                      className={`d-grid  pb-3 ${styles.nav_content} ${
-                        (index + 1) % 5 === 0 ? "" : styles.nav_border
-                      } ${active === index ? styles.nav_content_active : ""}`}
+                      className={`d-grid  pb-3 ${styles.nav_content} ${(index + 1) % 5 === 0 ? "" : styles.nav_border
+                        } ${active === index ? styles.nav_content_active : ""}`}
                       href="#action3"
                     >
                       <motion.span
                         initial={{ y: "10px", opacity: 0 }}
                         whileInView={{ y: "0px", opacity: 1 }}
                         transition={{ type: "tween", duration: 0.2 }}
-                        className={`${styles.navsubitems} ${
-                          active === index ? styles.Nav_active : ""
-                        } `}
+                        className={`${styles.navsubitems} ${active === index ? styles.Nav_active : ""
+                          } `}
                       >
                         {" "}
                         {mapData.title}
@@ -232,20 +230,17 @@ const router =useRouter()
                         onClick={() => {
                           setActive(index);
                         }}
-                        className={`d-grid  pb-3 ${styles.nav_content} ${
-                          (index + 1) % 5 === 0 ? "" : styles.nav_border
-                        } ${
-                          active === index ? styles.nav_content_active : ""
-                        } `}
+                        className={`d-grid  pb-3 ${styles.nav_content} ${(index + 1) % 5 === 0 ? "" : styles.nav_border
+                          } ${active === index ? styles.nav_content_active : ""
+                          } `}
                         href="/productslisting"
                       >
                         <motion.span
                           initial={{ y: "10px", opacity: 0 }}
                           whileInView={{ y: "0px", opacity: 1 }}
                           transition={{ type: "tween", duration: 0.2 }}
-                          className={`${styles.navsubitems}  ${
-                            active === index ? styles.Nav_active : ""
-                          }  `}
+                          className={`${styles.navsubitems}  ${active === index ? styles.Nav_active : ""
+                            }  `}
                         >
                           {" "}
                           {data.title}
@@ -268,20 +263,17 @@ const router =useRouter()
                         onClick={() => {
                           setActive(index);
                         }}
-                        className={`d-grid  pb-1 ${styles.nav_content2} ${
-                          (index + 1) % 8 === 0 ? "" : styles.nav_border
-                        } ${
-                          active === index ? styles.nav_content_active : ""
-                        } `}
+                        className={`d-grid  pb-1 ${styles.nav_content2} ${(index + 1) % 8 === 0 ? "" : styles.nav_border
+                          } ${active === index ? styles.nav_content_active : ""
+                          } `}
                         href="#action3"
                       >
                         <motion.span
                           initial={{ y: "10px", opacity: 0 }}
                           whileInView={{ y: "0px", opacity: 1 }}
                           transition={{ type: "tween", duration: 0.2 }}
-                          className={`${styles.navsubitems2} ${
-                            active === index ? styles.Nav_active : ""
-                          }  `}
+                          className={`${styles.navsubitems2} ${active === index ? styles.Nav_active : ""
+                            }  `}
                         >
                           {" "}
                           {data.title}
@@ -301,9 +293,8 @@ const router =useRouter()
                         onClick={() => {
                           setActive(index);
                         }}
-                        className={`d-grid  pb-3 ${styles.nav_content} ${
-                          (index + 1) % 5 === 0 ? "" : styles.nav_border
-                        }`}
+                        className={`d-grid  pb-3 ${styles.nav_content} ${(index + 1) % 5 === 0 ? "" : styles.nav_border
+                          }`}
                         href="#action3"
                       >
                         <motion.span
@@ -333,18 +324,16 @@ const router =useRouter()
                         onClick={() => {
                           setActive(index);
                         }}
-                        className={`d-grid  pb-1 ${styles.nav_content2} ${
-                          (index + 1) % 8 === 0 ? "" : styles.nav_border
-                        } ${active === index ? styles.nav_content_active : ""}`}
+                        className={`d-grid  pb-1 ${styles.nav_content2} ${(index + 1) % 8 === 0 ? "" : styles.nav_border
+                          } ${active === index ? styles.nav_content_active : ""}`}
                         href="#action3"
                       >
                         <motion.span
                           initial={{ y: "10px", opacity: 0 }}
                           whileInView={{ y: "0px", opacity: 1 }}
                           transition={{ type: "tween", duration: 0.2 }}
-                          className={`${styles.navsubitems2} ${
-                            active === index ? styles.Nav_active : ""
-                          }`}
+                          className={`${styles.navsubitems2} ${active === index ? styles.Nav_active : ""
+                            }`}
                         >
                           {" "}
                           {data.title}
@@ -364,18 +353,16 @@ const router =useRouter()
                         onClick={() => {
                           setActive(index);
                         }}
-                        className={`d-grid  pb-1 ${styles.nav_content2} ${
-                          (index + 1) % 8 === 0 ? "" : styles.nav_border
-                        } ${active === index ? styles.nav_content_active : ""}`}
+                        className={`d-grid  pb-1 ${styles.nav_content2} ${(index + 1) % 8 === 0 ? "" : styles.nav_border
+                          } ${active === index ? styles.nav_content_active : ""}`}
                         href="#action3"
                       >
                         <motion.span
                           initial={{ y: "10px", opacity: 0 }}
                           whileInView={{ y: "0px", opacity: 1 }}
                           transition={{ type: "tween", duration: 0.2 }}
-                          className={`${styles.navsubitems2} ${
-                            active === index ? styles.Nav_active : ""
-                          }`}
+                          className={`${styles.navsubitems2} ${active === index ? styles.Nav_active : ""
+                            }`}
                         >
                           {" "}
                           {data.title}{" "}
@@ -384,20 +371,19 @@ const router =useRouter()
                           </span>
                         </motion.span>
                       </NavDropdown.Item>
-                      
+
                     </React.Fragment>
                   ))}
                 </NavDropdown>
                 <NavDropdown
-           
-            title=" Specs Central"
+                 title=" Specs Central"
                   onClick={() => {
-                  router.push("/specs-central");
+                    router.push("/specs-central");
                   }}
-                  className={`me-3 w-100 mt-1 notArrow ${styles.navitem} ${styles.navitemActive} `}
+                  className={`me-3 w-100 mt-1 notArrow ${styles.navitem} ${styles.navitemActivespecs} `}
                   id="#action3"
                 >
-            Specs Central
+                  Specs Central
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

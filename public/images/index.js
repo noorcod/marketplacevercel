@@ -24,6 +24,7 @@ export { default as about2 } from './about2.png'
 export { default as sellerLogo } from './selleLogo.png'
 export { default as sellerBannerImage } from './sellerBannerImage.png'
 export { default as specImg } from './specImg.png'
+export { default as TechBazaarImage } from './TechBazaar.png'
 export { default as MobileImage } from './mobileImage.png'
 
 

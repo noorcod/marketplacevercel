@@ -16,23 +16,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigationEvent } from "../../hooks/useNavigationEvent";
 import { marketplaceUrl } from "../../../utility/env";
 import MobileSidebarFilter from "../../../components/MobileSdebarFilter";
-export async function fetchShopByUser(name: string | string[] | undefined) {
-  console.log("----------?", name);
-  const res = await fetch(`${marketplaceUrl}/shop/Ammar-Ali`,{   next: { revalidate: 10 }});
+import { fetchFilter, fetchItems, fetchShopByUser } from "../../apis/getApis";
 
-  return res.json();
-}
-export async function fetchFilter(shopId: number | number[] | undefined) {
-    const res = await fetch(`${marketplaceUrl}/item/filters/3`);
-  
-    return res.json();
-  }
-  export async function fetchItems(filters:Object,currentPage:number,size:number) {
-    console.log("mmmmmmmm909090",filters,size,currentPage);
-    const res = await fetch(`${marketplaceUrl}/item/3?page=${currentPage}&size=${size}`,{headers:{filters: JSON.stringify(filters)}});
-  
-    return res.json();
-  }
 
 const Seller = () => {
   const [mobileFilter, setMobileFilter] = useState();
@@ -42,8 +27,8 @@ const Seller = () => {
   const [noOfPages, setNoOfPages] = useState<null|number>(1)
   const [sizeOfPages, setSizeOfPages] = useState(10)
   const [isSandwichOpen, setisSandwichOpen] = useState(false);
-  const [shopData, setshopData] = useState<any>([])
-  const [shopItems, setshopItems] = useState<any>([])
+  const [orderBy, setOrderBy] = useState({});
+
   const sandwichTriger = () => {
     setisSandwichOpen((prev) => !prev);
   };
@@ -54,7 +39,7 @@ const Seller = () => {
     queryKey: ["Shop", params?.slug], queryFn: () => fetchShopByUser(params?.slug),enabled: !!params?.slug,
   });
  
-  const shopId=getShopData?.data?.body?.data[0].shop_id
+  const shopId=getShopData?.data?.data?.body?.data[0].shop_id
  
  const getFilters = useQuery({
     queryKey: ["filters", shopId], queryFn: () => fetchFilter(shopId),enabled: !!shopId,
@@ -65,13 +50,13 @@ const Seller = () => {
   });
 
   useEffect(() => {
-    setshopItems( getItems?.data?.body?.data)
-    setNoOfPages(getItems?.data?.body?.paginationInfo.totalPages)
-    if(getItems?.data?.body?.data?.length<1){
+    setNoOfPages(getItems?.data?.data.body?.paginationInfo?.totalPages)
+    if(getItems?.data?.data?.body?.data?.data?.length<1){
         setCurrentPage(1)
       }
-console.log("currentpage")
-  }, [getItems?.data?.body?.data,filters])
+
+
+  }, [getItems?.data?.data?.body?.data,filters])
   
   
   const router = useRouter();
@@ -87,9 +72,8 @@ const changePage = (page:any) => {
     window.scrollTo(0, 500)
 
   };
-  const fetchedData = getShopData?.data?.body?.data[0];
+  const fetchedData = getShopData?.data?.data?.body?.data[0];
   
-  useEffect(() => {
   if(fetchedData?.locations){
 
     for (const location of fetchedData?.locations) {
@@ -98,21 +82,23 @@ const changePage = (page:any) => {
                 break; // Exit the loop if a main location is found
                                  }
 }}
- if(getFilters?.data?.body?.data){
-    let data=getFilters?.data?.body?.data
+  useEffect(() => {
+ 
+ if(getFilters?.data?.data?.body?.data){
+    let data=getFilters?.data?.data?.body?.data
     setFiltersData({ 
        categories : data?.categories?.map((category: Object) => ({ ...category, isChecked: false })),
         colors: data?.colors?.map((color:Object) => ({ ...color, isChecked: false })),
         conditions: data?.conditions?.map((condition: Object) => ({ ...condition, isChecked: false })),
         brands: data?.brands?.map((brand: Object) => ({ ...brand, isChecked: false })),
         locations: fetchedData?.locations?.map((location:any ) => ({id:location?.location_id,location_nick:location?.location_nick, isChecked: false })),
-        priceRange:data.priceRange
+        priceRange:data.priceRange,
+        orderBy:orderBy
       })
  }
 }, [getFilters?.data])
 
 
-console.log("----->>>>>>>>>>>>",filters)
 
   return (
     <>
@@ -133,10 +119,10 @@ console.log("----->>>>>>>>>>>>",filters)
               <div className="main">
                 <Row className={`${styles.wrapper}  `}>
                   <div className={`  ${styles.sidefilter_div}`}>
-                    <SideFilters locaitons={fetchedData?.locations} setFilters={setFilters} isLoading={getFilters?.isLoading} filtersData={filtersData} />
+                    <SideFilters setOrderBy={setOrderBy} orderBy={orderBy} locaitons={fetchedData?.locations} setFilters={setFilters} isLoading={getFilters?.isLoading} filtersData={filtersData} />
                   </div>
                   <div>
-                    <Listing sandwichTriger={sandwichTriger} totalItems={getItems?.data?.body?.paginationInfo?.totalItems} setSizeOfPages={setSizeOfPages} isLoading={getItems?.isLoading} shopItems={getItems?.data?.body?.data} setMobileFilter={setMobileFilter} />
+                    <Listing orderBy={orderBy} setFilters={setFilters} filters={filters} setOrderBy={setOrderBy} noOfPages={noOfPages} currentPage={currentPage} changePage={changePage} sandwichTriger={sandwichTriger} totalItems={getItems?.data?.data?.body?.paginationInfo?.totalItems} setSizeOfPages={setSizeOfPages} isLoading={getItems?.isLoading} shopItems={getItems?.data?.data?.body?.data} setMobileFilter={setMobileFilter} />
                   </div>
                   <div
                     className={`d-lg-block d-md-none d-none ${styles.contact_div}`}
@@ -144,13 +130,7 @@ console.log("----->>>>>>>>>>>>",filters)
                     <ContactSection isLaoding={getShopData.isLoading} mainLocationData={mainLocationData} />
                   </div>
                 </Row>
-                <div className="text-center d-flex justify-content-center">
-                  {getItems.isLoading?"":<PaginationBar
-                    noOfPages={noOfPages}
-                    currentPage={currentPage}
-                    changePage={changePage}
-                  />}
-                </div>
+               
               </div>
             </div>
           </Layout>

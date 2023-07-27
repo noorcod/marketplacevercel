@@ -22,8 +22,8 @@ const SellerBanner = ({ shopData, mainLocationData, isLaoding }: any) => {
   const handleContactModal = () => {
     setContactModal(true);
   };
-  if (mainLocationData?.shop_working_days)
-    console.log("locations", JSON.parse(mainLocationData?.shop_working_days));
+  // if (mainLocationData?.shop_working_days)
+    // console.log("locations", JSON.parse(mainLocationData?.shop_working_days));
   return (
     <div>
       <div className={`${styles.breadcrumbs}`}>
@@ -47,7 +47,7 @@ const SellerBanner = ({ shopData, mainLocationData, isLaoding }: any) => {
               </div>
             ) : (
               <div className={`${styles.logo}`}>
-                <Image 
+                <img 
                   height={220}
                   width={220}
                   alt="cover photo"

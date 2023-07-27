@@ -172,7 +172,7 @@ const Listing = ({ setMobileFilter }:any) => {
               onClick={() => setMobileFilter("filter")}
               className={`w-100 me-3 mb-2 rounded-2 ${styles.filter_btn} `}
             >
-              <Image className="me-1" src={filterIcon} alt="filter icon 2" />{" "}
+              <Image width={0} height={0} className="me-1" src={filterIcon} alt="filter icon 2" />{" "}
               Filter by
             </Button>
           </div>
@@ -189,7 +189,7 @@ const Listing = ({ setMobileFilter }:any) => {
           onClick={() => setMobileFilter("filter")}
           className={`w-100 me-3 mb-2 rounded-2 ${styles.filter_btn} `}
         >
-          <Image className="me-1" src={filterIcon} alt="filte icon" /> Filter by
+          <Image width={0} height={0} className="me-1" src={filterIcon} alt="filte icon" /> Filter by
         </Button>
       </div>
       <Row>
@@ -207,7 +207,7 @@ const Listing = ({ setMobileFilter }:any) => {
                   <Image
                   style={{objectFit:"scale-down"}}
                     height={122}
-                    // width={"100%"}
+                    width={0}
                     src={data.img0}
                     alt="specs image"
                   />
@@ -229,7 +229,7 @@ const Listing = ({ setMobileFilter }:any) => {
               onClick={() => setMobileFilter("filter")}
               className={`w-100 me-3 mb-2 rounded-2 ${styles.filter_btn} `}
             >
-              <Image className="me-1" src={filterIcon} alt="filter icon 2" />{" "}
+              <Image width={0} height={0} className="me-1" src={filterIcon} alt="filter icon 2" />{" "}
               Filter by
             </Button>
           </div>
@@ -257,6 +257,7 @@ const Listing = ({ setMobileFilter }:any) => {
                   style={{objectFit:"scale-down"}}
                     height={122}
                     // width={"100%"}
+                    width={0}
                     src={data.img0}
                     alt="specs image"
                   />

@@ -1,10 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Col, Row } from "react-bootstrap";
+import { Col, Dropdown, Row } from "react-bootstrap";
 import { announcement, favourite, user } from "../../public/icons/index";
 import style from "./../styles/Topbar.module.css";
-
+import {useEffect,useState} from "react"
 const Topbar = () => {
+const [removeUser, setremoveUser] = useState(false)
+
+ const Logout = () => {
+  if (typeof window !== 'undefined') {
+
+   localStorage.removeItem("accessToken")
+   localStorage.removeItem("user")
+     } 
+       setremoveUser(true)
+ }
+
+  const userData:any|string|null=  typeof window !== 'undefined'? JSON.parse(localStorage.getItem("user")as string):""
+
+  const token = typeof window !== 'undefined' ?localStorage.getItem("accessToken"):""
+  useEffect(() => {
+  
+  }, [removeUser])
   return (
     <main className="main">
       <Row className={`py-2 ${style.banner}`}>
@@ -34,9 +51,20 @@ const Topbar = () => {
               Saved items(<span className="link">0</span>)
             </span>
           </div>
-          <div className="d-flex align-items-center gap-2">
+           <div className="d-flex align-items-center ">
+          {token&& <Dropdown className="picon px-0" >
+           <Dropdown.Toggle className="px-0" variant="" id="dropdown-basic">
             <Image src={user} alt="user" width={15} height={15} />
-            <span>Sign in</span>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+        <Dropdown.Item  onClick={Logout} href="#/action-1">
+         Logout
+          </Dropdown.Item>
+       
+      </Dropdown.Menu>
+            </Dropdown>}
+            <span >{userData?.first_name}</span>
+            { !token?<a  href="/login">Sign in</a>:""}
           </div>
         </Col>
       </Row>

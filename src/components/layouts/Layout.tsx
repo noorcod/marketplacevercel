@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Sidebar } from "..";
 import Topbar from "../Topbar";
 import Footer from "../Footer";
 import Header from "../Header";
 import ReactQueryProvider from "../../app/ReactQueryProvider";
+import { useRouter } from "next/navigation";
 
 const Layout = ({ children }:any) => {
   const [isSandwichOpen, setisSandwichOpen] = useState(false);
   const sandwichTriger = () => {
     setisSandwichOpen((prev) => !prev);
   };
+
+
+  
   return (
     <div>
       <Sidebar
