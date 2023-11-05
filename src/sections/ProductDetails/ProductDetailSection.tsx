@@ -17,7 +17,6 @@ import { UpdateListingViews } from "../../app/apis/postApis";
 import { useMutation } from "@tanstack/react-query";
 import loadStyle from "../../styles/LoadingCard.module.css";
 import { useUserStore } from "../../store/User";
-import withModalAuth from "../../components/auth/withModalAuth";
 import { storeLogo } from "../../../public/images";
 const ProductDetailSection = ({ fetchedData, isLoading }: any) => {
   const { getToken } = useAuth();
