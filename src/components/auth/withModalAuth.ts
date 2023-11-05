@@ -4,7 +4,7 @@ import SignInModal from '../SignInModal';
 import PhoneNumberModal from '../PhoneNumberModal';
 import { useUserStore } from '../../store/User';
 
-const WithModalAuth = <P extends object>(
+const withModalAuth = <P extends object>(
   WrappedComponent: ComponentType<P>,
 ) => {
   return (props: P):ReactNode => {
@@ -48,4 +48,4 @@ const WithModalAuth = <P extends object>(
   }
 };
 
-export default WithModalAuth;
+export default withModalAuth;
