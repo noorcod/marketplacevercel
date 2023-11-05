@@ -13,6 +13,7 @@ import { SigninUser, SignupUser } from "../apis/postApis";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import ProtectedRoute from "../ProtectedRoute";
+import Loader from "../../components/Loader";
 
 
 
@@ -40,6 +41,7 @@ function Login() {
         e.preventDefault()
         setValidated(true);
         mutation.mutate(intialvalues)
+    
 
     }
     function openPopUp() {
@@ -54,6 +56,7 @@ function Login() {
     return (
         <div style={{ height: "100vh !important" }} className={`loginHeader`}>
             <Row className={`loginBanner`}>
+            <Loader/>
                 <Col lg={6} className=" h-100   justify-content-center d-grid align-items-center">
 
 

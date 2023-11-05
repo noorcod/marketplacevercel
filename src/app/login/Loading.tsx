@@ -1,5 +1,6 @@
 
 import nProgress from 'nprogress'
+import Loader from '../../components/Loader'
 // import React ,{useEffect}from 'react'
 
 function Loading() {
@@ -13,7 +14,7 @@ function Loading() {
 
   return (
     <div>
-       loading....
+  <Loader/>
     </div>
   )
 }
