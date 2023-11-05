@@ -17,7 +17,7 @@ import { sanitize, isSupported } from "isomorphic-dompurify";
 import loadStyle from "../../../styles/LoadingCard.module.css"
 
 // or the entire module:
-import DOMPurify from "isomorphic-dompurify";
+// import DOMPurify from "isomorphic-dompurify";
 import React from "react";
 import { useViewListStore } from "../../../store/viewList";
 import Error from "next/error";
@@ -70,7 +70,7 @@ function ProductDetails() {
         });
         const relatedProducts = FetchRelatedProducts?.data?.data?.body?.data
         
-    const sanitizedHTML = DOMPurify.sanitize(discriptionText);
+    // const sanitizedHTML = DOMPurify.sanitize(discriptionText);
     
     
 
@@ -104,7 +104,7 @@ function ProductDetails() {
                             </Col>
 
                             <Col xs="12" sm="12" md="12" lg="10" className={`px-0 pe-4 mb-4 mb-md-0  mt-3`} ref={description}>
-                                <div style={isDescriptionCollapsed ? { maxHeight:"400px",overflow:"hidden" } : { height:"auto" }} dangerouslySetInnerHTML={{ __html: sanitizedHTML }} ></div>
+                                {/* <div style={isDescriptionCollapsed ? { maxHeight:"400px",overflow:"hidden" } : { height:"auto" }} dangerouslySetInnerHTML={{ __html: sanitizedHTML }} ></div>
                                 {discriptionText?.length > 0?<div className="w-100 text-center p-3"><span className="link cursor-pointer" onClick={() => {
                                     if(isDescriptionCollapsed){
                                         setIsDescriptionCollapsed(false)
@@ -114,7 +114,7 @@ function ProductDetails() {
                                         }
                                         setIsDescriptionCollapsed(true)
                                     }
-                                }}>{isDescriptionCollapsed ? "Read More >>" : "<< Read Less"}</span></div>:<></>}
+                                }}>{isDescriptionCollapsed ? "Read More >>" : "<< Read Less"}</span></div>:<></>} */}
                             </Col>
                         </Row>
                     </Col>
