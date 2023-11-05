@@ -1,18 +1,13 @@
-"use client"
+'use client'
 
 import Image from "next/image";
-import {useEffect} from "react"
 import styles from "../../styles/Banner.module.css";
 import { banner, tblogo, tblogoName } from "../../../public/images";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import Link from "next/link";
-import ScrollDown from "../../components/ScrollDown";
 import { useState } from "react";
 import InputMask from 'react-input-mask'
-import { SignupUser } from "../apis/postApis";
-import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import ProtectedRoute from "../ProtectedRoute";
+import useAuth from "../../components/auth/useAuth";
 
 type Props = {
   mask: string;
@@ -24,10 +19,10 @@ type Props = {
 
 
 function Signup() {
+  const {getSignup} = useAuth();
 
   const [intialvalues, setintialvalues] = useState<any>({
-    first_name: "",
-    last_name: "",
+    full_name: "",
     phone_number: "",
     email: "",
     password: "",
@@ -42,23 +37,25 @@ function Signup() {
   const handleChange = (e: any) => {
     setintialvalues({ ...intialvalues, [e.target.name]: e.target.value })
   }
-  const mutation = useMutation({ mutationFn: SignupUser ,onSuccess: (data, variables, context) => {
-    localStorage.setItem("accessToken",data?.data?.body?.data?.accessToken)
-    // router.back()
-    // router.push("/login")
-    // Boom baby!
-  }})
+  
+  
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     setValidated(true);
-    console.log("00000", intialvalues)
-    if (!Object.values(intialvalues).includes('')) {
-
-      mutation.mutate(intialvalues)
-      console.log(mutation.data)
+    
+    const obj={
+      first_name:intialvalues.full_name.split(" ")[0],
+      last_name:intialvalues.full_name.split(" ")[1],
+      phone_number:intialvalues.phone_number,
+      email:intialvalues.email,
+      password:intialvalues.password,
+      url:"https://github.com/vercel/next.js/discussions/48110"
+    }
+    if (!Object.values(obj).includes('')) {
+      getSignup().mutate(obj)
     }
   }
-  // const token = localStorage.getItem("accessToken");
+  const token = localStorage.getItem("accessToken");
 //   useEffect(() => {
 //     if(token){
 // router.push("/")
@@ -106,15 +103,15 @@ function Signup() {
                   <Form.Control
                     onChange={handleChange}
                     type="text"
-                    name="first_name"
+                    name="full_name"
                     required
-                    value={intialvalues.first_name}
+                    value={intialvalues.full_name}
                     className="border-dark w-75"
-                    placeholder="Enter First Name"
+                    placeholder="Enter Full Name"
                   />
 
                 </Col>
-                <Col lg={8} className={`pe-0 mt-3  text-center d-flex justify-content-center ${styles.cities}`}>
+                {/* <Col lg={8} className={`pe-0 mt-3  text-center d-flex justify-content-center ${styles.cities}`}>
 
                   <Form.Control
                     onChange={handleChange}
@@ -126,7 +123,7 @@ function Signup() {
                     className="border-dark w-75"
                     placeholder="Enter Last Name"
                   />
-                </Col>
+                </Col> */}
                 <Col lg={8} className={`pe-0 mt-3 text-center d-flex justify-content-center ${styles.cities}`}>
                   <InputMask
                     className="border-dark w-75 "
@@ -208,4 +205,4 @@ function Signup() {
   )
 }
 
-export default Signup;
+export default Signup

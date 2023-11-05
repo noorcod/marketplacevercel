@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -9,13 +10,30 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import LoadingCard from "./LoadingCard";
 import ContactSellerModal from "./ContactSellerModal";
+import SignInModal from "./SignInModal";
+import Link from "next/link";
 
+
+interface shopDetails {
+  shop_name:string,
+  owner_whatsapp_number:string
+}
 interface productProp {
   recomended?: boolean;
   loading?: Boolean;
-  image:any
   title:String
   price:number
+  condition:string
+  discount?:number|undefined
+  item:{
+    item_id:number,
+    shopTable:any,
+    location:any,
+    itemImages:any,
+    location_id:number,
+  },
+  listingId:number
+
 }
 
 interface heightType{
@@ -24,18 +42,29 @@ interface heightType{
     duration: number;
 }
 }
-const ProductCard:React.FC<productProp> = ({ recomended, loading,image,title,price }) => {
+const ProductCard:React.FC<productProp> = ({ recomended, item,loading,title,price,condition,discount,listingId }) => {
+
+  const shopDetails = item?.shopTable;
+  const locations = item?.location;
+  const image = item?.itemImages?.img0;
+  const locationId= item?.location_id;
+  const city = item?.location?.city?.city_name;
+
+
   const [reserveModal, setReserveModal] = useState(false);
   const [contactModal, setContactModal] = useState(false);
+  const [signInModal, setSignInModal] = useState(false);
+
   const router = useRouter();
+  
   const handleReserveModal = () => {
     setReserveModal(true);
   };
 
+
   const handleContactModal = () => {
     setContactModal(true);
   };
-  
   return (
     <>
       <Col className="mt-4" lg="4" md="4" sm="6" xs="6">
@@ -51,8 +80,11 @@ const ProductCard:React.FC<productProp> = ({ recomended, loading,image,title,pri
             }
             // onClick={() => router.push("/productDetails/Samsung")}
           >
+            <Link href={`/product/${title.replace(/\s|\//g, "-")}-${listingId}`} >
             <motion.img
-            onClick={() => router.push("/product/Samsung")}
+            onClick={() => router.push( `/product/${title.replace(/\s|\//g, "-")}-${
+              listingId
+            }`)}
 
             style={{padding:"10px",objectFit:"scale-down"}}
               initial={{ opacity: 0 }}
@@ -69,19 +101,35 @@ const ProductCard:React.FC<productProp> = ({ recomended, loading,image,title,pri
               src={image}
               alt="productImg"
             />
+              </Link>
             <Card.Body>
+            <Link href={`/product/${title.replace(/\s|\//g, "-")}-${listingId}`} >
+
               <Card.Title style={{height:"100px"}} className="mb-0"
-               onClick={() => router.push("/product/Samsung")}   >
+              //  onClick={() => router.push(`/product/${title.replace(/\s|\//g, "")}-${
+              //    listingId
+              //   }`)}  
+                 >
                 <p className="fs-18 fw-700 mb-0">{title}</p>
               </Card.Title>
+              </Link>
+            <Link href={`/product/${title.replace(/\s|\//g, "-")}-${listingId}`} >
+
               <div className="mb-2"
-               onClick={() => router.push("/product/Samsung")} >
-                <p className="mb-0">Condition :Used</p>
+            //    onClick={() => router.push(`/product/${title.replace(/\s|\//g, "")}-${
+            //   listingId
+            // }`)} 
+            >
+              <p className="mb-0">Condition : {condition}
+                </p>
                 <strong className="d-flex align-items-baseline ">
                   {" "}
-                  Rs. {price?.toLocaleString("en-IN")} <p className={`ms-1 discount`}>Rs 200</p>
+                  Rs. {price?.toLocaleString("en-IN")} {Number(discount)>0?<p className={`ms-1 discount`}>Rs {discount}</p>:""}
                 </strong>
               </div>
+              </Link>
+            <Link href={`/product/${title.replace(/\s|\//g, "-")}-${listingId}`} >
+
               <div className="d-flex align-items-baseline ">
                 <Image
                   className="me-1 rounded-2"
@@ -89,15 +137,16 @@ const ProductCard:React.FC<productProp> = ({ recomended, loading,image,title,pri
                   alt="location"
                   height="12"
                   width="10"
-                />
-                <p>Lahore</p>
+                  />
+                <p>{city}</p>
               </div>
+              </Link>
               <Button
                 className="w-100 mb-2"
                 variant="secondary"
                 onClick={() => handleContactModal()}
               >
-                Contact seller
+                Contact Seller
               </Button>
               <Button
                 className="w-100"
@@ -113,8 +162,15 @@ const ProductCard:React.FC<productProp> = ({ recomended, loading,image,title,pri
       <ReserveDetails
         show={reserveModal}
         onHide={() => setReserveModal(false)}
+        reserveData={{shop_id:item?.shopTable?.shop_id,locationId,listingId:listingId,itemId:item?.item_id}}
       />
+      <SignInModal show={signInModal} onHide={() => setSignInModal(false)} />
+
       <ContactSellerModal
+      shopDetails={shopDetails}
+      locations={locations}
+      city={city}
+        size="md"
         show={contactModal}
         onHide={() => setContactModal(false)}
       />

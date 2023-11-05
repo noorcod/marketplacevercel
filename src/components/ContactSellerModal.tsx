@@ -10,16 +10,41 @@ import { faEnvelope, faMessage } from "@fortawesome/free-regular-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import SendEmailForm from "../components/SendEmailForm";
 import SendEmail from "../sections/ProductListing/SendEmail";
+import MapContainer from "./map/MapContainer";
+import React from "react";
+import { useUserStore } from "../store/User";
+import SignInModal from "./SignInModal";
 
-const ContactSellerModal = (props:any) => {
+interface shopDetails {
+  shop_name:string,
+  owner_whatsapp_number:string
+}
+interface ContactSellerModalProps {
+  show: boolean;
+  onHide: () => void;
+  size?: string|undefined;
+  shopDetails:shopDetails
+  city:string
+  locations:any
+}
+
+const ContactSellerModal  = ({onHide,show,shopDetails,city,locations}:ContactSellerModalProps) => {
   const [emailForm, setEmailForm] = useState<any>(false);
+  const { user, token } = useUserStore((state: any) => state);
+  const [signInModal, setSignInModal] = useState(false);
+
   const [showWhatsapp, setShowWhatsapp] = useState<any>(false);
   const [showNumbers, setShowNumbers] = useState<any>(false);
   const [emailModal, setEmailModal] = useState<any>(false);
+  const number=shopDetails?.owner_whatsapp_number?.split("-")
   return (
     <>
       <Modal
-        {...props}
+        show={show}
+        onHide={()=>{onHide()
+        setShowNumbers(false)
+        setShowWhatsapp(false)
+        }}
         size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -30,22 +55,19 @@ const ContactSellerModal = (props:any) => {
               <Image src={hp} alt="Logo" width={70} height={68} />
             </div>
             <div>
-              <h5 className="m-0 fw-bold">ABC Ltd.</h5>
-              <span className="m-0">www.abc.com</span>
+              <h5 className="m-0 fw-bold">{shopDetails?.shop_name}.</h5>
+              <a className="m-0">{}</a>
             </div>
           </div>
         </Modal.Header>
         <Modal.Body className=" px-md-4 px-lg-4 px-3">
           <div>
             <div className={styles.map}>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.3325395304414!2d-122.01116148467422!3d37.33463524513264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb59127ce078f%3A0x18e1c3ce7becf1b!2sApple%20Park!5e0!3m2!1sen!2sin!4v1637309850935!5m2!1sen!2sin"
-                width="450"
-                height="200"
-              ></iframe>
+             
+              <MapContainer data={locations} />
             </div>
             <Image src={location} alt="location" width={15} height={15} />
-            <span className="ms-2">Lahore, Pakistan</span>
+            <span className="ms-2">{city}, Pakistan</span>
           </div>
           <div className="d-md-block d-lg-block d-none">
             <div
@@ -53,17 +75,23 @@ const ContactSellerModal = (props:any) => {
             >
               <Image src={phone} alt="call" width={28} height={25} />
               <div className="ps-1">
-                {showNumbers === false && (
-                  <h5 className="fw-bold m-0">0423783...</h5>
-                )}
+                {/* {showNumbers === false && (
+                  <h5 className="fw-bold m-0">{shopDetails?.owner_whatsapp_number}</h5>
+                )} */}
                 {showNumbers && (
                   <>
-                    <h5 className="fw-bold m-0">03433456974</h5>
-                    <h5 className="fw-bold m-0">03433456974</h5>
+                    <h5 className="fw-bold m-0">{shopDetails?.owner_whatsapp_number}</h5>
+                    <h5 className="fw-bold m-0">{shopDetails?.owner_whatsapp_number}</h5>
                   </>
                 )}
                 {showNumbers === false && (
-                  <span className="link" onClick={() => setShowNumbers(true)}>
+                  <span className="link" onClick={() => { 
+                    if(user){
+                      setShowNumbers(true)
+                    }else{
+                      setSignInModal(true)
+                    }
+                    }}>
                     Show phone number
                   </span>
                 )}
@@ -77,11 +105,17 @@ const ContactSellerModal = (props:any) => {
               </Col>
               <Col md="10" lg="8" className="p-0">
                 {showWhatsapp === false && (
-                  <h5 className="fw-bold m-0">0423783...</h5>
+                  <h5 className="fw-bold m-0">{number? number?.slice(0, 2).join('-') + '-' + '-'.repeat(number[2]?.length):""}</h5>
                 )}
-                {showWhatsapp && <h5 className="fw-bold m-0">03433456974</h5>}
+                {showWhatsapp && <h5 className="fw-bold m-0">{shopDetails?.owner_whatsapp_number}</h5>}
                 {showWhatsapp === false && (
-                  <span onClick={() => setShowWhatsapp(true)}>
+                  <span onClick={() => {
+                    if(user){
+                      setShowWhatsapp(true)
+                    }else{
+                      setSignInModal(true)
+                    }
+                    }}>
                     Show Whatsapp number
                   </span>
                 )}
@@ -89,7 +123,14 @@ const ContactSellerModal = (props:any) => {
               </Col>
               {showWhatsapp && (
                 <Col md="1" lg="2" className="p-0 text-center">
-                  <Button className={`px-3 ${styles.waBtn}`}>Call</Button>
+                  <Button  onClick={()=>{ 
+                    
+                    if(user){
+                      window.open(`https://wa.me/${shopDetails?.owner_whatsapp_number.replace("+92",0).replaceAll("-","")}`)
+                    }else{
+                      setSignInModal(true)
+                    }
+                    }}className={`px-3 ${styles.waBtn}`}>Call</Button>
                 </Col>
               )}
             </div>
@@ -119,7 +160,7 @@ const ContactSellerModal = (props:any) => {
             </Row>
             {emailForm === true && (
               <div className={`rounded-bottom ${styles.emailForm}`}>
-                <SendEmailForm />
+                <SendEmailForm shopData={shopDetails} />
               </div>
             )}
           </div>
@@ -148,6 +189,8 @@ const ContactSellerModal = (props:any) => {
           </div>
         </Modal.Body>
       </Modal>
+      <SignInModal show={signInModal} onHide={() => setSignInModal(false)} />
+
       <SendEmail show={emailModal} onHide={() => setEmailModal(false)} />
     </>
   );

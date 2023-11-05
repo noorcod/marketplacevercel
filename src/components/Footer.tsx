@@ -4,9 +4,12 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import styles from "./../styles/Footer.module.css";
 import { facebook, twitter, instagram, youtube } from "../../public/images";
 import { useRouter } from "next/navigation";
+import { useQuery,useQueryClient } from "@tanstack/react-query";
 
 const Footer = () => {
   const router = useRouter();
+  const queryClient = useQueryClient();
+  const data =queryClient.getQueryData(["viewList"])
   return (
     <footer className="main ">
       <Row className={`${styles.footerRow}`}>
@@ -16,21 +19,19 @@ const Footer = () => {
         <Col xs="12" sm="4" md="4" lg="12" className="px-0 pt-lg-0 pt-4">
           <Row className="align-items-center">
             <Col xs="12" sm="12" md="12" lg="2">
-              <h6 className="pb-lg-0 pb-4 mb-lg-0 mb-1">*Seller point</h6>
+              <h6 className="pb-lg-0 pb-4 mb-lg-0 mb-1">Seller Point</h6>
             </Col>
             <Col xs="12" sm="12" md="12" lg="7">
               <p
                 className={`fst-italic fs-15 mb-4 mb-lg-0 ${styles.footerText}`}
               >
-                {`Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s,`}
+                {`If you wish to join TechBazaar as a seller, then click here to begin your seller journey.`}
               </p>
             </Col>
             <Col xs="12" sm="12" md="12" lg="3" className="text-lg-end">
               <Button
                 onClick={() => {
-                  router.push("/becomeSeller");
+                  router.push("/become-seller");
                 }}
                 className={`${styles.sellerBtn} rounded-2`}
                 variant="outline-primary"

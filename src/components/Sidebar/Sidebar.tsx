@@ -3,7 +3,7 @@ import {
   faUserPen,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { profile } from "../../../public/images";
 import styles from "../../styles/Sidebar.module.css";
 import Image from "next/image";
@@ -11,6 +11,10 @@ import { Accordion, Button, Dropdown } from "react-bootstrap";
 const Sidebar = ({ isSandwichOpen, setisSandwichOpen }:any) => {
   // const wrapperRef = useRef(null);
   // useOutsideAlerter(wrapperRef, setIsSandwichOpen);
+  const [domLoaded, setDomLoaded] = useState(false);
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
   return (
     <div className="pos-f-t">
       <div

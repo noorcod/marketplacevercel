@@ -16,8 +16,8 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import LoadingCard from "../../components/LoadingCard";
 import ContactSellerModal from "../../components/ContactSellerModal";
-import ReserveDetails from "../../components/ReserveDetails";
-const RelatedProducts = () => {
+const RelatedProducts = ({relatedProducts}:any) => {
+
   const [sliderRef, setSliderRef] = useState<any>(null);
   const settings = {
     className: "center",
@@ -25,7 +25,7 @@ const RelatedProducts = () => {
     // centerMode: true,
     arrows: false,
     centerPadding: "10px",
-    slidesToShow: 4,
+    slidesToShow: relatedProducts?.length > 3 ? 4 : relatedProducts?.length,
     swipeToSlide: true,
     variableWidth: true,
     dots: false,
@@ -33,7 +33,7 @@ const RelatedProducts = () => {
       {
         breakpoint: 1824,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: relatedProducts?.length > 3 ? 3 : relatedProducts?.length,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
@@ -60,7 +60,7 @@ const RelatedProducts = () => {
           infinite: true,
 
           // centerMode: true,
-          slidesToShow: 3,
+          slidesToShow: relatedProducts?.length > 3 ? 3 : relatedProducts?.length,
           slidesToScroll: 1,
           initialSlide: 2,
           dots: false,
@@ -69,7 +69,7 @@ const RelatedProducts = () => {
       {
         breakpoint: 868,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: relatedProducts?.length > 2 ? 2 : relatedProducts?.length,
           slidesToScroll: 1,
           dots: false,
         },
@@ -86,90 +86,12 @@ const RelatedProducts = () => {
       },
     ],
     afterChange: function (index:any) {
-      console.log(
+      (
         `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
       );
     },
   };
-    const data=[
-    {
-        "id": 894,
-        title: "Samsung tester test 2GB 120GB SSD 40GB HDD 1st Gen Exynos 2100 10.1 Inches ",
-        "quantity": 4,
-        "sale_price": 450,
-        "created_at": "2023-04-25T17:15:39.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/nNb197LTK1rt7F6v1682424938104.jpg"
-    },
-    {
-        "id": 895,
-        title: "Apple macbook 4GB 128GB SSD 60GB HDD 2nd Gen Snapdragon 888 11.6 Inches ",
-        "quantity": 7,
-        "sale_price": 950,
-        "created_at": "2023-04-25T17:26:01.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/YvhD4l9bycVD41bT1682425559633.jpg"
-    },
-    {
-        "id": 898,
-        title: "Realme test 2GB 120GB SSD 40GB HDD 1st Gen Exynos 2100 10.1 Inches",
-         "quantity": 65,
-        "sale_price": 600,
-        "created_at": "2023-04-26T09:20:18.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/tlC40RKerSmFApbi1682482817383.jfif"
-    },
-    {
-        "id": 900,
-        title: "Samsung test 2GB 120GB SSD 2nd Gen Snapdragon 888 11.6 Inches ",
-        "quantity": 7,
-        "sale_price": 73,
-        "created_at": "2023-04-26T09:31:51.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/H5YHRWJ8eULo6z0m1682483510793.jfif"
-    },
-    {
-        "id": 913,
-        title: "Apple . 8GB 120GB SSD 60GB HDD 3rd Gen Snapdragon 888 11.6 Inches ",
-        "quantity": 5,
-        sale_price: 6600,
-        "created_at": "2023-04-27T10:31:21.000Z",
-        "updated_at": "2023-04-27T10:46:00.000Z",
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/IFSh12Wn4RW4THLb1682573480179.jfif"
-    },
-    {
-        "id": 2372,
-        title: "Apple 56 2GB 64GB SSD 160GB HDD 12th Gen A12 Bionic 10.1 Inches ",
-        "quantity": 20,
-        "sale_price": 22,
-        "created_at": "2023-06-08T18:04:24.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
-    },
-    {
-        "id": 2373,
-        title: "Acer test 64GB SSD 10th Gen A11 Bionic 7 Inches ",
-        "quantity": 2,
-        "sale_price": 900,
-        "created_at": "2023-06-09T11:47:03.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
-    }
-]
+  
   return (
     <div className={styles.related_div}>
       <div className="main">
@@ -215,37 +137,16 @@ const RelatedProducts = () => {
             </div>
           </div>
         </div>
-        <div>
+    {/* background-color: #EDF2FA;; */}
+        <div style={{background:"#EDF2FA",paddingRight:"20px",paddingLeft:"20px",paddingBottom:"20px"}}>
           <Slider ref={setSliderRef} {...settings}>
-            {data.map((item,index)=>(<div key={index} >
-              <RelatedProductCard  price= {item.sale_price}image={item.img0} title={item.title}  />
+            {relatedProducts?.map((item:any,)=>(
+            <div  >
+              <RelatedProductCard id={item.listing_id} item={item} discount={item.online_discount} discountUnit={item.online_discount_unit}   price= {item.online_price}image={item.item.itemImages.img0} title={item.listing_title}  />
             </div>))}
-            {/* <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div> */}
+           
           </Slider>
         </div>
-        {/* <div className="text-center mt-5 d-lg-none">
-          <a className={` text-center mb-2   ${styles.re_link}`}>
-            {" "}
-            All products{"> "}
-          </a>
-        </div> */}
       </div>
     </div>
   );
@@ -259,6 +160,9 @@ interface productProp {
   image:any
   title:string,
   price:number
+  discount:number,
+  discountUnit:string,
+  id:number
 }
 
 interface heightType{
@@ -267,10 +171,13 @@ interface heightType{
     duration: number;
 }
 }
-const RelatedProductCard:React.FC<productProp> = ({ recomended,price, loading,image,title }) => {
+const RelatedProductCard:React.FC<productProp> = ({ recomended,price,item, loading,image,title,discount,discountUnit,id }) => {
   const [reserveModal, setReserveModal] = useState(false);
   const [contactModal, setContactModal] = useState(false);
   const router = useRouter();
+  const shopDetails = item?.item?.shopTable;
+  const locations = item?.item?.location;
+  const city = item?.item?.location?.city?.city_name;
   const handleReserveModal = () => {
     setReserveModal(true);
   };
@@ -278,6 +185,15 @@ const RelatedProductCard:React.FC<productProp> = ({ recomended,price, loading,im
   const handleContactModal = () => {
     setContactModal(true);
   };
+
+  const calculatePrice=(price:any,discount:any,discountUnit:any)=>{
+    if(discountUnit==="percentage"){
+      return price-(price*(discount/100))
+    }
+    else if(discountUnit==="fixed"){
+      return price-discount
+    }
+    }
   return (
     <>
       <Col className="mt-4" lg="4" md="4" sm="6" xs="6">
@@ -294,7 +210,9 @@ const RelatedProductCard:React.FC<productProp> = ({ recomended,price, loading,im
             // onClick={() => router.push("/productDetails/Samsung")}
           >
             <motion.img
-            onClick={() => router.push("/productDetails/Samsung")}
+            onClick={() => router.push(
+                `/product/${title.replace(/\s|\//g, "-")}-${id}`
+              )}
 
             style={{padding:"10px",objectFit:"scale-down"}}
               initial={{ opacity: 0 }}
@@ -313,15 +231,19 @@ const RelatedProductCard:React.FC<productProp> = ({ recomended,price, loading,im
             />
             <Card.Body>
               <Card.Title style={{height:"100px"}} className="mb-0"
-               onClick={() => router.push("/productDetails/Samsung")}   >
-                <p className="fs-18 fw-700 mb-0">{title}</p>
+               onClick={() => router.push(
+                `/product/${title.replace(/\s|\//g, "-")}-${id}`
+              )}   >
+                <p className="fs-18 fw-700 mb-0">{title.replace(/\s|\//g, " ")}</p>
               </Card.Title>
               <div className="mb-4"
-               onClick={() => router.push("/productDetails/Samsung")} >
-                <p className="mb-0">Condition :Used</p>
+               onClick={() => router.push(
+                `/product/${title.replace(/\s|\//g, "-")}-${id}`
+              )} >
+                <p className="mb-0">Condition :{item?.item?.condition_item}</p>
                 <strong className="d-flex align-items-baseline ">
                   {" "}
-                  Rs. {price.toLocaleString("en-IN")} <p className={`ms-1 discount`}>Rs. 200</p>
+                  Rs. {calculatePrice(price,discount,discountUnit)?.toLocaleString("en-IN")} {discount > 0 && <p className={`ms-1 discount`}>Rs. {price}</p>}
                 </strong>
               </div>
               <div className="d-flex align-items-baseline ">
@@ -332,7 +254,7 @@ const RelatedProductCard:React.FC<productProp> = ({ recomended,price, loading,im
                   height="12"
                   width="10"
                 />
-                <p>Lahore</p>
+                <p>{city}</p>
               </div>
               <Button
                 className="w-100 mb-2"
@@ -341,22 +263,15 @@ const RelatedProductCard:React.FC<productProp> = ({ recomended,price, loading,im
               >
                 Contact seller
               </Button>
-              <Button
-                className="w-100"
-                variant="outline-secondary"
-                onClick={() => handleReserveModal()}
-              >
-                Reserve
-              </Button>
+
             </Card.Body>
           </Card>
         )}
       </Col>
-      <ReserveDetails
-        show={reserveModal}
-        onHide={() => setReserveModal(false)}
-      />
       <ContactSellerModal
+         shopDetails={shopDetails}
+         locations={locations}
+         city={city}
         show={contactModal}
         onHide={() => setContactModal(false)}
       />

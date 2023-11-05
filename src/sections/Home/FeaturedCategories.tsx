@@ -1,4 +1,6 @@
 // import { ProductCard } from "../../components/ProductCard";
+'use client'
+
 import Image from "next/image";
 import React, { useState } from "react";
 import Slider from "react-slick";
@@ -70,7 +72,7 @@ const FeaturedCategories = () => {
       },
     ],
     afterChange: function (index:any) {
-      console.log(
+      (
         `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
       );
     },
@@ -85,7 +87,7 @@ const FeaturedCategories = () => {
         "updated_at": null,
         "label": "Laptop",
         "location_id": 334,
-        img0: "	https://cdn.techbazaar.pk/images/inventoryImages/Eqdohl0Gy5LVlRqH1674299678115.png"
+        img0:   `	${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/inventoryImages/Eqdohl0Gy5LVlRqH1674299678115.png`
     },
     {
         "id": 895,
@@ -96,7 +98,7 @@ const FeaturedCategories = () => {
         "updated_at": null,
         "label": "Laptop",
         "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
+        img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/dummyImages/laptops.jpg`
     },
     {
         "id": 898,
@@ -107,7 +109,7 @@ const FeaturedCategories = () => {
         "updated_at": null,
         "label": "Laptop",
         "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/tlC40RKerSmFApbi1682482817383.jfif"
+        img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/inventoryImages/tlC40RKerSmFApbi1682482817383.jfif`
     },
     {
         "id": 900,
@@ -118,7 +120,7 @@ const FeaturedCategories = () => {
         "updated_at": null,
         "label": "Laptop",
         "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/H5YHRWJ8eULo6z0m1682483510793.jfif"
+        img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/inventoryImages/H5YHRWJ8eULo6z0m1682483510793.jfif`
     },
     {
         "id": 913,
@@ -129,7 +131,7 @@ const FeaturedCategories = () => {
         "updated_at": "2023-04-27T10:46:00.000Z",
         "label": "Laptop",
         "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/IFSh12Wn4RW4THLb1682573480179.jfif"
+        img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/inventoryImages/IFSh12Wn4RW4THLb1682573480179.jfif`
     },
     {
         "id": 2372,
@@ -140,7 +142,7 @@ const FeaturedCategories = () => {
         "updated_at": null,
         "label": "Laptop",
         "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
+        img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/dummyImages/laptops.jpg`
     },
     {
         "id": 2373,
@@ -151,7 +153,7 @@ const FeaturedCategories = () => {
         "updated_at": null,
         "label": "Laptop",
         "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
+        img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/dummyImages/laptops.jpg`
     }
 ]
   return (

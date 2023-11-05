@@ -1,3 +1,5 @@
+'use client'
+
 import { Tab, Tabs } from "react-bootstrap";
 import styles from "../../styles/Brands.module.css";
 import {

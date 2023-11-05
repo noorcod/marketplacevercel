@@ -11,6 +11,11 @@
     color: var(--text-color);
 }
 
+.blur{
+    filter:blur(2px);
+    pointer-events: none;
+}
+
 .originalPrice {
     font-weight: 400;
     font-size: 20px;
@@ -137,6 +142,7 @@
     border-radius: 50%;
     overflow: hidden;
     padding: 3px;
+    object-fit: contain;
 }
 
 .logo img {
@@ -152,7 +158,24 @@
     letter-spacing: 0.01em;
     color: #39414A;
 }
+ 
+.shopLogo{
+    border-radius: 50%;
+}
 
+.quadrilateral {
+    border-bottom: 29px solid #EDF2FA;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 97px;
+} 
+.quadrilateral_content{
+    padding:6px;
+    height:100%;
+    width:100%;
+    font-weight: 400;
+    font-size: 13px;
+}
 @media screen and (max-width: 992px) {
     .title {
         font-size: 24px;

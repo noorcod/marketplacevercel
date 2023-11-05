@@ -18,6 +18,9 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
     const filteredColors = updatedData.colors?.filter((color: any) => color.isChecked === true);
     const filteredConditions = updatedData.conditions?.filter((condition: any) => condition.isChecked === true);
     const filteredBrands = updatedData.brands?.filter((brand:any) => brand.isChecked === true);
+    const filteredLocations = updatedData.locations?.filter(
+      (brand: any) => brand.isChecked === true
+    );
     setFilters({
       categories: filteredCategories,
       colors: filteredColors,
@@ -30,7 +33,7 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
   // const data=await queryClient.getQueryData("todos")
   const handleCheckboxChange = (e: any) => {
     let newValues={...updatedData}
-    console.log(e.target.checked,"name", updatedData[e.target.name],newValues)
+    (e.target.checked,"name", updatedData[e.target.name],newValues)
    newValues[e.target.name][e.target.id].isChecked = e.target.checked;
     setUpdatedData(newValues)
   }
@@ -207,7 +210,7 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
                     minValue={updatedData?.priceRange?.minPrice}
                     maxValue={updatedData?.priceRange?.maxPrice}
                     onChange={({ min, max }: any) =>
-                      console.log(`min = ${min}, max = ${max}`)
+                      (`min = ${min}, max = ${max}`)
                     }
                   />
                 </div>

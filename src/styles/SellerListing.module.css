@@ -10,7 +10,7 @@
 .price_cut{
     text-decoration: line-through;
     opacity: 0.5;
-
+    text-decoration-color: red;
 }
 .Off{
     background-color:#EBF9EC ;

@@ -1,3 +1,5 @@
+'use client';
+
 import { ProductCard } from "../../components";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -11,8 +13,12 @@ import {
 } from "../../../public/icons";
 import { Button, Card, Row } from "react-bootstrap";
 import Link from "next/link";
+import { fetchRecommendedListing } from "../../app/apis/getApis";
+import { useQuery } from "@tanstack/react-query";
+import CatalogueProductCard from "../../components/CatalogueProductCard";
 const RecomendedProducts = () => {
   const [sliderRef, setSliderRef] = useState<any>(null);
+  const [data, setData] = useState([]);
   const settings = {
     className: "center",
     infinite: true,
@@ -74,142 +80,62 @@ const RecomendedProducts = () => {
       },
     ],
     afterChange: function (index: any) {
-      console.log(
-        `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-      );
+      `Slider Changed to: ${index + 1}, background: #222; color: #bada55`;
     },
   };
-  const data = [
-    {
-      "id": 2405,
-      title: "Apple iPhone 11 Pro 4/64 Matte Gold",
-      "quantity": 4,
-      sale_price: 115000,
-      "created_at": "2023-06-26T11:59:32.000Z",
-      "updated_at": null,
-      "label": "Mobile",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/inventoryImages/OULxFxWgiYZkUksU1673934822349.jpg"
+  interface obj {
+    listing_id: number;
+    listing_title: string;
+    listed_quantity: number;
+    online_price: number;
+    online_discount: number;
+    created_at: string;
+    updated_at: string | null;
+    location_id: number;
+    item: Object | any;
+  }
+  const getItems = useQuery({
+    queryKey: ["catalogue"],
+    queryFn: () => fetchRecommendedListing(),
+    refetchOnWindowFocus: false,
+    onSuccess: (data) => {
+      setData(
+        data.data.body.data.map((item: obj) => {
+          return {
+            listingId: item.listing_id,
+            title: item.listing_title,
+            quantity: item.listed_quantity,
+            sale_price: item.online_price,
+            discount: item.online_discount,
+            created_at: item.created_at,
+            updated_at: null,
+            location_id: item.location_id,
+            item: item.item,
+          };
+        })
+      );
     },
-    {
-      "id": 2404,
-      title: "Xiaomi Redmi Note 4 4/64 Dark Gray",
-      "quantity": 99,
-      sale_price: 27000,
-      "created_at": "2023-06-23T12:17:46.000Z",
-      "updated_at": null,
-      "label": "Mobile",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/inventoryImages/fArNUdxHqqubmXKg1687436030785.png"
-    },
-    {
-      "id": 2403,
-      title: "Xiaomi Redmi Note 12 Discovery 12/512 Black",
-      "quantity": 498,
-      sale_price: 230000,
-      "created_at": "2023-06-23T12:10:02.000Z",
-      "updated_at": null,
-      "label": "Mobile",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/inventoryImages/oyZXlY66tl5ufQaO1686293212812.jpg"
-    },
-    {
-      "id": 2402,
-      title: "Vivo V20 6/128 Midnight Black",
-      "quantity": 1,
-      sale_price: 27000,
-      "created_at": "2023-06-23T11:43:36.000Z",
-      "updated_at": null,
-      "label": "Mobile",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/inventoryImages/oH6RfFmpOX34QTJr1680498470869.jpg"
-    },
-    {
-      "id": 2385,
-      title: "E-Tachi B12 0/0 Black",
-      "quantity": 1,
-      sale_price: 5500,
-      "created_at": "2023-06-14T14:49:09.000Z",
-      "updated_at": null,
-      "label": "Mobile",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/inventoryImages/JgNuhRGNvc2hxoTY1678087673110.png"
-    },
-    {
-      "id": 2374,
-      title: "Honor 10i 4/64 Aurora",
-      "quantity": 1,
-      sale_price: 70000,
-      "created_at": "2023-06-13T11:24:38.000Z",
-      "updated_at": null,
-      "label": "Mobile",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/inventoryImages/GlC4mJzwk2aKqxz71680514288681.jpg"
-    },
-    {
-      "id": 2373,
-      title: "Acer test 64GB SSD 10th Gen A11 Bionic 7 Inches ",
-      "quantity": 2,
-      sale_price: 900,
-      "created_at": "2023-06-09T11:47:03.000Z",
-      "updated_at": null,
-      "label": "Laptop",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
-    },
-    {
-      "id": 2372,
-      title: "Apple 56 2GB 64GB SSD 160GB HDD 12th Gen A12 Bionic 10.1 Inches ",
-      "quantity": 20,
-      sale_price: 22,
-      "created_at": "2023-06-08T18:04:24.000Z",
-      "updated_at": null,
-      "label": "Laptop",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
-    },
-    {
-      "id": 2371,
-      title: "Apple test 17 Inches 90Hz Foldable OLED ",
-      "quantity": 49,
-      sale_price: 60,
-      "created_at": "2023-06-08T17:58:06.000Z",
-      "updated_at": null,
-      "label": "TV / Monitor",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/dummyImages/tvs.jpg"
-    },
-    {
-      "id": 2370,
-      title: "Apple iPhone 11 4/128 Green",
-      "quantity": 11,
-      sale_price: 20,
-      "created_at": "2023-06-08T16:40:34.000Z",
-      "updated_at": null,
-      "label": "Mobile",
-      "location_id": 334,
-      img0: "https://cdn.techbazaar.pk/images/dummyImages/mobiles.jpg"
-    }
-  ]
+  });
   return (
     <div className={styles.recomended_div}>
       <div className="main">
         <div className="text-center mb-4">
-          <h1 className={`pb-2 ${styles.re_h1}`}> Recommended products</h1>
+          <h1 className={`pb-2 ${styles.re_h1}`}> Catalogue</h1>
           <div className={styles.re_paragraph_div}>
             <div className={styles.para}>
-              Lorem Ipsum is simply dummy text of the p rinting lorem
-              Ipsumrinting lorem Ipsum
+              Check out these awesome products we think you'll love—they're the
+              best of the best!
+              {/* These are some best products, We recomended for you. */}
             </div>
             <div
               className={` ${styles.arrows} d-lg-flex d-none me-4 d-flex align-items-center`}
             >
               <Link
-                href="listing/All-products"
+                href="product/all"
                 className={` text-end mb-2  ${styles.re_link}`}
               >
                 {" "}
-                All products{" "}
+                See All Products{" "}
               </Link>
               <div
                 onClick={sliderRef?.slickPrev}
@@ -252,35 +178,23 @@ const RecomendedProducts = () => {
         </div>
         <div>
           <Slider ref={setSliderRef} {...settings}>
-            {
-              data.map((item, index) => (
-                <div key={index}>
-                  <ProductCard price={item.sale_price} recomended={true} image={item.img0} title={item.title} />
-                </div>
-              ))}
-            {/* <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div>
-            <div>
-              <ProductCard recomended={true} />
-            </div> */}
+            {data?.map((item: any, index: number) => (
+              <div key={index}>
+                <CatalogueProductCard
+                  listingId={item.listingId}
+                  price={item.sale_price}
+                  recomended={true}
+                  item={item?.item}
+                  title={item.title}
+                  condition={item?.item?.condition_item}
+                  discount={item?.discount}
+                />
+              </div>
+            ))}
           </Slider>
         </div>
         <div className="text-center mt-5 d-lg-none">
           <a className={` text-center mb-2   ${styles.re_link}`}>
-            {" "}
             All products{"> "}
           </a>
         </div>

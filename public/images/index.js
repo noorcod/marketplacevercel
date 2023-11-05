@@ -22,9 +22,23 @@ export { default as about } from './about.png'
 export { default as about1 } from './about1.png'
 export { default as about2 } from './about2.png'
 export { default as sellerLogo } from './selleLogo.png'
-export { default as sellerBannerImage } from './sellerBannerImage.png'
+// export { default as sellerBannerImage } from './sellerBannerImage.png'
+// export { default as sellerBannerImage } from './seller.jpg'
 export { default as specImg } from './specImg.png'
 export { default as TechBazaarImage } from './TechBazaar.png'
 export { default as MobileImage } from './mobileImage.png'
+export { default as banner1 } from './1.jpg'
+export { default as banner2 } from './2.jpg'
+export { default as banner3 } from './3.jpg'
+export { default as banner4 } from './4.jpg'
+export { default as banner5 } from './5.jpg'
+export { default as banner6 } from './6.jpg'
+export { default as banner7 } from './7.jpg'
+export { default as banner8 } from './8.jpg'
+export { default as banner9 } from './9.jpg'
+export { default as storeLogo } from './storelogo.jpg'
+
+
+
 
 

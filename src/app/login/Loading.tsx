@@ -1,6 +1,6 @@
 
 import nProgress from 'nprogress'
-import Loader from '../../components/Loader'
+import ScreenLoader from '../../components/ScreenLoader'
 // import React ,{useEffect}from 'react'
 
 function Loading() {
@@ -13,8 +13,7 @@ function Loading() {
 // }, [])
 
   return (
-    <div>
-  <Loader/>
+    <div style={{ width: '100%', height: '100vh' }} className='justify-content-center d-flex align-items-center'>       <ScreenLoader/>
     </div>
   )
 }

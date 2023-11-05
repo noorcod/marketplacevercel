@@ -1,3 +1,5 @@
+'use client'
+
 import { Col, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import styles from '../../styles/TopSeller.module.css';
 import Slider from "react-slick";

@@ -14,7 +14,7 @@ const SpecDetails = () => {
     useNavigationEvent()
 
     // router?.events?.on('routeChangeStart', (url) => {
-    //     console.log(`Loading: ${url}`)
+    //     (`Loading: ${url}`)
     //     nProgress.start()
     // })
     // router?.events?.on('routeChangeComplete', () => nProgress.done())

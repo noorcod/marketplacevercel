@@ -9,7 +9,7 @@ const Breadcrumbs = () => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
   const pathename=usePathname();
-  console.log(pathename)
+  (pathename)
   useEffect(() => {
     if (router) {
       const linkPath = pathename?.split("/");
@@ -21,7 +21,6 @@ const Breadcrumbs = () => {
           href: "/" + linkPath?.slice(0, i + 1).join("/"),
         };
       });
-
       setBreadcrumbs(pathArray);
     }
   }, [router]);
@@ -33,13 +32,14 @@ const Breadcrumbs = () => {
         </Breadcrumb.Item>
         {breadcrumbs?.map((data:any, index:number) => (
           <Breadcrumb.Item
+          style={{pointerEvents:"none"}}
             key={index}
             className={`breadcrumb-link fs-14 ${
               index === breadcrumbs.length - 1 ? "" : "link"
             }`}
             href={data.href}
           >
-            {capitalizeFirstLetter(data.breadcrumb)}
+            {capitalizeFirstLetter(data.breadcrumb).replace(/-/g, " ")}
           </Breadcrumb.Item>
         ))}
       </Breadcrumb>

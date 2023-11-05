@@ -23,7 +23,7 @@ const SellerBanner = ({ shopData, mainLocationData, isLaoding }: any) => {
     setContactModal(true);
   };
   // if (mainLocationData?.shop_working_days)
-    // console.log("locations", JSON.parse(mainLocationData?.shop_working_days));
+    // ("locations", JSON.parse(mainLocationData?.shop_working_days));
   return (
     <div>
       <div className={`${styles.breadcrumbs}`}>
@@ -77,6 +77,9 @@ const SellerBanner = ({ shopData, mainLocationData, isLaoding }: any) => {
       </div>
       <div className={`${styles.second_div}  `}></div>
       <ContactSellerModal
+      shopDetails={shopData}
+      locations={mainLocationData}
+      city={mainLocationData?.city?.city_name}
         show={contactModal}
         onHide={() => setContactModal(false)}
       />

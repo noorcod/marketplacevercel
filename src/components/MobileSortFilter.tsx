@@ -1,16 +1,18 @@
 import Image from "next/image";
 import React from "react";
-import { Accordion, Button, Form } from "react-bootstrap";
+import { Accordion, Button, Form, Offcanvas } from "react-bootstrap";
 import { search, searchLight } from "../../public/icons";
 
 import styles from "../styles/MobileSortFilter.module.css";
-const MobileSortFilter = ({ setMobileFilter }:any) => {
+const MobileSortFilter = ({ setMobileFilter,mobileFilter, orderBy, setOrderBy }:any) => {
   return (
-    <div className={`${styles.filter_div} pt-3 `}>
-      <div className="d-flex  mx-4 justify-content-between align-items-centrer">
-        <h2 className={`${styles.h2}`}>Sort by:</h2>
-        <span onClick={() => setMobileFilter("")}>Close X</span>
-      </div>
+    <Offcanvas  backdrop={true} scroll={true} show={mobileFilter} onHide={()=>setMobileFilter(false)}>
+      <Offcanvas.Header closeButton>
+
+<h2 className={`${styles.h2}`}>Sort by:</h2>
+
+</Offcanvas.Header>
+<Offcanvas.Body   style={{height: '100vh'}} >
       <div className="search_filter p-4 pb-3 ">
         <div className="bg-white p-2">
           {" "}
@@ -19,6 +21,12 @@ const MobileSortFilter = ({ setMobileFilter }:any) => {
             label="Price - low to high"
             name="group2"
             id="radio1"
+            onChange={()=>{
+              setOrderBy({
+                price: "asc",
+              });
+            }}
+          
           />
         </div>
         <div className={`${styles.radio_div} bg-white p-2 `}>
@@ -27,22 +35,30 @@ const MobileSortFilter = ({ setMobileFilter }:any) => {
             label="Price - high to low"
             name="group2"
             id="radio3"
+            onChange={()=>{
+              setOrderBy({
+                price: "desc",
+              });
+            }}
           />
         </div>
-        <div className={`${styles.radio_div} bg-white p-2 `}>
+        {/* <div className={`${styles.radio_div} bg-white p-2 `}>
           <Form.Check
             type="radio"
             label="Sort by Date"
             name="group2"
             id="radio2"
+            onChange={()=>{
+              
+            }}
           />
-        </div>
-        <div className={`${styles.radio_div} bg-white p-2 `}>
+        </div> */}
+        {/* <div className={`${styles.radio_div} bg-white p-2 `}>
           <Form.Check type="radio" label="Distance" name="group2" id="radio4" />
-        </div>
+        </div> */}
       </div>
 
-      <div
+      {/* <div
         className={`${styles.bottom_div} justify-content-center align-items-center d-flex`}
       >
         <Button
@@ -52,8 +68,9 @@ const MobileSortFilter = ({ setMobileFilter }:any) => {
           {" "}
           Apply{" "}
         </Button>
-      </div>
-    </div>
+      </div> */}
+      </Offcanvas.Body>
+    </Offcanvas>
   );
 };
 
