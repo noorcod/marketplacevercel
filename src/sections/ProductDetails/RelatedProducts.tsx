@@ -141,7 +141,7 @@ const RelatedProducts = ({relatedProducts}:any) => {
         <div style={{background:"#EDF2FA",paddingRight:"20px",paddingLeft:"20px",paddingBottom:"20px"}}>
           <Slider ref={setSliderRef} {...settings}>
             {relatedProducts?.map((item:any,)=>(
-            <div  >
+            <div key={item.listing_id}  >
               <RelatedProductCard id={item.listing_id} item={item} discount={item.online_discount} discountUnit={item.online_discount_unit}   price= {item.online_price}image={item.item.itemImages.img0} title={item.listing_title}  />
             </div>))}
            

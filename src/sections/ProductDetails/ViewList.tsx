@@ -141,7 +141,7 @@ const ViewList = ({relatedProducts,paramId}:any) => {
         <div>
           <Slider ref={setSliderRef} {...settings}>
             {relatedProducts?.map((item:any,index:number)=>(
-            <div  >
+            <div key={index} >
               {Number(item.listing_id) !== Number(paramId) &&   
               <RelatedProductCard item={item} id={item.listing_id} discount={item.online_discount} discountUnit={item.online_discount_unit}   price= {item.online_price}image={item.item.itemImages[0]} title={item.listing_title}  />
               }</div>))}

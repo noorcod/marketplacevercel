@@ -399,7 +399,7 @@ const MobileSidebarFilter = ({
                       minValue={updatedData?.priceRange?.minPrice}
                       maxValue={updatedData?.priceRange?.maxPrice}
                       onChange={({ min, max }: any) =>
-                        // console.log(`min = ${min}, max = ${max}`)
+                        console.log(`min = ${min}, max = ${max}`)
                       }
                     />
                   </div>
