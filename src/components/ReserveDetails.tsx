@@ -8,8 +8,8 @@ import { useQueryClient } from '@tanstack/react-query'
 import { fetchShopByUser } from '../app/apis/getApis'; // Import the function for fetching user data
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content'
-import WithModalAuth from "./auth/WithModalAuth";
 import { useUserStore } from "../store/User";
+import WithModalAuth from "./auth/withModalAuth";
 const ReserveDetails = (props:any) => {
   const [validated, setValidated] = useState(false)
 
