@@ -8,7 +8,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { fetchShopByUser } from '../app/apis/getApis'; // Import the function for fetching user data
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content'
-import WithModalAuth from "./auth/withModalAuth";
+import ComponentWithModalAuth from "./auth/withModalAuth";
 import { useUserStore } from "../store/User";
 const ReserveDetails = (props:any) => {
   const [validated, setValidated] = useState(false)
@@ -122,4 +122,4 @@ const handleSubmit = async (e: any) => {
     );
 }
 
-export default WithModalAuth(ReserveDetails);
+export default ComponentWithModalAuth(ReserveDetails);
