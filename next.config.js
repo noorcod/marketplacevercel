@@ -6,7 +6,7 @@ const nextConfig = {
     config.externals.push({
       'utf-8-validate': 'commonjs utf-8-validate',
       'bufferutil': 'commonjs bufferutil',
-      'canvas':{}
+      sharp: 'commonjs sharp', canvas: 'commonjs canvas' 
     })
     return config
   },
