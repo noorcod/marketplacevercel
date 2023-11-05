@@ -9,6 +9,7 @@ const nextConfig = {
     })
     return config
   },
+  canvas:{},
   development: {
     reactStrictMode: true,
   images: {
