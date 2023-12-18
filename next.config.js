@@ -4,7 +4,7 @@ const env = process.env.ENV || "development";
 const nextConfig = {
   development: {
     reactStrictMode: true,
-    distDir: "build",
+    
     eslint: {
       ignoreDuringBuilds: true,
     },
