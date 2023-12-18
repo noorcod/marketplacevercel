@@ -1,0 +1,13 @@
+@media (min-width: 1001px) {
+  .viewport-width {
+    width: 100% ;
+    max-width: 50% ;
+  }
+}
+
+@media (max-width: 1000px) {
+  .viewport-width {
+    width: 100% ;
+    max-width: 100% ;
+  }
+}

@@ -6,10 +6,10 @@ export function useNavigationEvent() {
    const pathname = usePathname()
   const searchParams:string|undefined|null|any = useSearchParams()
    useEffect(() => {
-    nProgress.start()
+   //  nProgress.start()
       const url = pathname + searchParams.toString()
-      console.log("-------",url)
-      nProgress.done()
+      console.log("-------runs everytime",url)
+      // nProgress.done()
       // sendSomewhere(url)
    }, [pathname, searchParams])
 }

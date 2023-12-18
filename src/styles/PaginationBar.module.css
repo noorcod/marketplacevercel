@@ -9,10 +9,15 @@
     border-radius: 0 !important;
     border: 0 !important;
     padding-bottom: 14px;
-
     background: transparent;
     color: rgba(104, 110, 118, 1) !important;
     font-size: 40px !important;
+}
+.paginationItems :global(.page-item:first-child.disabled .page-link) {
+    opacity: 0.3;
+}
+.paginationItems :global(.page-item:last-child.disabled .page-link) {
+    opacity: 0.3;
 }
 .paginationItems :global(.page-item:first-child .page-link:hover) {
     color: rgba(217, 87, 249, 1) !important;

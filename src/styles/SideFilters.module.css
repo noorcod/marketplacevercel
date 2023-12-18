@@ -17,6 +17,7 @@ background-color:#EDF2FA !important ;
     font-size: 13px !important;
     padding-top: 14px;
     padding-bottom: 9px;
+    text-transform: uppercase;
   }
   .nav_header {
     border-radius: 0 !important;

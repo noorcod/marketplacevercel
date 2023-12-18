@@ -1,19 +1,22 @@
-import { Metadata } from 'next'
-import React from 'react'
-// import { useQuery } from "@tanstack/react-query";
-import { marketplaceUrl } from '../../../utility/env';
-import Seller from './shop'
-// import { useParams } from 'next/navigation';
-// export const metadata: Metadata = {
-//     title: 'TechBazaar',
-//     description: 'Buy & Sell Tech related products with ease.',
-//   }
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
+import React from "react";
+import ScreenLoader from "../../../components/ScreenLoader";
+export const metadata: Metadata = {
+  title: "TechBazaar",
+  description: "Buy & Sell Tech related products with ease.",
+};
+
+const Seller = dynamic(() => import("./shop"), {
+  loading: () => (
+    <div style={{ width: "100%", height: "100vh" }} className="justify-content-center d-flex align-items-center">
+      <ScreenLoader />
+    </div>
+  ),
+});
 
 async function shop() {
-    // const check=await fetchShopByUser("as")
-  return (
-    <div><Seller/></div>
-  )
+  return <Seller />;
 }
 
-export default shop
+export default shop;

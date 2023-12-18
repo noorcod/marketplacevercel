@@ -1,3 +1,5 @@
+'use client'
+
 import { Tab, Tabs } from "react-bootstrap";
 import styles from "../../styles/Brands.module.css";
 import {
@@ -59,10 +61,8 @@ const Brands = () => {
   return (
     <div className={`${styles.wrapper}`}>
       <main className="main">
-        <h2 className="text-center">Top brands</h2>
-        <p className="text-center">
-          Lorem Ipsum is simply dummy text of the printing
-        </p>
+        <h2 className="text-center">Top Brands</h2>
+        
         <div className={`my-5 ${styles.brandTabs}`}>
           <Tabs
             onClick={() => {

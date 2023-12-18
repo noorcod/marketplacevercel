@@ -24,7 +24,8 @@ function Filters() {
                     width={18}
                     height={18}
                   />
-                  <Form.Control
+                  <input
+                    type="search"
                     className="ps-5  rounded-0 rounded-start  py-2 w-100"
                     placeholder="Search by name"
                   />

@@ -1,0 +1,57 @@
+.custom_card {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  border: 1px solid #ccc;
+  background-color: #f8f7f4;
+}
+
+.img-container > img {
+  max-height: 128px;
+  object-fit: contain;
+}
+
+.custom_card_title {
+  font-weight: 500;
+  font-size: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.wishlist_card_title {
+  font-weight: 500;
+  font-size: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin-right: 37px !important;
+}
+
+.wishlist_card_body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 5px;
+  width: 100%;
+}
+.linktag:hover {
+  color: black;
+}
+
+/* .bg-lavender {
+      background-color: #e6e6fa;
+      color: black;
+  } */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

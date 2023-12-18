@@ -1,4 +1,6 @@
 // import { ProductCard } from "../../components/ProductCard";
+"use client";
+
 import Image from "next/image";
 import React, { useState } from "react";
 import Slider from "react-slick";
@@ -9,11 +11,23 @@ import {
   SliderLeft,
   SliderRight,
 } from "../../../public/icons";
-import { Button, Card, Form } from "react-bootstrap";
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import ScrollDown from "../../components/ScrollDown";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import {
+  desktopImage,
+  headPhoneImage,
+  laptop,
+  MobilePic,
+  tabletImage,
+  TV,
+} from "../../../public/images";
+import { motion } from "framer-motion";
+
 const FeaturedCategories = () => {
   const [sliderRef, setSliderRef] = useState<any>(null);
+  const router = useRouter();
   const settings = {
     className: "center",
     infinite: true,
@@ -69,113 +83,236 @@ const FeaturedCategories = () => {
         },
       },
     ],
-    afterChange: function (index:any) {
-      console.log(
-        `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-      );
+    afterChange: function (index: any) {
+      `Slider Changed to: ${index + 1}, background: #222; color: #bada55`;
     },
   };
-  const data=[
+  const data = [
     {
-        "id": 894,
-        title: "Mobiles ",
-        "quantity": 4,
-        "sale_price": 450,
-        "created_at": "2023-04-25T17:15:39.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "	https://cdn.techbazaar.pk/images/inventoryImages/Eqdohl0Gy5LVlRqH1674299678115.png"
+      id: 894,
+      title: "Mobiles ",
+      quantity: 4,
+      sale_price: 450,
+      created_at: "2023-04-25T17:15:39.000Z",
+      updated_at: null,
+      label: "Laptop",
+      location_id: 334,
+      img0: `	${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/inventoryImages/Eqdohl0Gy5LVlRqH1674299678115.png`,
     },
     {
-        "id": 895,
-        title: "Laptops ",
-        "quantity": 7,
-        "sale_price": 950,
-        "created_at": "2023-04-25T17:26:01.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
+      id: 895,
+      title: "Laptops ",
+      quantity: 7,
+      sale_price: 950,
+      created_at: "2023-04-25T17:26:01.000Z",
+      updated_at: null,
+      label: "Laptop",
+      location_id: 334,
+      img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/dummyImages/laptops.jpg`,
     },
     {
-        "id": 898,
-        title: "Tabs",
-         "quantity": 65,
-        "sale_price": 600,
-        "created_at": "2023-04-26T09:20:18.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/tlC40RKerSmFApbi1682482817383.jfif"
+      id: 898,
+      title: "Tabs",
+      quantity: 65,
+      sale_price: 600,
+      created_at: "2023-04-26T09:20:18.000Z",
+      updated_at: null,
+      label: "Laptop",
+      location_id: 334,
+      img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/inventoryImages/tlC40RKerSmFApbi1682482817383.jfif`,
     },
     {
-        "id": 900,
-        title: " Tv / Monitors ",
-        "quantity": 7,
-        "sale_price": 73,
-        "created_at": "2023-04-26T09:31:51.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/H5YHRWJ8eULo6z0m1682483510793.jfif"
+      id: 900,
+      title: " Tv / Monitors ",
+      quantity: 7,
+      sale_price: 73,
+      created_at: "2023-04-26T09:31:51.000Z",
+      updated_at: null,
+      label: "Laptop",
+      location_id: 334,
+      img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/inventoryImages/H5YHRWJ8eULo6z0m1682483510793.jfif`,
     },
     {
-        "id": 913,
-        title: "Accessories ",
-        "quantity": 5,
-        "sale_price": 6600,
-        "created_at": "2023-04-27T10:31:21.000Z",
-        "updated_at": "2023-04-27T10:46:00.000Z",
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/inventoryImages/IFSh12Wn4RW4THLb1682573480179.jfif"
+      id: 913,
+      title: "Accessories ",
+      quantity: 5,
+      sale_price: 6600,
+      created_at: "2023-04-27T10:31:21.000Z",
+      updated_at: "2023-04-27T10:46:00.000Z",
+      label: "Laptop",
+      location_id: 334,
+      img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/inventoryImages/IFSh12Wn4RW4THLb1682573480179.jfif`,
     },
     {
-        "id": 2372,
-        title: "Apple 56 2GB 64GB SSD 160GB HDD 12th Gen A12 Bionic 10.1 Inches ",
-        "quantity": 20,
-        "sale_price": 22,
-        "created_at": "2023-06-08T18:04:24.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
+      id: 2372,
+      title: "Apple 56 2GB 64GB SSD 160GB HDD 12th Gen A12 Bionic 10.1 Inches ",
+      quantity: 20,
+      sale_price: 22,
+      created_at: "2023-06-08T18:04:24.000Z",
+      updated_at: null,
+      label: "Laptop",
+      location_id: 334,
+      img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/dummyImages/laptops.jpg`,
     },
     {
-        "id": 2373,
-        title: "Acer test 64GB SSD 10th Gen A11 Bionic 7 Inches ",
-        "quantity": 2,
-        "sale_price": 900,
-        "created_at": "2023-06-09T11:47:03.000Z",
-        "updated_at": null,
-        "label": "Laptop",
-        "location_id": 334,
-        img0: "https://cdn.techbazaar.pk/images/dummyImages/laptops.jpg"
-    }
-]
+      id: 2373,
+      title: "Acer test 64GB SSD 10th Gen A11 Bionic 7 Inches ",
+      quantity: 2,
+      sale_price: 900,
+      created_at: "2023-06-09T11:47:03.000Z",
+      updated_at: null,
+      label: "Laptop",
+      location_id: 334,
+      img0: `${process.env.NEXT_PUBLIC_MARKETPLACE_CDN}/images/dummyImages/laptops.jpg`,
+    },
+  ];
   return (
     <div className={styles.feature_div}>
       <div className="main">
-        <div className="text-center mb-5">
-          <h1 className={`pb-2 ${styles.re_h1}`}> Feature Categories</h1>
+        <div className=" pb-5 mb-5">
+          {/* <h1 className={`pb-2 ${styles.re_h1} `}> Categories</h1> */}
           <div className={styles.re_paragraph_div}>
-            <div className="d-lg-inline ms-3 d-md-none d-none">
-              <Form.Select
-                className="ps-3"
-                aria-label="Default  select example"
+            <Row className="d-flex gap-2 mt-3 justify-content-center w-100 ">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className={`d-grid mb-2 justify-content-center  ${styles.gridItems}`}
               >
-                <option>New</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </Form.Select>
-            </div>
-            <div className={styles.para}>
-              Lorem Ipsum is simply dummy text of the p rinting lorem
-              Ipsumrinting lorem Ipsum
-            </div>
-            <div
+                <Col
+                as={Link}
+                  onClick={() => {
+                    router.push("/products?params=category_id=2");
+                  }}
+                  href="/products?params=category_id=2"
+                  lg={2}
+                  className={`d-grid mb-2 w-100  `}
+                >
+                  <Image
+                    alt={MobilePic}
+                    height={100}
+                    width={100}
+                    src={MobilePic}
+                  />
+                  <span className="fw-bold  text-center">Mobile</span>
+                </Col>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className={`d-grid mb-2 justify-content-center  ${styles.gridItems}`}
+              >
+                <Col
+                  lg={2}
+                  as={Link}
+
+                  onClick={() => {
+                    router.push("/products?params=category_id=3");
+                  }}
+                  href="/products?params=category_id=3"
+                  className={`d-grid mb-2 `}
+                >
+                  <Image
+                    style={{ transform: "rotate(90deg)" }}
+                    alt={MobilePic}
+                    height={100}
+                    width={100}
+                    src={tabletImage}
+                  />
+                  <span className="fw-bold  text-center">Tablets</span>
+                </Col>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className={`d-grid mb-2 justify-content-center  ${styles.gridItems}`}
+              >
+                <Col
+                  whileHover={{ scale: 1.1 }}
+                  as={Link}
+
+                  lg={2}
+                  onClick={() => {
+                    router.push("/products?params=category_id=4");
+                  }}
+                  href="/products?params=category_id=4"
+                  className={`d-grid mb-2 `}
+                >
+                  <Image alt={MobilePic} height={100} width={100} src={TV} />
+                  <span className="fw-bold  text-center">TV</span>
+                </Col>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className={`d-grid mb-2 justify-content-center  ${styles.gridItems}`}
+              >
+                <Col
+                  whileHover={{ scale: 1.1 }}
+                  as={Link}
+
+                  lg={2}
+                  onClick={() => {
+                    router.push("/products?params=category_id=6");
+                  }}
+                  href="/products?params=category_id=6"
+                  className={`d-grid mb-2 `}
+                >
+                  <Image
+                    alt={MobilePic}
+                    height={100}
+                    width={100}
+                    src={headPhoneImage}
+                  />
+                  <span className="fw-bold  text-center">Accessories</span>
+                </Col>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className={`d-grid mb-2 justify-content-center  ${styles.gridItems}`}
+              >
+                <Col
+                  whileHover={{ scale: 1.1 }}
+                  as={Link}
+
+                  lg={2}
+                  onClick={() => {
+                    router.push("/products?params=category_id=1");
+                  }}
+                  href="/products?params=category_id=1"
+                  className={`d-grid mb-2`}
+                >
+                  <Image
+                    alt={MobilePic}
+                    height={100}
+                    width={100}
+                    src={laptop}
+                  />
+                  <span className="fw-bold  text-center">Laptops</span>
+                </Col>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className={`d-grid mb-2 justify-content-center  ${styles.gridItems}`}
+              >
+                <Col
+                  whileHover={{ scale: 1.1 }}
+                  as={Link}
+
+                  lg={2}
+                  onClick={() => {
+                    router.push("/products?params=category_id=5");
+                  }}
+                  href="/products?params=category_id=5"
+                  className={`d-grid mb-2 `}
+                >
+                  <Image
+                    style={{ mixBlendMode: "multiply" }}
+                    alt={MobilePic}
+                    height={100}
+                    width={100}
+                    src={desktopImage}
+                  />
+                  <span className="fw-bold  text-center">DeskTop</span>
+                </Col>
+              </motion.div>
+            </Row>
+            {/* <div
               className={` ${styles.arrows} d-lg-flex d-none d-flex align-items-center`}
             >
               <a className={` text-end mb-2  ${styles.re_link}`}>
@@ -198,9 +335,9 @@ const FeaturedCategories = () => {
                   alt="chevron-right"
                 />
               </div>
-            </div>
+            </div> */}
 
-            <div
+            {/* <div
               className={`${styles.slider_arrow} d-lg-none d-flex justify-content-between`}
             >
               <div className={`${styles.arrow_btn_div}`}>
@@ -219,56 +356,33 @@ const FeaturedCategories = () => {
                   <Image src={SliderRight} alt="slider-right" />
                 </Button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
-        <div className="">
+        {/* <div className="">
           <Slider ref={setSliderRef} {...settings}>
           {data.map((item,index)=>(  <div key={index}>
               <RecomendedCard image={item.img0} title={item.title} />
             </div>))}
-            {/* <div>
-              <RecomendedCard />
-            </div>
-            <div>
-              <RecomendedCard />
-            </div>
-            <div>
-              <RecomendedCard />
-            </div>
-            <div>
-              <RecomendedCard />
-            </div>
-            <div>
-              <RecomendedCard />
-            </div>
-            <div>
-              <RecomendedCard />
-            </div>
-            <div>
-              <RecomendedCard />
-            </div>
-            <div>
-              <RecomendedCard />
-            </div> */}
+           
           </Slider>
-        </div>
+        </div> */}
       </div>
-      <div className="text-center d-lg-none ">
+      {/* <div className="text-center d-lg-none ">
         <a className={` text-center mb-2  ${styles.re_link}`}>
           {" "}
           All categories{"> "}
         </a>
-      </div>
-      <ScrollDown className="mt-5" />
+      </div> */}
+      {/* <ScrollDown className="mt-5" /> */}
     </div>
   );
 };
 
 export default FeaturedCategories;
 
-const RecomendedCard = ({image,title}:any) => {
+const RecomendedCard = ({ image, title }: any) => {
   const router = useRouter();
   return (
     <Card
@@ -283,7 +397,8 @@ const RecomendedCard = ({image,title}:any) => {
         width={278}
         className="rounded-2 mx-3"
         alt="productimg"
-        src={image}      />
+        src={image}
+      />
       <Card.Body>
         <Card.Title className="mb-0">
           <p className="fs-18 fw-700 mb-0">{title}</p>

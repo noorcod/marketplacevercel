@@ -1,48 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Breadcrumb } from "react-bootstrap";
+import Link from "next/link";
 
 const Breadcrumbs = () => {
-  const [breadcrumbs, setBreadcrumbs] = useState<Array<any>>([]);
+  const [breadcrumbs, setBreadcrumbs] = useState<{ breadcrumb: string; href: string }[]>([{ breadcrumb: "Home", href: "/" }]);
   const router = useRouter();
-  function capitalizeFirstLetter(string:string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  function capitalizeFirstLetter(string: string) {
+    const stringArray = string.split("-");
+    const capitalizeArray = stringArray.map((word: string) => {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    });
+    return capitalizeArray.join(" ");
   }
-  const pathename=usePathname();
-  console.log(pathename)
+  const pathname = usePathname();
   useEffect(() => {
     if (router) {
-      const linkPath = pathename?.split("/");
+      const linkPath = pathname?.split("/");
       linkPath?.shift();
 
-      const pathArray:any = linkPath?.map((path, i) => {
+      const pathArray: any = linkPath?.map((path, i) => {
         return {
           breadcrumb: path,
           href: "/" + linkPath?.slice(0, i + 1).join("/"),
         };
       });
-
       setBreadcrumbs(pathArray);
     }
   }, [router]);
+
   return (
-    <div className="mt-2">
-      <Breadcrumb>
-        <Breadcrumb.Item className="link" href="/">
-          Home
-        </Breadcrumb.Item>
-        {breadcrumbs?.map((data:any, index:number) => (
-          <Breadcrumb.Item
-            key={index}
-            className={`breadcrumb-link fs-14 ${
-              index === breadcrumbs.length - 1 ? "" : "link"
-            }`}
-            href={data.href}
-          >
-            {capitalizeFirstLetter(data.breadcrumb)}
-          </Breadcrumb.Item>
+    <div className={`my-2 ps-1 ps-md-0`}>
+      <Link href="/" className="link fs-14">
+        Home
+      </Link>
+      {breadcrumbs.length > 0 &&
+        breadcrumbs?.map((data: any, index: number) => (
+          <>
+            <span className="link">{" / "}</span>
+            <Link href={data.href} key={index} className={`breadcrumb-link fs-14 ${index === breadcrumbs.length - 1 ? "" : "link"}`} style={{ cursor: index === breadcrumbs.length - 1 ? "default" : "pointer", pointerEvents: index === breadcrumbs.length - 1 ? "none" : "auto" }}>
+              {capitalizeFirstLetter(data.breadcrumb).replace(/-/g, " ")}
+            </Link>
+          </>
         ))}
-      </Breadcrumb>
     </div>
   );
 };

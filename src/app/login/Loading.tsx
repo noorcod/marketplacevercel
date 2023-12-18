@@ -1,21 +1,12 @@
-
-import nProgress from 'nprogress'
-// import React ,{useEffect}from 'react'
+import ScreenLoader from "../../components/ScreenLoader";
 
 function Loading() {
-
-// useEffect(() => {
-//  nProgress.start()
-//   return () => {
-//     nProgress.done()
-//   }
-// }, [])
-
   return (
-    <div>
-       loading....
+    <div style={{ width: "100%", height: "100vh" }} className="justify-content-center d-flex align-items-center">
+      {" "}
+      <ScreenLoader />
     </div>
-  )
+  );
 }
 
-export default Loading
+export default Loading;

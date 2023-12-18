@@ -1,5 +1,6 @@
 .thumbnailSliderWrap {
-  height: 586px;
+  height: 500px !important;
+  overflow: hidden;
 }
 
 .thumbnailSliderWrap img {
@@ -63,19 +64,18 @@
   right:33px;
 }
 
-@media screen and (min-width: 992px) {
-  .mainImage :global(.slick-slide) {
-    height: 586px;
-    max-width: 625px;
-  }
-}
 
 @media screen and (max-width: 992px) {
-  .thumbnailSliderWrap {
-    height: 100%;
+  .mainImage :global(.slick-slide) {
+    height: 586px;
+    /* max-width: 625px; */
   }
+
   .mainImage {
     height: 352px;
+  }
+  .thumbnailSliderWrap {
+    height: auto !important;
   }
 }
 
@@ -87,6 +87,7 @@
     height: 323px;
     padding-right: 0 !important;
     width: 100% !important;
+    /* opacity: 1 !important; */
   }
   .mainImage .slickSlide {
     max-width: 100%;
@@ -103,8 +104,128 @@
   }
   .mainImage .slickSlideImage {
     max-width: 100%;
-    width: 411px;
+    /* width: 411px; */
     object-fit: revert;
     height: 100%;
   }
 }
+
+
+
+
+/*SPECS PAGE SLICK*/
+
+
+.specsMainImage {
+  height: 500px;
+}
+
+
+.specsMainImage div {
+  height: 100%;
+}
+
+.specsMainImage .slickSlide {
+  max-width: 625px;
+  height: 100%;
+}
+
+.specsMainImage .slick-slide {
+  width: 100% !important;
+}
+
+.specsMainImage .slickSlideImage {
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.specsMainImage :global(.slick-arrow) {
+  height: auto;
+  color: var(--text-color);
+  background: var(--text-color);
+  width: 36px;
+  height: 46.29px;
+  text-align: center;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.specsMainImage :global(.slick-prev:before) {
+  content: "" !important;
+  line-height: 1.4 !important;
+}
+
+.specsMainImage :global(.slick-next:before) {
+  content: "" !important;
+  line-height: 1.4 !important;
+}
+
+.specsMainImage :global(.slick-prev) {
+  left:0px;
+}
+
+.specsMainImage :global(.slick-next) {
+  right:33px;
+}
+
+
+.specsThumbnailSliderWrap {
+  height: 500px !important;
+  overflow: hidden;
+}
+
+.specsThumbnailSliderWrap img {
+  border-radius: 3px;
+}
+.specsThumbnailSliderWrap :global(.slick-slide) {
+  padding-right: 0 !important;
+  object-fit: contain;
+}
+
+.specsThumbnailSliderWrap :global(.slick-current img) {
+  border: 2px solid var(--active-color);
+}
+
+
+@media screen and (max-width: 992px) {
+
+  .specsThumbnailSliderWrap {
+    height: auto !important;
+  }
+}
+
+
+@media screen and (max-width: 575px) {
+  .specsMainImage {
+    height: 300px;
+  }
+  .specsMainImage :global(.slick-slide) {
+    height: 300px;
+    padding-right: 0 !important;
+    width: 100% !important;
+    /* opacity: 1 !important; */
+  }
+  .specsMainImage .slickSlide {
+    max-width: 100%;
+    height: 100%;
+  }
+  .specsMainImage :global(.slick-next) {
+    right:0px;
+  }
+  .specsMainImage :global(.slick-dots li button:before) {
+    color: var(--text-color);
+  }
+  .specsMainImage :global(.slick-dots li.slick-active button:before) {
+    color: var(--active-color);
+  }
+  .specsMainImage .slickSlideImage {
+    max-width: 100%;
+    /* width: 411px; */
+    object-fit: revert;
+    height: 100%;
+  }
+}
+
+/*END SPECS PAGE SLICK*/

@@ -32,3 +32,11 @@
     background: #EDF2FA !important; 
     color:#100146
   }
+
+
+  .filter_btn:global(.btn):active{
+    color:#D957F9
+  }
+  .filter_btn:global(.btn):hover{
+    color:#D957F9
+  }

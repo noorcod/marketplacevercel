@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.card {
+  /* transition: ease-in-out 0.3s; */
+  font-family: "Poppins", sans-serif !important;
+  border: 1px solid #d8e4f8;
+  overflow: hidden;
+  /* border-left: 4px solid #a93bff; */
+  padding-bottom: 4px;
+}
+
+.card:hover {
+  cursor: pointer;
+  border-bottom: 4px solid #a93bff;
+  padding-bottom: 0px;
+}
+
+.fs-8 {
+  font-size: 0.8rem;
+}
+
+.fs-9 {
+  font-size: 0.7rem;
+}
+
+.shopname {
+  font-size: 0.8rem;
+  font-weight: 500;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.shopnamerow {
+  height: 2.5rem;
+}
+
+/* Select every even child of seller-container */
+.containerDiv > :nth-child(odd) .card {
+  background-color: #f8f7f4;
+}
+
+

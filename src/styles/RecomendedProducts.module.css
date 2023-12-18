@@ -17,7 +17,8 @@
 }
 .re_paragraph_div{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    width: 95%;
 }
 .para{
     order: 1;
@@ -67,7 +68,8 @@
   }
   .re_link{
     color:#5932EA;
-    text-decoration: none;
+    text-decoration: underline;
+    font-size: 1.3rem;
   }
 @media screen and (max-width: 1024px) {
     .slider_div{
@@ -86,7 +88,10 @@
 }}
 @media screen and (max-width: 500px) {
     .re_h1{
-        font-size: 24px;
+        font-size: 40px;
+    }
+    .re_link{
+        font-size: 1.1rem;
     }
     .para{
         font-size: 14px;

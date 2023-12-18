@@ -18,6 +18,9 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
     const filteredColors = updatedData.colors?.filter((color: any) => color.isChecked === true);
     const filteredConditions = updatedData.conditions?.filter((condition: any) => condition.isChecked === true);
     const filteredBrands = updatedData.brands?.filter((brand:any) => brand.isChecked === true);
+    const filteredLocations = updatedData.locations?.filter(
+      (brand: any) => brand.isChecked === true
+    );
     setFilters({
       categories: filteredCategories,
       colors: filteredColors,
@@ -30,7 +33,7 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
   // const data=await queryClient.getQueryData("todos")
   const handleCheckboxChange = (e: any) => {
     let newValues={...updatedData}
-    console.log(e.target.checked,"name", updatedData[e.target.name],newValues)
+    (e.target.checked,"name", updatedData[e.target.name],newValues)
    newValues[e.target.name][e.target.id].isChecked = e.target.checked;
     setUpdatedData(newValues)
   }
@@ -62,7 +65,8 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
               width={18}
               height={18}
             />
-            <Form.Control
+            <input
+              type="search"
               className="ps-5  rounded-0 rounded-start  py-2 w-100"
               placeholder="Search by name"
             />
@@ -76,10 +80,10 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
         <Accordion.Item eventKey="3">
             <Accordion.Header className={`${styles.nav_header}`}>
               Categories{" "}
-              <a href="#" className="ms-2 secondary-link">
+              <div className="ms-2 secondary-link">
                 {" "}
                 Clear
-              </a>
+              </div>
             </Accordion.Header>
             <Accordion.Body>
               <div className="d-grid">
@@ -104,10 +108,10 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
           <Accordion.Item eventKey="0">
             <Accordion.Header className={`${styles.nav_header} `}>
               Brand{" "}
-              <a href="#" className="ms-2 secondary-link">
+              <div className="ms-2 secondary-link">
                 {" "}
                 Clear
-              </a>
+              </div>
             </Accordion.Header>
             <Accordion.Body>
               <div className="d-grid">
@@ -133,10 +137,10 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
           <Accordion.Item eventKey="1">
             <Accordion.Header className={`${styles.nav_header}`}>
               Colors{" "}
-              <a href="#" className="ms-2 secondary-link">
+              <div className="ms-2 secondary-link">
                 {" "}
                 Clear
-              </a>
+              </div>
             </Accordion.Header>
             <Accordion.Body>
               <div className="d-grid">
@@ -162,10 +166,10 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
           <Accordion.Item eventKey="2">
             <Accordion.Header className={`${styles.nav_header}`}>
               Condition{" "}
-              <a href="#" className="ms-2 secondary-link">
+              <div  className="ms-2 secondary-link">
                 {" "}
                 Clear
-              </a>
+              </div>
             </Accordion.Header>
             <Accordion.Body>
               <div className="d-grid">
@@ -191,10 +195,10 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
           <Accordion.Item eventKey="4">
             <Accordion.Header className={`${styles.nav_header}`}>
               Prices{" "}
-              <a href="#" className="ms-2 secondary-link">
+              <div className="ms-2 secondary-link">
                 {" "}
                 Clear
-              </a>
+              </div>
             </Accordion.Header>
             <Accordion.Body>
               <div className="d-grid">
@@ -207,7 +211,7 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
                     minValue={updatedData?.priceRange?.minPrice}
                     maxValue={updatedData?.priceRange?.maxPrice}
                     onChange={({ min, max }: any) =>
-                      console.log(`min = ${min}, max = ${max}`)
+                      (`min = ${min}, max = ${max}`)
                     }
                   />
                 </div>
@@ -252,7 +256,7 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-      <div
+      {/* <div
         className={`${styles.bottom_div} justify-content-center align-items-center d-flex`}
       >
         <Button
@@ -266,7 +270,7 @@ const MobileSideFilter = ({ filtersData,isLoading, setMobileFilter,setFilters }:
           {" "}
           Apply{" "}
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

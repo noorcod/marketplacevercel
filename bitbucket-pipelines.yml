@@ -1,24 +1,25 @@
 image: ubuntu
 pipelines:
   branches:
-    dev-marketplace:
+    uat-marketplace:
       - step:
           name: Build and Test
+#          size: 2x
           script:
             - IMAGE_NAME=marketplace
-            - docker build . --file Dockerfile --tag techbazaar/dev-marketplace:latest
+            - docker build . --file Dockerfile --tag techbazaar/uat-marketplace:latest
             - echo ${DOCKERHUB_PASSWORD} | docker login --username $DOCKERHUB_USERNAME --password-stdin
-            - docker push techbazaar/dev-marketplace:latest 
-            - docker tag techbazaar/dev-marketplace:latest techbazaar/dev-marketplace:$BITBUCKET_COMMIT             
-            - docker push techbazaar/dev-marketplace:$BITBUCKET_COMMIT
+            - docker push techbazaar/uat-marketplace:latest 
+            - docker tag techbazaar/uat-marketplace:latest techbazaar/uat-marketplace:$BITBUCKET_COMMIT             
+            - docker push techbazaar/uat-marketplace:$BITBUCKET_COMMIT
             - pipe: atlassian/ssh-run:0.4.1
               variables:
                 SSH_USER: $USER
                 SERVER: $SERVER
-                COMMAND: 'bash /root/docker-compose/marketplace/dev-marketplace.sh'
+                COMMAND: 'bash /root/docker-compose/uat-marketplace/uat-marketplace.sh'
           services:
             - docker 
 definitions:
   services:
     docker:
-      memory: 3072
+      memory: 3070

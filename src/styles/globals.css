@@ -7,6 +7,7 @@ body {
   background-color: white !important;
 }
 
+
 a {
   color: inherit;
   text-decoration: none;
@@ -238,9 +239,9 @@ input::-webkit-inner-spin-button {
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 993px) {
   .main {
-    margin: 0px 30px;
+    margin: 0px 0px;
   }
   h1 {
     font-size: 38px;
@@ -252,14 +253,14 @@ input::-webkit-inner-spin-button {
     padding-right: 0px !important;
   }
   .main {
-    margin: 0px 20px;
+    margin: 0px 0px;
   }
-  p {
+  /* p {
     font-size: 14px;
   }
-  span {
+  /* span {
     font-size: 14px;
-  }
+  } */
   h1 {
     font-size: 30px;
   }
@@ -464,8 +465,8 @@ input::-webkit-inner-spin-button {
     width: 100%;
    
 }
-.loginform{
-
+.tooltip.show {
+  background-color: transparent !important;
 }
 .was-validated .form-control:invalid
 {

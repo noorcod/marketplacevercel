@@ -1,22 +1,42 @@
+
 .title {
     font-weight: 700;
-    font-size: 30px;
+    font-size: 26px;
     line-height: 140%;
+    color: #100146;
 }
 
 .price {
     font-weight: 700;
-    font-size: 40px;
+    font-size: 30px;
     line-height: 28px;
-    color: var(--text-color);
+    color: #39414A;
+}
+
+.blur{
+    filter:blur(2px);
+    pointer-events: none;
 }
 
 .originalPrice {
     font-weight: 400;
     font-size: 20px;
     line-height: 130%;
+    color: #39414A;
+
 }
 
+.list{
+  font-weight: 600;
+}
+
+.availability{
+color: #A93BFF;
+}
+.wishlist{
+    background-color: var(--bg-secondary);
+
+}
 .discount {
     background-color: rgba(47, 190, 57, 0.1);
     border: 0.5px solid rgba(47, 190, 57, 0.3);
@@ -57,12 +77,16 @@
 
 .number {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
     letter-spacing: 0.01em;
-    color: var(--text-color);
+    color: #100146;
+    font-size: 20px !important;
 }
-
+.whatsappIcon:hover{
+    color:#A93BFF
+}
+.emailIcon:hover{
+ color:#A93BFF
+}
 .items {
     padding: 2px;
 }
@@ -123,7 +147,7 @@
 }
 
 .infoSection {
-    border: 1px solid var(--bg-secondary);
+    /* border: 1px solid var(--bg-secondary); */
     border-radius: 0px 6px 6px 6px;
     max-width: 100%;
     margin: auto;
@@ -137,6 +161,7 @@
     border-radius: 50%;
     overflow: hidden;
     padding: 3px;
+    object-fit: contain;
 }
 
 .logo img {
@@ -152,7 +177,33 @@
     letter-spacing: 0.01em;
     color: #39414A;
 }
+ 
+.shopLogo{
+    border-radius: 50%;
+}
 
+.quadrilateral {
+    border-bottom: 29px solid #EDF2FA;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 97px;
+} 
+.quadrilateral_content{
+    padding:6px;
+    height:100%;
+    width:100%;
+    font-weight: 400;
+    font-size: 13px;
+}
+.reserve_btn:focus-visible{
+    box-shadow: none;
+}
+@media screen and (max-width: 1200px) {
+    .productDetails :global(.main){
+        margin: 0px 0px !important;
+    }
+
+}
 @media screen and (max-width: 992px) {
     .title {
         font-size: 24px;
@@ -169,6 +220,7 @@
     .discount {
         font-size: 16px;
     }
+
 }
 
 @media screen and (max-width: 575px) {

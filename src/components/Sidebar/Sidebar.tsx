@@ -1,200 +1,114 @@
-import {
-  faRightFromBracket,
-  faUserPen,
-} from "@fortawesome/free-solid-svg-icons";
+import { faRightFromBracket, faUserPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
-import { profile } from "../../../public/images";
+import { useState, useEffect } from "react";
+import { profile, tblogo, tblogoName } from "../../../public/images";
 import styles from "../../styles/Sidebar.module.css";
 import Image from "next/image";
-import { Accordion, Button, Dropdown } from "react-bootstrap";
-const Sidebar = ({ isSandwichOpen, setisSandwichOpen }:any) => {
+import { Accordion, Button, Dropdown, Offcanvas } from "react-bootstrap";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+const Sidebar = ({ isSandwichOpen, setisSandwichOpen, navData }: any) => {
   // const wrapperRef = useRef(null);
   // useOutsideAlerter(wrapperRef, setIsSandwichOpen);
+  const [domLoaded, setDomLoaded] = useState(false);
+  const router = useRouter();
+  const handleCanvasClose = () => {
+    setisSandwichOpen(false);
+  };
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+  const pathname = usePathname();
+  const createParams = (filters: any[]) => {
+    let paramss = new URLSearchParams();
+    filters.forEach((filter: [string, any]) => {
+      paramss.append(...filter);
+    });
+    return `params=${encodeURIComponent(paramss)}`;
+  };
+  const A = ({ children }: any) => {
+    return <a>{children}</a>;
+  };
   return (
-    <div className="pos-f-t">
-      <div
-        className={`bg-light collapse overflow-auto ${
-          styles.navbarToggleExternalContent
-        } ${isSandwichOpen ? "menu-show" : ""} position-fixed`}
-        id="navbarToggleExternalContent"
-      >
-        <div className={` ${styles.profile_div} py-3`}>
-          <div className={`${styles.userInfo}`}>
-            <div
-              className={`${styles.profile_pic} d-flex align-items-center justify-content-between mx-4 `}
-            >
-              <div className="d-flex">
-                <Image
-                  src={profile}
-                  alt="profile"
-                  id="output"
-                  width="42"
-                  height={42}
-                />
-                <div className="d-grid ms-2">
-                  <p className=" fw-500 text-white mb-0 text-capitalize">
-                    John
-                  </p>
-                  <span className=" fs-12 text-white text-capitalize">
-                    Logged user
-                  </span>
-                </div>
+    <>
+      <Offcanvas show={isSandwichOpen} onHide={handleCanvasClose} className="d-block d-lg-none" backdropClassName="d-block d-lg-none">
+        <Offcanvas.Header closeButton>
+          <Link href="/">
+            <Offcanvas.Title>
+              <div className="d-flex  flex-nowrap ps-1">
+                <Image className={`me-2 ${styles.tblogo} `} src={tblogo} alt={"Logo"} height="32" width={30} />
+                <Image className={` d-lg-inline d-md-inline d-none d-sm-inline ${styles.tblogoName}`} src={tblogoName} alt={"Logo name"} height={30} width={135} />
               </div>
-              <span
-                onClick={() => {
-                  setisSandwichOpen(false);
-                }}
-                className="text-white"
-              >
-                {" "}
-                Close X
-              </span>
+            </Offcanvas.Title>
+          </Link>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Accordion>
+            {navData &&
+              navData.map((category: any) => (
+                <Accordion.Item className={styles.acor_item} eventKey={category.id}>
+                  <Accordion.Header className={`${styles.nav_header}`}>
+                    <div  >
+                      {category.label}
+                    </div>
+                  </Accordion.Header>
+                  <Accordion.Body className={`${styles.accordianBodyContainer}`} style={{ height: "35vh", overflowY: "auto" }}>
+                    <div className="d-grid">
+                      {category.brands.slice(0, 10).map((brand: any, index: number) => (
+                        <div className={` d-flex justify-content-between p-3 border-bottom ${brand.has_items === 0 ? "text-muted " : "cursor-pointer"}`} onClick={handleCanvasClose}>
+                          {pathname !== "/products" ? (
+                            <Link
+                              href={
+                                brand.has_items === 0
+                                  ? "#"
+                                  : `/products?${createParams([
+                                      ["brand_ids", `[${brand.id}]`],
+                                      ["category_id", category.id],
+                                    ])}`
+                              }
+                              className="w-100"
+                            >
+                              {brand.label}
+                            </Link>
+                          ) : (
+                            <Link
+                              href={
+                                brand.has_items === 0
+                                  ? "#"
+                                  : `/products?${createParams([
+                                      ["brand_ids", `[${brand.id}]`],
+                                      ["category_id", category.id],
+                                    ])}`
+                              }
+                              className="w-100"
+                            >
+                              {brand.label}
+                            </Link>
+                          )}
+                        </div>
+                      ))}
+                      <div className={` d-flex justify-content-between p-3 `} onClick={handleCanvasClose}>
+                        <Link href={`/products?${createParams([["category_id", category.id]])}`} className="w-100 link">
+                          View All
+                        </Link>
+                      </div>
+                    </div>
+                  </Accordion.Body>
+                </Accordion.Item>
+              ))}
+            <div className={styles.specsCentralSidebar}>
+              <h2>
+                <button>
+                  <Link href={`/specs`} onClick={handleCanvasClose}>
+                    SPECS CENTRAL
+                  </Link>
+                </button>
+              </h2>
             </div>
-          </div>
-        </div>
-        <Accordion defaultActiveKey="0">
-          <Accordion.Item className={styles.acor_item} eventKey="0">
-            <Accordion.Header className={`${styles.nav_header}`}>
-              Laptops
-            </Accordion.Header>
-            <Accordion.Body>
-              <div className="d-grid">
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb}  px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-              </div>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="1">
-            <Accordion.Header className={`${styles.nav_header}`}>
-              Mobile
-            </Accordion.Header>
-            <Accordion.Body>
-              <div className="d-grid">
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-              </div>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="2">
-            <Accordion.Header className={`${styles.nav_header}`}>
-              Desktop
-            </Accordion.Header>
-            <Accordion.Body>
-              <div className="d-grid">
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-              </div>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="3">
-            <Accordion.Header className={`${styles.nav_header}`}>
-              Accesories
-            </Accordion.Header>
-            <Accordion.Body>
-              <div className="d-grid">
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-                <div
-                  className={` d-flex justify-content-between ${styles.nav_mb} py-3 px-2`}
-                >
-                  <span>Apple</span>
-                  <span className={`fs-14 ${styles.stock_span} `}>
-                    In stock - 200
-                  </span>
-                </div>
-              </div>
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-        <div
-          className={`${styles.bottom_div} justify-content-start border-top  ms-3 align-items-center d-flex`}
-        >
-          <FontAwesomeIcon className="me-1 fs-18 " icon={faRightFromBracket} />{" "}
-          Sign Out
-        </div>
-      </div>
-    </div>
+          </Accordion>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
   );
 };
 

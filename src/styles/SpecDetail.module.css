@@ -20,11 +20,12 @@
 }
 
 .specsTable tr {
-    border: 1px solid var(--table-border) !important;
+    border-bottom: 1px solid var(--table-border) !important;
 }
 
+
 .specsTable .tablehead {
-    background-color: var(--bg-secondary);
+    background-color: #edf2fa7e;
     font-size: 18px;
     font-weight: normal;
     color: #39414a;
@@ -57,6 +58,108 @@
 .specBasicSm div {
     gap: 0.5rem !important;
 }
+
+
+.specDetailAccordion :global(.accordion-header){
+    background-color: #EDF2FA !important;
+}
+.specDetailAccordion :global(.accordion-button){
+    background-color: #EDF2FA !important;
+}
+
+.colorDiv{
+    border-top: 2px solid #D8E4F8;
+    width: 100%;
+}
+
+
+.colorThumbnail{
+    width: 64px;
+    height: 64px;
+    border: 1px solid #39414a;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.activeColor{
+    border: 2px solid  #a93bff;
+}
+
+.verticalColorsHeading{
+    border-bottom: 2px solid #D8E4F8;
+
+}
+
+.verticalColorsDesign{
+    height: 420px;
+    overflow: auto;
+}
+
+
+.recomendedProductsTitle{
+    border-bottom: 1px solid #D8E4F8;
+    padding: 0 5px 8px 5px;
+}
+
+.wantToBuyButton{
+    cursor: pointer;
+}
+
+.wantToBuyDiv{
+    display: flex;
+    gap: 0.25rem !important;
+    align-items: center !important;
+    flex-wrap: nowrap;
+}
+.wantToBuyDiv > .wantToBuyButtonIcon{
+    width: 16px; height: 16px; display: flex;
+}
+.wantToBuyDiv > .wantToBuyButtonText{
+    font-weight: 500; font-size: 14px;
+}
+
+.wantToBuyButton:hover{
+    background: linear-gradient(180deg, #a93bff 0%, #8834ff 100%);
+}
+
+.wantToBuyButton:hover .wantToBuyButtonText{
+    color: white;
+}
+.wantToBuyButton:hover .wantToBuyButtonIcon{
+    filter: invert(100%);
+}
+
+
+
+.tabOptionsContainer{
+    /* background-color: #f8f9fa!important; */
+    color: #55555577;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700!important;
+}
+.tabOptions{
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border: 1px solid #DEE2E6;
+
+}
+
+.startBorderImportant{
+    border-left: 1px solid #DEE2E6 !important;
+}
+.endBorderImportant{
+    border-right: 1px solid #DEE2E6 !important;
+}
+
+.activeTabOption{
+    color: #555555;
+    background-color: #EDF2FA !important;
+    /* box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); */
+    border-bottom: 0 !important;
+}
+
+
 
 @media screen and (max-width: 1300px) {
     .specDetail {
