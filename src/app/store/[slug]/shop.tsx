@@ -287,7 +287,7 @@ const Seller = () => {
           </div>
 
           <div>
-            <SellerBanner
+            {/* <SellerBanner
               isLaoding={getShopData.isLoading}
               mainLocationData={mainLocationData}
               shopData={fetchedData}
@@ -302,7 +302,7 @@ const Seller = () => {
               priceRange={priceRange}
               filterINDFilters={filterINDFilters}
               catCahnge={catCahnge}
-            />
+            /> */}
           </div>
           <div className={`${styles.seller_div}`}>
             <div className="main">
