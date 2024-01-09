@@ -4,6 +4,7 @@ const env = process.env.ENV || "development";
 const nextConfig = {
   development: {
     reactStrictMode: true,
+    productionBrowserSourceMaps: true,
     
     eslint: {
       ignoreDuringBuilds: true,
@@ -80,6 +81,8 @@ const nextConfig = {
     eslint: {
       ignoreDuringBuilds: true,
     },
+    productionBrowserSourceMaps: true,
+
     typescript: {
       // !! WARN !!
       // Dangerously allow production builds to successfully complete even if
@@ -122,6 +125,8 @@ const nextConfig = {
     eslint: {
       ignoreDuringBuilds: true,
     },
+    productionBrowserSourceMaps: true,
+
      async headers() {
     return [
       {
@@ -182,6 +187,8 @@ const nextConfig = {
       ],
       // domains: ['localhost', 'https://ca.slack-edge.com', 'cdn.techbazaar.pk', 'www.bolnews.com','staging.cdn.techbazaar.pk'],
     },
+    productionBrowserSourceMaps: true,
+
     cssModules: true,
     // distDir: "build",
     env: {
