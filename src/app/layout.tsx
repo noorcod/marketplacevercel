@@ -43,9 +43,9 @@ export default function RootLayout({
           <ReactQueryDevtools />
           <body>
             {/* <ProgressBar /> */}
-            <Layout>
+            {/* <Layout> */}
               {children}
-              </Layout>
+              {/* </Layout> */}
           </body>
         </html>
       </ReactQueryProvider>
