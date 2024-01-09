@@ -4,16 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { sellerLogo, storeLogo } from "../../../public/images";
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { Badge, Button, Row } from "react-bootstrap";
 import styles from "../../styles/SellerBanner.module.css";
 import Breadcrumbs from "../../components/Breadcrumb";
 import loadStyles from "../../styles/LoadingCard.module.css";
 import Loading from "../../app/loading";
+import ContactSellerModal from "../../components/ContactSellerModal";
 
-const ContactSellerModal = dynamic(() => import("../../components/ContactSellerModal"), {
-  loading: () => <Loading/>,
-} as any);
+// const ContactSellerModal = dynamic(() => import("../../components/ContactSellerModal"), {
+//   loading: () => <Loading/>,
+// } as any);
 // import ContactSellerModal from "../../components/ContactSellerModal";
 const SellerBanner = ({
   shopData,

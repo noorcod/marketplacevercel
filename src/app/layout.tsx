@@ -9,20 +9,20 @@ import ReactQueryProvider from "./ReactQueryProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import ScreenLoader from "../components/ScreenLoader";
-const Layout = dynamic(() => import("../components/layouts/Layout"), {
-  loading: () => (
-    <div style={{ width: "100%", height: "100vh" }} className="justify-content-center d-flex align-items-center">
-      <ScreenLoader />
-    </div>
-  ),
-  ssr: false,
-});
+// const Layout = dynamic(() => import("../components/layouts/Layout"), {
+//   loading: () => (
+//     <div style={{ width: "100%", height: "100vh" }} className="justify-content-center d-flex align-items-center">
+//       <ScreenLoader />
+//     </div>
+//   ),
+//   ssr: false,
+// });
 
-const NextTopLoader = dynamic(() => import("../components/ProgressBar"), {
-  ssr: false,
-});
+// const NextTopLoader = dynamic(() => import("../components/ProgressBar"), {
+//   ssr: false,
+// });
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -41,8 +41,10 @@ export default function RootLayout({
         <html lang="en">
           <ReactQueryDevtools />
           <body>
-            <NextTopLoader />
-            <Layout>{children}</Layout>
+            {/* <ProgressBar /> */}
+            {/* <Layout> */}
+              {children}
+              {/* </Layout> */}
           </body>
         </html>
       </ReactQueryProvider>

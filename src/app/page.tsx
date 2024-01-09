@@ -1,9 +1,10 @@
 
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import ScreenLoader from "../components/ScreenLoader";
 import {  ResolvingMetadata } from "next";
 import React from "react";
 import { createMetaData } from '../components/Meta/Meta'
+import HomePage from "./home-page";
 export async function generateMetadata(
   { params, searchParams }: any,
   parent: ResolvingMetadata
@@ -16,11 +17,11 @@ export async function generateMetadata(
   
 }
 
-const HomePage = dynamic(() => import("./home-page"), {
-  loading: () => <div style={{ width: "100%", height: "100vh" }} className="justify-content-center d-flex align-items-center">
-  <ScreenLoader />
-</div>,
-});
+// const HomePage = dynamic(() => import("./home-page"), {
+//   loading: () => <div style={{ width: "100%", height: "100vh" }} className="justify-content-center d-flex align-items-center">
+//   <ScreenLoader />
+// </div>,
+// });
 
 export default async function Page() {
   // Fetch data directly in a Server Component
