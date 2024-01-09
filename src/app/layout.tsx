@@ -11,6 +11,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import React, { useEffect, useState } from "react";
 // import dynamic from "next/dynamic";
 import ScreenLoader from "../components/ScreenLoader";
+import { Layout } from "../components";
 // const Layout = dynamic(() => import("../components/layouts/Layout"), {
 //   loading: () => (
 //     <div style={{ width: "100%", height: "100vh" }} className="justify-content-center d-flex align-items-center">
@@ -42,9 +43,9 @@ export default function RootLayout({
           <ReactQueryDevtools />
           <body>
             {/* <ProgressBar /> */}
-            {/* <Layout> */}
+            <Layout>
               {children}
-              {/* </Layout> */}
+              </Layout>
           </body>
         </html>
       </ReactQueryProvider>
