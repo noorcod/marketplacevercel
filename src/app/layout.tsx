@@ -1,3 +1,4 @@
+"use client";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
 import "slick-carousel/slick/slick.css";
@@ -8,7 +9,6 @@ import ReactQueryProvider from "./ReactQueryProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import React, { useEffect, useState } from "react";
-import SSRProvider from 'react-bootstrap/SSRProvider';
 // import dynamic from "next/dynamic";
 import ScreenLoader from "../components/ScreenLoader";
 import { Layout } from "../components";
@@ -37,18 +37,18 @@ export default function RootLayout({
 
 {
   return (
+    <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}`}>
       <ReactQueryProvider>
         <html lang="en">
           {/* <ReactQueryDevtools /> */}
           <body>
-            {/* <SSRProvider> */}
             {/* <ProgressBar /> */}
             {/* <Layout> */}
               {children}
               {/* </Layout> */}
-              {/* </SSRProvider> */}
           </body>
         </html>
       </ReactQueryProvider>
+     </GoogleOAuthProvider>
   );
 }
