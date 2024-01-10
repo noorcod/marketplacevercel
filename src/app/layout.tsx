@@ -8,6 +8,7 @@ import ReactQueryProvider from "./ReactQueryProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import React, { useEffect, useState } from "react";
+import SSRProvider from 'react-bootstrap/SSRProvider';
 // import dynamic from "next/dynamic";
 import ScreenLoader from "../components/ScreenLoader";
 import { Layout } from "../components";
@@ -40,10 +41,12 @@ export default function RootLayout({
         <html lang="en">
           {/* <ReactQueryDevtools /> */}
           <body>
+            {/* <SSRProvider> */}
             {/* <ProgressBar /> */}
             {/* <Layout> */}
               {children}
               {/* </Layout> */}
+              {/* </SSRProvider> */}
           </body>
         </html>
       </ReactQueryProvider>
