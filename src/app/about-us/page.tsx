@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import ScreenLoader from "../../components/ScreenLoader";
 
@@ -21,7 +21,10 @@ const AboutUs = dynamic(() => import("./aboutUs"), {
 function about() {
   return (
     <div>
+      <Suspense fallback={<p>loadingg....s</p>} >
+
       <AboutUs />
+      </Suspense>
     </div>
   );
 }
