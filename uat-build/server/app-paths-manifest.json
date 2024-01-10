@@ -1,0 +1,16 @@
+{
+  "/page": "app/page.js",
+  "/become-seller/page": "app/become-seller/page.js",
+  "/privacy-policy/page": "app/privacy-policy/page.js",
+  "/products/page": "app/products/page.js",
+  "/store/page": "app/store/page.js",
+  "/specs/page": "app/specs/page.js",
+  "/contact-us/page": "app/contact-us/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/login/page": "app/login/page.js",
+  "/about-us/page": "app/about-us/page.js",
+  "/products/[slug]/page": "app/products/[slug]/page.js",
+  "/specs/[category]/page": "app/specs/[category]/page.js",
+  "/store/[slug]/page": "app/store/[slug]/page.js",
+  "/specs/[category]/[model]/page": "app/specs/[category]/[model]/page.js"
+}

@@ -1,4 +1,3 @@
-"use client";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
 import "slick-carousel/slick/slick.css";
@@ -37,10 +36,9 @@ export default function RootLayout({
 
 {
   return (
-    <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}`}>
       <ReactQueryProvider>
         <html lang="en">
-          <ReactQueryDevtools />
+          {/* <ReactQueryDevtools /> */}
           <body>
             {/* <ProgressBar /> */}
             {/* <Layout> */}
@@ -49,7 +47,5 @@ export default function RootLayout({
           </body>
         </html>
       </ReactQueryProvider>
-      {/* <ToastContainer/> */}
-    </GoogleOAuthProvider>
   );
 }
